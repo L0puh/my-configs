@@ -47,7 +47,7 @@ call plug#end()
 let g:ycm_auto_trigger=1
 let g:ycm_enable_semantic_highlighting=1
 let g:ycm_clear_inlay_hints_in_insert_mode=1
-
+let g:ycm_echo_current_diagnostic="virtual-text"
 
 
 "mapping
@@ -63,7 +63,7 @@ nnoremap <C-f> :Files<CR>
 nnoremap <C-b> :BLines<CR>
 nnoremap <C-p> :Rg <CR>
 nnoremap <C-t> :ysit <CR>
-
+nnoremap <C-x> :YcmCompleter FixIt<CR>
 " air-line
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#formatter = 'unique_tail'
@@ -89,7 +89,6 @@ let python_highlight_all=1
 colorscheme mountaineer-grey
 " colorscheme carbonized-dark
 
-
 let g:airline_theme='minimalist'
 
 
@@ -99,7 +98,7 @@ let g:airline_theme='minimalist'
 " let g:gruvbox_number_column=1
 
 "preference for transp bg in the terminal
-hi NonText ctermbg=none
-hi Normal guibg=NONE ctermbg=NONE
-hi LineNr guibg=NONE ctermbg=NONE
-hi SignColumn guibg=NONE ctermbg=NONE
+" hi NonText ctermbg=none
+" hi Normal guibg=NONE ctermbg=NONE
+" hi LineNr guibg=NONE ctermbg=NONE
+" hi SignColumn guibg=NONE ctermbg=NONE
