@@ -6,7 +6,6 @@
     - vim-plug
     - YouCompleteMe 
     - fzf 
-    ...
 
 # install vim
 ```sh
@@ -26,7 +25,7 @@ call plug#end()
 ```
 install requirements
 ```sh
-sudo apt install build-essential cmake vim-nox python3-dev libssl-dev
+sudo apt install build-essential cmake vim-nox python3-dev libssl-dev pip
 cd ~/.vim/plugged/YouCompleteMe
 python3 install.py --clangd-completer
 ```
