@@ -3,7 +3,6 @@ set number
 set relativenumber
 set mouse=a
 set termguicolors
-
 set tabstop=4 
 set shiftwidth=4
 set smarttab
@@ -48,7 +47,6 @@ let g:ycm_auto_trigger=1
 let g:ycm_enable_semantic_highlighting=1
 let g:ycm_clear_inlay_hints_in_insert_mode=1
 let g:ycm_echo_current_diagnostic="virtual-text"
-
 
 "mapping
 nnoremap <C-n> :NERDTreeToggle<CR>

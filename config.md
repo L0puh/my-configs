@@ -1,3 +1,13 @@
+# CONTENT: 
+- zsh + omzsh 
+- fzf
+- z-zsh
+- vim \ nvim 
+    - vim-plug
+    - YouCompleteMe 
+    - fzf 
+    ...
+
 # install vim
 ```sh
 sudo apt install vim
@@ -16,9 +26,19 @@ call plug#end()
 ```
 install requirements
 ```sh
-sudo apt install build-essential cmake vim-nox python3-dev
+sudo apt install build-essential cmake vim-nox python3-dev libssl-dev
 cd ~/.vim/plugged/YouCompleteMe
 python3 install.py --clangd-completer
+```
+additional stuff: 
+```sh
+sudo apt-get install zsh  bear fzf tmux
+```
+```sh
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+```
+```sh
+git clone https://github.com/agkozak/zsh-z ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-z
 ```
 # install config
 ```sh

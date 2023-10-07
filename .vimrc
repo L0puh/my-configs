@@ -7,19 +7,22 @@ set smarttab
 set expandtab 
 set softtabstop=4 
 set autoindent 
-
+set termguicolors
 
 call plug#begin()
 	" EDITOR
 	Plug 'jiangmiao/auto-pairs'
 	Plug 'preservim/nerdtree' 
 	Plug 'tpope/vim-commentary'
-	" AUTOSUGGEST 
+    Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }	
+
+    " AUTOSUGGEST 
 	Plug 'ycm-core/YouCompleteMe'
-	
-	" COLORS
+
+    " COLORS
 	Plug 'TheNiteCoder/mountaineer.vim'
     Plug 'sjl/badwolf'
+    Plug 'gosukiwi/vim-atom-dark'
 call plug#end()
 
 
@@ -28,7 +31,7 @@ let g:ycm_enable_semantic_highlighting=1
 let g:ycm_clear_inlay_hints_in_insert_mode=1
 let g:ycm_echo_current_diagnostic="virtual-text"
 
-colorscheme badwolf
+colorscheme atom-dark-256
 
 nnoremap <C-n> :NERDTreeToggle<CR>
 nnoremap <C-c> :tabclose<CR>
@@ -38,6 +41,7 @@ nnoremap <C-s> :w<CR>
 nnoremap <C-z> :wq<CR>
 nnoremap <C-o> :Commentary<CR>
 nnoremap <C-x> :YcmCompleter FixIt<CR>
+nnoremap <C-f> :FZF <CR>
 
 " hi NonText ctermbg=none
 " hi Normal guibg=NONE ctermbg=NONE
