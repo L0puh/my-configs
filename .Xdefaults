@@ -1,0 +1,30 @@
+! XTerm material color scheme
+xterm*faceName: Cascadia Code
+xterm*faceSize: 14
+
+xterm*geometry: 80x25
+
+XTerm*termName: xterm-256color
+UXTerm*termName: xterm-256color
+
+! Linux terminal scheme from Gnome Terminal Linux Console color palette
+
+xterm*background: #0f1417
+xterm*foreground: #bfbfbf
+xterm*cursorcolor: #bfbfbf
+xterm*color0: #162025
+xterm*color1: #393843
+xterm*color2: #193a48
+xterm*color3: #235964
+xterm*color4: #193a48
+xterm*color5: #2a474a
+xterm*color6: #662b37
+xterm*color7: #bfbfbf
+xterm*color8: #365a5c
+xterm*color9: #662b37
+xterm*color10: #193a48
+xterm*color11: #193a48
+xterm*color12: #75404b
+xterm*color13: #662b37
+xterm*color14: #083842
+xterm*color15: #bfbfbf
