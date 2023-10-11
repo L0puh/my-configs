@@ -7,7 +7,9 @@
     - vim-plug
     - YouCompleteMe 
     - fzf 
-
+fonts:
+cascadia code (ttf-cascadia-code)
+awesome (ttf-awesome-font)
 
 # install vim
 ```sh
