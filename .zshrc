@@ -14,6 +14,7 @@ ZSH_THEME="clean"
 
 alias gs="git status"
 alias cc="clear"
+alias v="pactl set-sink-volume alsa_output.pci-0000_00_1b.0.analog-stereo"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
