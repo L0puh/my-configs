@@ -15,7 +15,7 @@ set $mod Mod4
 # is used in the bar {} block below.
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
-font pango:DejaVu Sans Mono 12
+font pango:DejaVu Sans Mono 10
 # Before i3 v4.8, we used to recommend this one as the default:
 # font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
 # The font above is very space-efficient, that is, it looks good, sharp and
@@ -148,17 +148,10 @@ bar {
     position top
     status_command i3status
 }
-
-client.focused #859900 #859900 #fdf6e3
-client.focused_inactive #073642 #073642 #eee8d5
-client.unfocused #073642 #073642 #93a1a1
-client.urgent #d33682 #d33682 #fdf6e3
-
-client.background #16202
-client.focused #bfbfbf #162025 #bfbfbf #193a48 #193a48
-client.unfocused #bfbfbf #162025 #bfbfbf #193a48 #193a48
-client.focused_inactive #bfbfbf #162025 #bfbfbf #193a48 #193a48
-client.urgent #bfbfbf #162025 #bfbfbf #193a48 #193a48
-client.placeholder #bfbfbf #162025 #bfbfbf #193a48 #193a48
-
-
+                      #border #bg     # text  #indicator  #child border
+client.focused          #313937 #313937 #FFFFFF #3C5158  #28363E
+client.focused_inactive #181818 #181818 #BBBBBB #484E50  #28363E
+client.unfocused        #333333 #222222 #888888 #292D2E  #222222
+client.urgent           #2F343A #900000 #FFFFFF #900000  #900000
+client.placeholder      #000000 #0C0C0C #FFFFFF #000000  #0C0C0C
+client.background       #0f1417
