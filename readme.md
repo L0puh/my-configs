@@ -1,5 +1,6 @@
 # CONTENT: 
-- arch + i3wm + xterm
+<!-- - arch + i3wm + xterm -->
+- arch + dwm + st + slstatus
 - zsh + omzsh 
 - fzf
 - z-zsh
@@ -50,6 +51,24 @@ git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-m
 
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 ```
+
+# install wm
+```sh
+sudo pacman -S xorg xorg-xinit
+git clone https://git.suckless.org/st 
+git clone https://git.suckless.org/dwm
+git clone https://git.suckless.org/slstatus
+```
+compile
+```
+sudo make clean install
+
+```
+.xinitrc:
+```
+setxkbmap -layout us,ru -option grp:toggle
+exec dwm
+```
 # install stuff: media player, pdf-reader 
 ```sh
 pacman -S ffmpeg zathura zathura-pfd-poppler htop 
@@ -58,3 +77,11 @@ pacman -S ffmpeg zathura zathura-pfd-poppler htop
 ```sh
 git clone https://github.com/L0puh/my-configs.git
 ```
+
+
+### stuff
+- watch movies:     lobster-git
+- watch anime:      ani-cli
+- read manga:       mangal
+- watch youtube:    ytfzf 
+- search internet:  w3m
