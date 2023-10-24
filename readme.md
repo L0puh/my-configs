@@ -68,7 +68,8 @@ sudo make clean install
 ```
 .xinitrc:
 ```
-setxkbmap -layout us,ru -option grp:toggle
+slstatus &
+exec setxkbmap -layout us,ru -option grp:toggle &
 exec dwm
 ```
 patches:
