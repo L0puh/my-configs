@@ -7,7 +7,7 @@
  */
 /*static char *font = "Liberation Mono:pixelsize=12:antialias=true:autohint=true"; 
  */
-static char *font = "CaskaydiaCove Nerd Font:pixelsize=15:antialias=true:autohint=true";
+static char *font = "CaskaydiaCove Nerd Font:pixelsize=14:antialias=true:autohint=true";
 static int borderpx = 2;
 
 /*
@@ -97,39 +97,33 @@ unsigned int tabspaces = 8;
 
 /* Terminal colors (16 first used in escape sequence) */
 static const char *colorname[] = {
-	/* 8 normal colors */
-	"#0f1417", // black
-	"#662b37",  // red
-	"#198a48", // green
-	"#662b37", // yellow
-	"#193a48",  // blue 
-	"#235964", // magenta
-	"#365a5c", // cyan
-	"#bfbfbf", // gray
 
-	/* 8 bright colors */
-	"#0f1417", // black
-	"#662b37",  // red
-	"#198a48", // green
-	"#662b37", // yellow
-	"#193a48",  // blue 
-	"#235964", // magenta
-	"#365a5c", // cyan
-	"#bfbfbf", // gray
-	// "gray50",
-	// "red",
-	// "green",
-	// "yellow",
-	// "#5c5cff",
-	// "magenta",
-	// "cyan",
-	//"white",
+    // Color codes for each of the 8 color slots:
+    "#162025",
+    "#393843",
+    "#193a48",
+    "#235964",
+    "#193a48",
+    "#2a474a",
+    "#662b37",
+    "#bfbfbf",
+
+    //Additional color codes for the 8 color slots in bold text:
+    "#365a5c",
+    "#662b37",
+    "#193a48",
+    "#193a48",
+    "#75404b",
+    "#662b37",
+    "#083842",
+    "#bfbfbf",
 
 	[255] = 0,
 
 	/* more colors can be added after 255 to use with DefaultXX */
 	"#cccccc",
 	"#555555",
+
 	"#bfbfbf", /* default foreground colour */
 	"#0f1417", /* default background colour */
 };

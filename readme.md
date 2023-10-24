@@ -90,3 +90,31 @@ git clone https://github.com/L0puh/my-configs.git
 - read manga:       mangal
 - watch youtube:    ytfzf 
 - search internet:  w3m
+
+
+## theme:
+
+Background color: #0f1417
+Foreground color: #bfbfbf
+Cursor color: #bfbfbf
+
+Color codes for each of the 8 color slots:
+0: #162025
+1: #393843
+2: #193a48
+3: #235964
+4: #193a48
+5: #2a474a
+6: #662b37
+7: #bfbfbf
+
+Additional color codes for the 8 color slots in bold text:
+8: #365a5c
+9: #662b37
+10: #193a48
+11: #193a48
+12: #75404b
+13: #662b37
+14: #083842
+15: #bfbfbf
+
