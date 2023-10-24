@@ -1,3 +1,5 @@
+# preview
+![](media.png)
 # CONTENT: 
 <!-- - arch + i3wm + xterm -->
 - arch + dwm + st + slstatus
