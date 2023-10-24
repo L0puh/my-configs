@@ -71,9 +71,11 @@ sudo make clean install
 setxkbmap -layout us,ru -option grp:toggle
 exec dwm
 ```
+patches:
+https://st.suckless.org/patches/anysize/st-anysize-0.8.1.diff (no gasps for st)
 # install stuff: media player, pdf-reader 
 ```sh
-pacman -S ffmpeg zathura zathura-pfd-poppler htop 
+pacman -S ffmpeg zathura zathura-pfd-poppler htop cmus
 ```
 # install config
 ```sh
