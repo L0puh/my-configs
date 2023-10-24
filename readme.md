@@ -93,7 +93,7 @@ git clone https://github.com/L0puh/my-configs.git
 
 
 ## theme:
-
+```
 Background color: #0f1417
 Foreground color: #bfbfbf
 Cursor color: #bfbfbf
@@ -117,4 +117,5 @@ Additional color codes for the 8 color slots in bold text:
 13: #662b37
 14: #083842
 15: #bfbfbf
+```
 
