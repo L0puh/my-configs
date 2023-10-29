@@ -90,7 +90,7 @@ git clone https://github.com/L0puh/my-configs.git
 - read manga:       mangal
 - watch youtube:    ytfzf 
 - search internet:  w3m
-
+- podcasts:         shellcaster
 
 ## theme:
 
