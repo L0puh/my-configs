@@ -3,94 +3,90 @@
 # CONTENT: 
 <!-- - arch + i3wm + xterm -->
 - arch + dwm + st + slstatus
-- zsh + omzsh 
-- fzf
-- z-zsh
+- zsh + omzsh (z, fzf, highlighting, autosuggestions)
 - vim \ nvim 
-    - vim-plug
-    - YouCompleteMe 
-    - fzf 
-fonts:
-cascadia code (ttf-cascadia-code)
-awesome (ttf-awesome-font)
 
-# install vim
-```sh
-sudo apt install vim
+## fonts:
+- cascadia code nerd (ttf-cascadia-code-nerd)
+- awesome (ttf-awesome-font)
+
+## install yay
 ```
-# install vim-plug
+pacman -S --needed git base-devel && git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si
+```
+## VIM
+```sh
+pacman -S vim
+```
+- install vim-plug
 ```sh
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 ```
-# install ycm 
+- install ycm 
 .vimrc
 ```
 call plug#begin()
     Plug 'ycm-core/YouCompleteMe'
 call plug#end()
 ```
-install requirements
+- install requirements
 ```sh
-sudo apt install build-essential cmake vim-nox python3-dev libssl-dev pip
+pacman -S cmake clang
 cd ~/.vim/plugged/YouCompleteMe
 python3 install.py --clangd-completer
 ```
-# install zsh + tmux + fzf + omzsh
+
+## SHELL
+- install zsh + tmux + fzf + omzsh
 ```sh
-sudo apt-get install zsh bear fzf tmux
-or
 pacman -S zsh bear fzf tmux
 ```
+- ohmyzsh:
 ```sh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 ```
-install plugins for zsh
+- plugin manager for tmux:
+```sh
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+```
+- install plugins for zsh
 ```sh
 git clone https://github.com/agkozak/zsh-z ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-z
-
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
-
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 ```
-
-# install wm
+## WM
+- install wm
 ```sh
 sudo pacman -S xorg xorg-xinit
 git clone https://git.suckless.org/st 
 git clone https://git.suckless.org/dwm
 git clone https://git.suckless.org/slstatus
 ```
-compile
+- compile by
 ```
 sudo make clean install
-
 ```
-.xinitrc:
+- .xinitrc:
 ```
 slstatus &
 exec setxkbmap -layout us,ru -option grp:toggle &
 exec dwm
 ```
-patches:
-https://st.suckless.org/patches/anysize/st-anysize-0.8.1.diff (no gasps for st)
-# install stuff: media player, pdf-reader 
-```sh
-pacman -S ffmpeg zathura zathura-pfd-poppler htop cmus
-```
-# install config
-```sh
-git clone https://github.com/L0puh/my-configs.git
-```
-
-
-### stuff
-- watch movies:     lobster-git
-- watch anime:      ani-cli
-- read manga:       mangal
-- watch youtube:    ytfzf 
-- search internet:  w3m
-- podcasts:         shellcaster
+- patches:
+- https://st.suckless.org/patches/anysize/st-anysize-0.8.1.diff (no gasps for st)
+## stuff
+- watch movies:     [lobster-git](https://github.com/justchokingaround/lobster)
+- watch anime:      [ani-cli](https://github.com/pystardust/ani-cli)
+- read manga:       [mangal](https://github.com/metafates/mangal)
+- watch youtube:    [ytfzf](https://github.com/pystardust/ytfzf) 
+- search internet:  [w3m](https://w3m.sourceforge.net/)
+- podcasts:         [shellcaster](https://github.com/jeff-hughes/shellcaster)
+- music:            [cmus](https://github.com/cmus/cmus)
+- books:            [zathura](https://pwmt.org/projects/zathura/)
+- krita
+- htop
 
 ## theme:
 ```
@@ -118,4 +114,23 @@ Additional color codes for the 8 color slots in bold text:
 14: #083842
 15: #bfbfbf
 ```
+## key bindings
+### dwm
+| KEY  | ACTION |
+| ------------- | ------------- |
+| `win + enter`  | open terminal (st)  |
+| `win + shift + q` | close window  |
+| `win + F1` | open firefox |
+| `win + p` | open dmenu |
+### VIM: 
+| KEY  | ACTION |
+| ------------- | ------------- |
+| `ctrl + q` | close  |
+| `ctrl + s` | save |
+| `ctrl + o` | comment |
+| `ctrl + f` | find (fzf |
+| `ctrl + x` | fix (ycm fixit) |
+| `ctrl + z` | save and close |
+| `ctrl + c` | tab close |
+| `ctrl + g` | tab next | 
 
