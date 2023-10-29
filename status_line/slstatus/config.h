@@ -1,5 +1,4 @@
 /* See LICENSE file for copyright and license details. */
-
 /* interval between updates (in ms) */
 const unsigned int interval = 1000;
 
@@ -61,10 +60,12 @@ static const char unknown_str[] = "n/a";
  * vol_perc            OSS/ALSA volume in percent      mixer file (/dev/mixer)
  *                                                     NULL on OpenBSD/FreeBSD
  * wifi_essid          WiFi ESSID                      interface name (wlan0)
- * wifi_perc           WiFi signal in percent          interface name (wlan0)
+ * wifi_perc           WiFi signal in percent          interface name (wlan1)
  */
 static const struct arg args[] = {
-	/* function format          argument */
-	{ datetime, "%s",           "%F %T" },
-    { hostname, " %s", NULL },
+    { hostname, "[%s] ", NULL },
+	{ cpu_perc, "cpu: %s%% | ", NULL    },
+	{ ram_perc, "ram: %s%% | ", NULL    },
+    { run_command, "  %s | ", "echo $(full=\"$(pulseaudio-ctl full-status)\";level=${full% *};if [[ \"${level#* }\" == \"yes\" ]];then echo \"--%\";else echo \"${level% *}%\";fi)" },
+	{ datetime, "%s ",  "  %d %b  %H:%M" },
 };
