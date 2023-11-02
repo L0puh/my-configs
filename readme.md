@@ -87,6 +87,7 @@ exec dwm
 - books:            [zathura](https://pwmt.org/projects/zathura/)
 - krita
 - htop
+- anki
 
 ## theme:
 ```
@@ -122,15 +123,16 @@ Additional color codes for the 8 color slots in bold text:
 | `win + shift + q` | close window  |
 | `win + F1` | open firefox |
 | `win + p` | open dmenu |
+| `win + F3` | flame shot (gui) |
+| `win + F2` | flame shot (screen)|
 ### VIM: 
 | KEY  | ACTION |
 | ------------- | ------------- |
 | `ctrl + q` | close  |
 | `ctrl + s` | save |
 | `ctrl + o` | comment |
-| `ctrl + f` | find (fzf |
+| `ctrl + f` | find (ctrlP) |
 | `ctrl + x` | fix (ycm fixit) |
-| `ctrl + z` | save and close |
 | `ctrl + c` | tab close |
 | `ctrl + g` | tab next | 
 
