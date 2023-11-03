@@ -35,4 +35,4 @@ nnoremap <C-s> :w<CR>
 nnoremap <C-z> :wq<CR>
 nnoremap <C-o> :Commentary<CR>
 nnoremap <C-x> :YcmCompleter FixIt<CR>
-nnoremap <C-f> :CtrlP <CR>
+nnoremap <S-f> :CtrlP <CR>
