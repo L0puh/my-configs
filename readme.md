@@ -75,7 +75,8 @@ exec setxkbmap -layout us,ru -option grp:toggle &
 exec dwm
 ```
 - patches:
-- https://st.suckless.org/patches/anysize/st-anysize-0.8.1.diff (no gasps for st)
+    - https://st.suckless.org/patches/anysize/st-anysize-0.8.1.diff (no gasps for st)
+
 ## stuff
 - watch movies:     [lobster-git](https://github.com/justchokingaround/lobster)
 - watch anime:      [ani-cli](https://github.com/pystardust/ani-cli)
