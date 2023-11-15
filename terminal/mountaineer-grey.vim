@@ -20,7 +20,7 @@ let s:configuration.current_word = get(g:, 'mountaineer-grey_current_word', get(
 " }}}
 " Palette: {{{
 let s:palette = {
-      \ 'bg0':        ['#0f0f0f',   '235',  'Black'],
+      \ 'bg0':        ['#121212',   '235',  'Black'],
       \ 'bg1':        ['#222222',   '236',  'DarkGrey'],
       \ 'bg2':        ['#222222',   '237',  'DarkGrey'],
       \ 'bg3':        ['#191919',   '238',  'DarkGrey'],
