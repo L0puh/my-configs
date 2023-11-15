@@ -99,24 +99,24 @@ unsigned int tabspaces = 8;
 static const char *colorname[] = {
 
     // Color codes for each of the 8 color slots:
-    "#162025",
-    "#393843",
-    "#193a48",
-    "#235964",
-    "#193a48",
-    "#2a474a",
-    "#662b37",
-    "#bfbfbf",
+    "#1a1818",//black
+    "#433c38",//brown
+    "#bab288", //blue(dark)
+    "#9ea6b5", //blue
+    "#bab288", // blue(dark)
+    "#999e98", //green
+    "#735d61", //red
+    "#bfbfbf", //gray
 
     //Additional color codes for the 8 color slots in bold text:
-    "#365a5c",
-    "#662b37",
-    "#193a48",
-    "#193a48",
-    "#75404b",
-    "#662b37",
-    "#083842",
-    "#bfbfbf",
+    "#1a1818",//black
+    "#433c38",//brown
+    "#a16c62", //brown
+    "#64858c", //blue
+    "#a16c62", // brown
+    "#999e98", //green
+    "#b0a19e", //red
+    "#bfbfbf", //gray
 
 	[255] = 0,
 
@@ -124,8 +124,8 @@ static const char *colorname[] = {
 	"#cccccc",
 	"#555555",
 
-	"#bfbfbf", /* default foreground colour */
-	"#0f1417", /* default background colour */
+	"#d4cfd0", /* default foreground colour */
+	"#0f0f0f", /* default background colour */
 };
 
 
