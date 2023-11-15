@@ -1,4 +1,4 @@
-#0f0f0f - black
+#121212 - black
 #e6dbda - white
 #d4cfd0 - white
 #2b2a2a - gray

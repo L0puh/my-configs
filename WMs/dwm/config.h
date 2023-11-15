@@ -7,7 +7,7 @@ static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 static const char *fonts[]          = { "CaskaydiaCove Nerd Font:size=10" };
 static const char dmenufont[]       = "monospace:size=10";
-static const char col_gray1[]       = "#0f0f0f"; // bg
+static const char col_gray1[]       = "#121212"; // bg
 static const char col_gray2[]       = "#2f3336"; 
 static const char col_gray3[]       = "#d4cfd0"; // fg
 static const char col_gray4[]       = "#eeeeee";
