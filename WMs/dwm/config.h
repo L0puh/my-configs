@@ -20,7 +20,8 @@ static const char *colors[][3]      = {
 };
 
 /* tagging */
-static const char *tags[] = { "1", "2", "3", "4", "5" };
+/* static const char *tags[] = { "1", "2", "3", "4", "5" }; */
+static const char *tags[] = { "●", "●", "●", "●", "●" };
 
 static const Rule rules[] = {
 	/* xprop(1):
@@ -40,9 +41,9 @@ static const int lockfullscreen = 1; /* 1 will force focus on the fullscreen win
 
 static const Layout layouts[] = {
 	/* symbol     arrange function */
-	{ "[]=",      tile },    /* first entry is default */
-	{ "><>",      NULL },    /* no layout function means floating behavior */
-	{ "[M]",      monocle },
+	{ "DEF",      tile },    /* first entry is default */
+	{ "FLO",      NULL },    /* no layout function means floating behavior */
+	{ "MON",      monocle },
 };
 
 /* key definitions */
@@ -61,8 +62,8 @@ static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() 
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
 static const char *termcmd[]  = { "st", NULL };
 static const char *browser[] =  {"firefox", NULL};
-static const char *screenshot[] =  {"flameshot", "screen", NULL};
-static const char *screengui[] =  {"flameshot", "gui", NULL};
+static const char *screenWin[] =  {"xfce4-screenshooter", "-f", NULL};
+static const char *screenReg[] =  {"xfce4-screenshooter", "-r", NULL};
 
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -70,8 +71,8 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_p,       spawn,          {.v = dmenucmd } },
 	{ MODKEY,			            XK_F1, 	    spawn, 	        {.v = browser  } },
 	{ MODKEY,             		    XK_Return,  spawn,          {.v = termcmd  } },
-	{ MODKEY,             		    XK_F2,      spawn,          {.v = screenshot } },
-	{ MODKEY,             		    XK_F3,      spawn,          {.v = screengui} },
+	{ MODKEY,             		    XK_F2,      spawn,          {.v = screenWin } },
+	{ MODKEY,             		    XK_F3,      spawn,          {.v = screenReg} },
 	{ MODKEY,                       XK_b,      togglebar,      {1} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },

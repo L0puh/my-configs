@@ -109,8 +109,9 @@ static const char *colorname[] = {
     "#bfbfbf", //gray
 
     //Additional color codes for the 8 color slots in bold text:
-    "#171616",//black
-    "#2b2222",//brown
+    "#1a1818",//black
+    /* "#2b2222",//brown */
+    "#75594f",//black
     "#9c9678", //yellow
     "#64858c", //blue
     "#ab5b4b", //red
