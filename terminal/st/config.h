@@ -101,22 +101,22 @@ static const char *colorname[] = {
     // Color codes for each of the 8 color slots:
     "#1a1818",//black
     "#433c38",//brown
-    "#bab288", //blue(dark)
+    "#bab288", //yellow
     "#9ea6b5", //blue
-    "#bab288", // blue(dark)
-    "#999e98", //green
-    "#735d61", //red
+    "#bab288", // yellow (orange)
+    "#999e98", // gray (aka green)
+    "#b0716f", //red
     "#bfbfbf", //gray
 
     //Additional color codes for the 8 color slots in bold text:
-    "#1a1818",//black
-    "#433c38",//brown
-    "#a16c62", //brown
+    "#171616",//black
+    "#2b2222",//brown
+    "#9c9678", //yellow
     "#64858c", //blue
-    "#a16c62", // brown
-    "#999e98", //green
-    "#b0a19e", //red
-    "#bfbfbf", //gray
+    "#ab5b4b", //red
+    "#919c99", //green
+    "#ab5b4b", //red
+    "#ebdfda", // gray
 
 	[255] = 0,
 

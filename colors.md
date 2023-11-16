@@ -5,19 +5,18 @@
 
 "#1a1818",//black
 "#433c38",//brown
-"#bab288", //blue(dark)
+"#bab288", //yellow
 "#9ea6b5", //blue
-"#bab288", // blue(dark)
-"#999e98", //green
-"#735d61", //red
+"#bab288", // yellow (orange)
+"#999e98", // gray (aka green)
+"#b0716f", //red
 "#bfbfbf", //gray
 
-"#1a1818",//black
-"#433c38",//brown
-"#a16c62", //brown
-"#64858c", //blue
-"#a16c62", // brown
-"#999e98", //green
-"#b0a19e", //red
-"#bfbfbf", //gray
+"#171616",//black
+"#2b2222",//brown
+"#9c9678", //yellow
+"#ebdfda", // gray
+
+"#d4cfd0", /* default foreground colour */
+"#121212", /* default background colour */
 

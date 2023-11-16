@@ -22,8 +22,6 @@ def main():
         os.system(f"zathura {dirc}/{books[choice-1]}")
     
      
-    
-
 
 if "__main__" == __name__:
     main()
