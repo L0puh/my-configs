@@ -8,13 +8,8 @@ export ZSH="$HOME/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-
-# ZSH_THEME="robbyrussell"
 ZSH_THEME="clean"
 
-alias gs="git status"
-alias cc="clear"
-alias v="pactl set-sink-volume alsa_output.pci-0000_00_1b.0.analog-stereo"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -75,8 +70,8 @@ alias v="pactl set-sink-volume alsa_output.pci-0000_00_1b.0.analog-stereo"
 # Standard plugins can be found in $ZSH/plugins/
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-# Add wisely, as too many plugins slow down shell startup
-plugins=(git z zsh-syntax-highlighting zsh-autosuggestions fzf)
+# Add wisely, as too many plugins slow down shell startup.
+plugins=(git fzf z zsh-autosuggestions zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -105,3 +100,5 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+alias v="pactl set-sink-volume @DEFAULT_SINK@"
+alias gs="git status"
