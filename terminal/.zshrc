@@ -102,3 +102,11 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias v="pactl set-sink-volume @DEFAULT_SINK@"
 alias gs="git status"
+alias anki="/home/lopuh/Downloads/anki/anki"
+
+## MY SCRIPTS
+alias book="python ~/.config/my-configs/scripts/book.py"
+alias yt="python ~/Documents/coding/yt.py"
+alias movie="python ~/Documents/coding/movie.py"
+alias lobster="python ~/Documents/coding/movie.py"
+
