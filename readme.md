@@ -89,6 +89,7 @@ exec dwm
 - krita
 - htop
 - anki
+- gphotofs (mount camera)
 
 ## theme:
 ```
