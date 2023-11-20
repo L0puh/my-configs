@@ -76,12 +76,12 @@ exec dwm
 ```
 - patches:
     - https://st.suckless.org/patches/anysize/st-anysize-0.8.1.diff (no gasps for st)
+    - https://st.suckless.org/patches/alpha/st-alpha-20220206-0.8.5.diff (transparent bg for st)
 
 ## stuff
 - watch movies:     [lobster-git](https://github.com/justchokingaround/lobster)
 - watch anime:      [ani-cli](https://github.com/pystardust/ani-cli)
 - read manga:       [mangal](https://github.com/metafates/mangal)
-- watch youtube:    [ytfzf](https://github.com/pystardust/ytfzf) 
 - search internet:  [w3m](https://w3m.sourceforge.net/)
 - podcasts:         [shellcaster](https://github.com/jeff-hughes/shellcaster)
 - music:            [cmus](https://github.com/cmus/cmus)
@@ -93,29 +93,28 @@ exec dwm
 
 ## theme:
 ```
-Background color: #0f1417
-Foreground color: #bfbfbf
-Cursor color: #bfbfbf
+#121212 - black
+#e6dbda - white
+#d4cfd0 - white
+#2b2a2a - gray
 
-Color codes for each of the 8 color slots:
-0: #162025
-1: #393843
-2: #193a48
-3: #235964
-4: #193a48
-5: #2a474a
-6: #662b37
-7: #bfbfbf
+"#1a1818",//black
+"#433c38",//brown
+"#bab288", //yellow
+"#9ea6b5", //blue
+"#bab288", // yellow (orange)
+"#999e98", // gray (aka green)
+"#b0716f", //red
+"#bfbfbf", //gray
 
-Additional color codes for the 8 color slots in bold text:
-8: #365a5c
-9: #662b37
-10: #193a48
-11: #193a48
-12: #75404b
-13: #662b37
-14: #083842
-15: #bfbfbf
+"#171616",//black
+"#2b2222",//brown
+"#9c9678", //yellow
+"#ebdfda", // gray
+
+"#d4cfd0", /* default foreground colour */
+"#121212", /* default background colour */
+
 ```
 ## key bindings
 ### dwm
