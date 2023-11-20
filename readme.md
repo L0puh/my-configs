@@ -79,17 +79,31 @@ exec dwm
     - https://st.suckless.org/patches/alpha/st-alpha-20220206-0.8.5.diff (transparent bg for st)
 
 ## stuff
-- watch movies:     [lobster-git](https://github.com/justchokingaround/lobster)
-- watch anime:      [ani-cli](https://github.com/pystardust/ani-cli)
-- read manga:       [mangal](https://github.com/metafates/mangal)
-- search internet:  [w3m](https://w3m.sourceforge.net/)
-- podcasts:         [shellcaster](https://github.com/jeff-hughes/shellcaster)
-- music:            [cmus](https://github.com/cmus/cmus)
-- books:            [zathura](https://pwmt.org/projects/zathura/)
-- krita
-- htop
-- anki
-- gphotofs (mount camera)
+
+| TOOL  | ACTION |
+| ------------- | ------------- |
+| mpv | video player|
+| cmus | music player| 
+| zathura | pdf reader| 
+| firefox | browser |
+| vim | text editor |
+| st | terminal |
+| dwm | windows manager | 
+| dmenu | menu | 
+| slstatus | status bar |
+| omzsh | shell |
+| gphotofs | mount camera | 
+| fzf | finder | 
+| [lobster-git](https://github.com/justchokingaround/lobster) | watch movies |
+| [ani-cli](https://github.com/pystardust/ani-cli) | watch anime |
+| [mangal](https://github.com/metafates/mangal) | read manga | 
+| [shellcaster](https://github.com/jeff-hughes/shellcaster) | listen to podcasts | 
+| newsboat | rss reader | 
+| feh | image viewer | 
+| tmux | terminal multiplexer |
+| cmake\make | building |
+| xrandr | monitor setup |
+| xcompmgr | for transparent bg | 
 
 ## theme:
 ```
