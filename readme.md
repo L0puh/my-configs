@@ -104,6 +104,7 @@ exec dwm
 | cmake\make | building |
 | xrandr | monitor setup |
 | xcompmgr | for transparent bg | 
+| falkon | lightweight browser |
 
 ## theme:
 ```

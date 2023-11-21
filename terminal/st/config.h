@@ -9,7 +9,7 @@
  */
 static char *font = "CaskaydiaCove Nerd Font:pixelsize=14:antialias=true:autohint=true";
 static int borderpx = 2;
-float alpha = 0.96; //transparensy
+float alpha = 0.9; //transparensy
 
 /*
  * What program is execed by st depends of these precedence rules:

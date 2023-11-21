@@ -8,7 +8,7 @@ if [ $option -eq "1" ]
 then 
     echo 'Install utilities...'
     pacman -S --needed git base-devel && git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si
-    pacman -S --needed vim cmake clangd zsh fzf tmux xorg xorg-xinit lobster-git feh zathura cmus htop gphotofs mpv xrandr xcompmgr
+    pacman -S --needed vim cmake clangd zsh fzf tmux xorg xorg-xinit lobster-git feh zathura cmus htop gphotofs mpv xrandr xcompmgr falkon
     curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
     cd ~/.vim/plugged/YouCompleteMe
