@@ -40,7 +40,9 @@ nnoremap <C-z> :wq<CR>
 nnoremap <C-o> :Commentary<CR>
 nnoremap <C-x> :YcmCompleter FixIt<CR>
 nnoremap <C-f> :CtrlP <CR>
+nnoremap <C-e> :ll <CR>
 nnoremap <C-l> :lnext <CR>
+nnoremap <C-k> :lprevious <CR>
 
 "plugin configs 
 "you complete me

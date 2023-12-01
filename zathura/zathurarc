@@ -2,7 +2,6 @@ include gruvbox.color
 
 set adjust-open width
 set pages-per-row 1
-
 set scroll-page-aware "true"
 set scroll-full-overlap 0.01
 set scroll-step 100
@@ -16,5 +15,5 @@ set selection-clipboard "clipboard"
 set recolor true
 set default-bg rgba(18,18,18,0.9)
 set recolor-lightcolor rgba(0,0,0,0)
+set recolor-keephue
 set adjust-open "width"
-

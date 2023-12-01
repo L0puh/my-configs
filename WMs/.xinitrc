@@ -1,10 +1,11 @@
 /* set display */
 xrandr --output VGA-1 --mode 1920x1080 --output LVDS-1 --above VGA-1
-xwallpaper --zoom ~/Pictures/clouds.jpg
+xwallpaper --zoom ~/Pictures/forest.png
 
 slstatus &
 /* transparent bg */
 xcompmgr &
+
 /* set keymaps */ 
 setxkbmap -layout us,ru -option grp:toggle 
 

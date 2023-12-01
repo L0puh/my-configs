@@ -8,7 +8,7 @@ if [ $option -eq "1" ]
 then 
     echo 'Install utilities...'
     pacman -S --needed git base-devel && git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si
-    pacman -S --needed vim cmake clangd zsh fzf tmux xorg xorg-xinit lobster-git feh zathura cmus htop gphotofs mpv xrandr xcompmgr falkon
+    pacman -S --needed vim cmake clangd zsh fzf tmux xorg xorg-xinit lobster-git feh zathura cmus htop gphotofs mpv xrandr xcompmgr 
     curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
     cd ~/.vim/plugged/YouCompleteMe
@@ -29,7 +29,7 @@ then
     cd ~/wm/st
     patch -p1 < ../patches/st-anysize-20220718-baa9357.diff
     patch -p1 < ../patches/st-alpha-20220206-0.8.5.diff
-
+    yay -S librewolf
 else 
     echo 'Copying wm configs...'
     cp $WM/slstatus/config.h $CONFIG/status_line/slstatus/

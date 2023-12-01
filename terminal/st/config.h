@@ -7,7 +7,7 @@
  */
 /*static char *font = "Liberation Mono:pixelsize=12:antialias=true:autohint=true"; 
  */
-static char *font = "CaskaydiaCove Nerd Font:pixelsize=14:antialias=true:autohint=true";
+static char *font = "Cascadia Code:pixelsize=14:antialias=true:autohint=true";
 static int borderpx = 2;
 float alpha = 0.9; //transparensy
 

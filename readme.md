@@ -1,5 +1,6 @@
 # preview
-![](media.png)
+![](stuff/media1.png)
+![](stuff/media.png)
 # CONTENT: 
 <!-- - arch + i3wm + xterm -->
 - arch + dwm + st + slstatus
@@ -85,7 +86,7 @@ exec dwm
 | mpv | video player|
 | cmus | music player| 
 | zathura | pdf reader| 
-| firefox | browser |
+| librewolf | browser |
 | vim | text editor |
 | st | terminal |
 | dwm | windows manager | 
