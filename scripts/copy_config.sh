@@ -50,6 +50,7 @@ else
     cp ~/.vim/plugged/mountaineer.vim/colors/mountaineer-grey.vim $CONFIG/colors
     cp ~/.config/zathura/themes $CONFIG/zathura/ -r
     cp ~/.config/zathura/*.color $CONFIG/zathura/
+    cp ~/.config/shellcaster/config.toml ~/.config/shellcaster/podcasts.txt $CONFIG/shellcaster
 
     echo 'Done!'
 fi
