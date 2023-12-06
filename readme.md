@@ -106,6 +106,7 @@ exec dwm
 | xrandr | monitor setup |
 | xcompmgr | for transparent bg | 
 | falkon | lightweight browser |
+| pyradio | radio in cli |
 
 ## theme:
 ```

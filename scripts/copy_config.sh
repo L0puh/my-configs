@@ -29,7 +29,7 @@ then
     cd ~/wm/st
     patch -p1 < ../patches/st-anysize-20220718-baa9357.diff
     patch -p1 < ../patches/st-alpha-20220206-0.8.5.diff
-    yay -S librewolf
+    yay -S librewolf pyradio
 else 
     echo 'Copying wm configs...'
     cp $WM/slstatus/config.h $CONFIG/status_line/slstatus/
@@ -51,6 +51,7 @@ else
     cp ~/.config/zathura/themes $CONFIG/zathura/ -r
     cp ~/.config/zathura/*.color $CONFIG/zathura/
     cp ~/.config/shellcaster/config.toml ~/.config/shellcaster/podcasts.txt $CONFIG/shellcaster
-
+    cp ~/.config/qutebrowser/config.py ~/.config/qutebrowser/gruvbox.py $CONFIG/qutebrowser
+    cp ~/.config/pyradio $CONFIG -r 
     echo 'Done!'
 fi

@@ -1,5 +1,4 @@
-syntax on
-set expandtab
+syntax on set expandtab
 set number
 set hlsearch
 set relativenumber 
@@ -43,7 +42,7 @@ nnoremap <C-f> :CtrlP <CR>
 nnoremap <C-e> :ll <CR>
 nnoremap <C-l> :lnext <CR>
 nnoremap <C-k> :lprevious <CR>
-
+" nnoremap <C-k> :sprevious <CR>
 "plugin configs 
 "you complete me
 let g:ycm_auto_trigger=1

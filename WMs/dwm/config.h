@@ -62,7 +62,7 @@ static const Layout layouts[] = {
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
 static const char *termcmd[]  = { "st", NULL };
-static const char *browser[] =  {"librewolf", NULL};
+static const char *browser[] =  {"qutebrowser", NULL};
 static const char *screenWin[] =  {"xfce4-screenshooter", "-f", NULL};
 static const char *screenReg[] =  {"xfce4-screenshooter", "-r", NULL};
 
