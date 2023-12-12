@@ -50,8 +50,8 @@ else
     cp ~/.vim/plugged/mountaineer.vim/colors/mountaineer-grey.vim $CONFIG/colors
     cp ~/.config/zathura/themes $CONFIG/zathura/ -r
     cp ~/.config/zathura/*.color $CONFIG/zathura/
-    cp ~/.config/shellcaster/config.toml ~/.config/shellcaster/podcasts.txt $CONFIG/shellcaster
-    cp ~/.config/qutebrowser/config.py ~/.config/qutebrowser/gruvbox.py $CONFIG/qutebrowser
-    cp ~/.config/pyradio $CONFIG -r 
+    cp ~/.config/shellcaster/{config.toml,podcasts.txt} $CONFIG/shellcaster
+    ~/.config/qutebrowser/{config.py,gruvbox.py} $CONFIG/qutebrowser
+    cp ~/.config/pyradio/config $CONFIG/pyradio
     echo 'Done!'
 fi

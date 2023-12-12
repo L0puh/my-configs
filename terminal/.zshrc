@@ -77,7 +77,9 @@ alias gs="git status"
 
 ## MY SCRIPTS
 alias book="python ~/.config/my-configs/scripts/book.py"
+alias md_to_html="python ~/.config/my-configs/scripts/md_to_html.py"
 alias yt="python ~/Documents/coding/yt.py"
+alias "\yt"="python ~/Documents/coding/yt.py"
 alias movie="python ~/Documents/coding/movie.py"
 alias lobster="python ~/Documents/coding/movie.py"
 
