@@ -18,11 +18,11 @@ from colorama import Style
 
 init()
 
-def get_dir():
+def get_dir(path):
     try:
-        directory = os.environ["BOOKS_DIR"]
+        directory = os.path.join(os.environ["BOOKS_DIR"], path)
     except:
-        directory = os.environ["HOME"] + "/Documents/books"
+        directory = os.path.join(os.environ["HOME"], "Documents/books", path)
     print("found directory: ", directory)
     return directory
 
@@ -67,7 +67,7 @@ def find_book(choice, books, tags, dirc):
             return
     for tag in tags:
         if tag.lower().find(choice.lower()) != -1:
-            books, tags = get_books(tag)
+            books, tags = get_books(get_dir(tag))
             choice, cnt = get_choice(books, tags)
             return choice, tag, cnt
     return 
@@ -79,13 +79,13 @@ def digit_choice(choice, books, tags, cnt, dirc):
         return
     elif ch-cnt <= len(tags):
         i = tags[ch-cnt-1]
-        books, tags = get_books(i)
+        books, tags = get_books(get_dir(i))
         choice, cnt = get_choice(books, tags)
         os.system(f"zathura {dirc}/{i}/{books[int(choice)-1]}")
         return
 
 def main():
-    dirc = get_dir()
+    dirc = get_dir("")
     books, tags = get_books(dirc) 
 
     choice, cnt = get_choice(books, tags)
@@ -93,11 +93,11 @@ def main():
         digit_choice(choice, books, tags, cnt, dirc)
     else: 
         choice, tag, cnt = find_book(choice, books, tags, dirc)
-        books, tags = get_books(tag)
+        books, tags = get_books(get_dir(tag))
         if choice.isdigit():
-            digit_choice(choice, books, tags, cnt, tag)
+            digit_choice(choice, books, tags, cnt, get_dir(tag))
         else:
-            find_book(choice, books, tags, tag)
+            find_book(choice, books, tags, get_dir(tag))
 
 
 if "__main__" == __name__:
