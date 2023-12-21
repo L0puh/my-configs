@@ -1,11 +1,14 @@
 import sys
 import os 
 from datetime import datetime
+
 files = sys.argv[1:]
+
 if not files or not files[1:]: 
-    print("Convert markdown links to html file. Links have '- []'")
+    print("Convert markdown links to html file.\nLinks should have '- []'")
     print("Usage: md_to_html [markdown file] [html file]")
     exit()
+
 md = files[0]
 html = files[1]
 
