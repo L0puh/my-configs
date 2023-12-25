@@ -11,16 +11,20 @@ library (located in "Documents/books" or $BOOKS_DIR)
 - navigation via typing title or number
 """
 
-import os
+import os, sys
 from colorama import Fore, init
 from colorama import Style
+
+
+argv = sys.argv[1:]
+
 
 init()
 def get_dir(path):
     try:
         directory = os.path.join(os.environ["BOOKS_DIR"], path)
     except:
-        directory = os.path.join(os.environ["HOME"], "Documents/books", path)
+        directory = os.path.join(os.environ["HOME"], "books", path)
     print(Fore.RED + "found directory: ", directory + Style.RESET_ALL)
     return directory
 
@@ -93,18 +97,19 @@ def digit_choice(choice, books, tags, cnt, dirc):
 def main():
     dirc = get_dir("")
     books, tags = get_books(dirc) 
-
+    if argv: 
+        find_book(argv[0], books, tags, dirc)
+        return 
     choice, cnt = get_choice(books, tags, dirc)
     if choice.isdigit():
         digit_choice(choice, books, tags, cnt, dirc)
         return
-    else: 
-        choice, tag, cnt = find_book(choice, books, tags, dirc)
-        books, tags = get_books(get_dir(tag))
-        if choice.isdigit():
-            digit_choice(choice, books, tags, cnt, get_dir(tag))
-        else:
-            find_book(choice, books, tags, get_dir(tag))
+    choice, tag, cnt = find_book(choice, books, tags, dirc)
+    books, tags = get_books(get_dir(tag))
+    if choice.isdigit():
+        digit_choice(choice, books, tags, cnt, get_dir(tag))
+    else:
+        find_book(choice, books, tags, get_dir(tag))
 
 
 if "__main__" == __name__:
