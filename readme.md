@@ -86,7 +86,6 @@ exec dwm
 | mpv | video player|
 | cmus | music player| 
 | zathura | pdf reader| 
-<!-- | librewolf | browser | -->
 | vim | text editor |
 | st | terminal |
 | dwm | windows manager | 
@@ -98,8 +97,6 @@ exec dwm
 | [lobster-git](https://github.com/justchokingaround/lobster) | watch movies |
 | [ani-cli](https://github.com/pystardust/ani-cli) | watch anime |
 | [mangal](https://github.com/metafates/mangal) | read manga | 
-<!-- | [shellcaster](https://github.com/jeff-hughes/shellcaster) | listen to podcasts | --> 
-<!-- | newsboat | rss reader | --> 
 | feh | image viewer | 
 | tmux | terminal multiplexer |
 | cmake\make | building |
@@ -110,8 +107,9 @@ exec dwm
 | ntui | network manager tui |
 | blueberry | bluetooth manager |
 | gadacz | audiobooks
-
-
+<!-- | librewolf | browser | -->
+<!-- | [shellcaster](https://github.com/jeff-hughes/shellcaster) | listen to podcasts | --> 
+<!-- | newsboat | rss reader | --> 
 
 ## theme:
 ```
