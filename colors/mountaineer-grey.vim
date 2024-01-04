@@ -20,7 +20,7 @@ let s:configuration.current_word = get(g:, 'mountaineer-grey_current_word', get(
 " }}}
 " Palette: {{{
 let s:palette = {
-      \ 'bg0':        ['#121212',   '235',  'Black'],
+      \ 'bg0':        ['#191919',   '235',  'Black'],
       \ 'bg1':        ['#222222',   '236',  'DarkGrey'],
       \ 'bg2':        ['#222222',   '237',  'DarkGrey'],
       \ 'bg3':        ['#191919',   '238',  'DarkGrey'],
@@ -28,14 +28,14 @@ let s:palette = {
       \ 'bg_red':     ['#222222',   '52',   'DarkRed'],
       \ 'bg_green':   ['#222222',   '22',   'DarkGreen'],
       \ 'bg_blue':    ['#222222',   '17',   'DarkBlue'],
-      \ 'fg':         ['#d4cfd0',   '223',  'White'],
-      \ 'red':        ['#b0716f',   '167',  'Red'],
+      \ 'fg':         ['#f0f0f0',   '223',  'White'],
+      \ 'red':        ['#AC8A8C',   '167',  'Red'],
       \ 'orange':     ['#AC9D8A',   '208',  'Red'],
       \ 'yellow':     ['#ACA98A',   '214',  'Yellow'],
-      \ 'green':      ['#999e98',   '108',  'Green'],
+      \ 'green':      ['#8AAC8B',   '108',  'Green'],
       \ 'cyan':       ['#8AABAC',   '108',  'Cyan'],
-      \ 'blue':       ['#bab288',   '109',  'Blue'],
-      \ 'purple':     ['#9ea6b5',   '175',  'Magenta'],
+      \ 'blue':       ['#8F8AAC',   '109',  'Blue'],
+      \ 'purple':     ['#AC8AAC',   '175',  'Magenta'],
       \ 'grey':       ['#363636',   '245',  'LightGrey'],
       \ 'light_grey': ['#4c4c4c',   '245',  'LightGrey'],
       \ 'gold':       ['#2f4243',   '214',  'Yellow'],

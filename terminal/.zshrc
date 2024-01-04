@@ -2,6 +2,8 @@ export ZSH="$HOME/.oh-my-zsh"
 ZSH_THEME="clean"
 zstyle ':omz:update' mode auto      # update automatically without asking
 
+path+=('/home/lopuh/.cargo/bin')
+export PATH
 
 # Uncomment the following line if pasting URLs and other text is messed up.
 # DISABLE_MAGIC_FUNCTIONS="true"
@@ -67,20 +69,19 @@ source $ZSH/oh-my-zsh.sh
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
+
 alias v="pactl set-sink-volume @DEFAULT_SINK@"
 alias gs="git status"
 # alias anki="/home/lopuh/Downloads/anki/anki"
 
 ## MY SCRIPTS
 alias book="python ~/.config/my-configs/scripts/book.py"
+alias build="sh ~/.config/my-configs/scripts/build.sh"
 alias md_to_html="python ~/.config/my-configs/scripts/md_to_html.py"
-alias yt="python ~/Documents/coding/yt.py"
-alias "\yt"="python ~/Documents/coding/yt.py"
-alias movie="python ~/Documents/coding/movie.py"
-alias lobster="python ~/Documents/coding/movie.py"
+alias ls="ls --sort=extension --color=always"
+# alias yt="python ~/Documents/coding/yt.py"
+# alias "\yt"="python ~/Documents/coding/yt.py"
+alias movie="python ~/code/movie.py"
+alias lobster="python ~/code/movie.py"
 
 alias neofetch="neofetch --disable memory theme icons cpu gpu kernel host shell"

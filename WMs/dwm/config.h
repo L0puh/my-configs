@@ -7,7 +7,7 @@ static const unsigned int snap      = 32;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 static const char *fonts[]          = { "Cascadia Code:size=10" };
-static const char dmenufont[]       = "monospace:size=10";
+static const char dmenufont[]       = "Cascadia Code:size=8";
 static const char col_gray1[]       = "#121212"; // bg
 static const char col_gray2[]       = "#2f3336"; 
 static const char col_gray3[]       = "#d4cfd0"; // fg

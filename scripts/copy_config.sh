@@ -1,5 +1,5 @@
 CONFIG="$HOME/.config/my-configs"
-WM="$HOME/wm"
+WM="$HOME/.config/wm"
 
 echo '[1] install [2] copy'
 read option

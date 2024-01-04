@@ -82,6 +82,9 @@ def find_book(choice, books, tags, dirc):
             return choice, tag, cnt
     return 
 
+
+
+
 def digit_choice(choice, books, tags, cnt, dirc):
     ch = int(choice)
     if ch <= len(books):
@@ -89,20 +92,30 @@ def digit_choice(choice, books, tags, cnt, dirc):
         exit()
     elif ch-cnt <= len(tags):
         i = tags[ch-cnt-1]
+        i = os.path.join(dirc, i)
         books, tags = get_books(get_dir(i))
         choice, cnt = get_choice(books, tags, i)
-        os.system(f"zathura {dirc}/{i}/{books[int(choice)-1]} &")
+        os.system(f"zathura {dirc}/{i}/{books[int(choice)-1]}&")
         exit()
+    
+def get_tag(argv, tags):
+    for tag in tags:
+        if tag.lower().find(argv.lower()) != -1:
+            return tag
 
 def main():
     dirc = get_dir("")
     books, tags = get_books(dirc) 
     if argv: 
-        find_book(argv[0], books, tags, dirc)
-        return 
-    choice, cnt = get_choice(books, tags, dirc)
+        choice, tag, cnt = find_book(argv[0], books, tags, dirc)
+        dirc = get_dir(get_tag(argv[0], tags))
+        books, tags = get_books(dirc)
+    if not argv: 
+        choice, cnt = get_choice(books, tags, dirc)
+
     if choice.isdigit():
         digit_choice(choice, books, tags, cnt, dirc)
+
         return
     choice, tag, cnt = find_book(choice, books, tags, dirc)
     books, tags = get_books(get_dir(tag))

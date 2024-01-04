@@ -5,8 +5,9 @@ from datetime import datetime
 files = sys.argv[1:]
 
 if not files or not files[1:]: 
-    print("Convert markdown links to html file.\nLinks should have '- []'")
-    print("Usage: md_to_html [markdown file] [html file]")
+    print("Converts markdown links to html file.\n\nLinks should have '- []'")
+    print("Usage:\nmd_to_html [markdown file] [html file]")
+    print("Exmaple of file:\n- [] [name](www.example.org) -> <a href='www.example.org'>name</a>")
     exit()
 
 md = files[0]
