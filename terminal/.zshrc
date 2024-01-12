@@ -5,6 +5,9 @@ zstyle ':omz:update' mode auto      # update automatically without asking
 path+=('/home/lopuh/.cargo/bin')
 export PATH
 
+# export FZF_DEFAULT_OPTS='--preview "bat --style=numbers --line-range :500 {}"'
+export FZF_DEFAULT_COMMAND="rg --files --hidden -g '!.git/*' -g '!build/*'" 
+export FZF_DEFAULT_OPTS='-i --color="dark,fg:#ACA98A"'
 # Uncomment the following line if pasting URLs and other text is messed up.
 # DISABLE_MAGIC_FUNCTIONS="true"
 
@@ -49,18 +52,14 @@ plugins=(git fzf z zsh-autosuggestions zsh-syntax-highlighting)
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
-
 # export MANPATH="/usr/local/man:$MANPATH"
-
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
+if [[ -n $SSH_CONNECTION ]]; then
+  export EDITOR='vim'
+fi
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -71,17 +70,17 @@ source $ZSH/oh-my-zsh.sh
 # For a full list of active aliases, run `alias`.
 
 alias v="pactl set-sink-volume @DEFAULT_SINK@"
+alias todo="grep -i TODO *.* && grep -i FIXME *.*"
 alias gs="git status"
-# alias anki="/home/lopuh/Downloads/anki/anki"
+alias ls="ls --sort=extension --color=always"
+alias neofetch="neofetch --disable theme icons host "
 
+# alias anki="/home/lopuh/Downloads/anki/anki"
 ## MY SCRIPTS
-alias book="python ~/.config/my-configs/scripts/book.py"
+alias b="python ~/.config/my-configs/scripts/book.py"
+alias bf="$HOME/.config/my-configs/scripts/books.sh"
 alias build="sh ~/.config/my-configs/scripts/build.sh"
 alias md_to_html="python ~/.config/my-configs/scripts/md_to_html.py"
-alias ls="ls --sort=extension --color=always"
-# alias yt="python ~/Documents/coding/yt.py"
-# alias "\yt"="python ~/Documents/coding/yt.py"
-alias movie="python ~/code/movie.py"
-alias lobster="python ~/code/movie.py"
+alias dmenu="dmenu -fn 'Cascadia Code:size=8' -nb '#121212' -nf '#d4cfd0' -sb '#2b2a2a' -sf '#eeeeee'"
 
-alias neofetch="neofetch --disable memory theme icons cpu gpu kernel host shell"
+

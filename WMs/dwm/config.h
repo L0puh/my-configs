@@ -16,7 +16,6 @@ static const char col_cyan[]        = "#2b2a2a";
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { col_cyan, col_gray1, col_gray1 },
-
 	[SchemeSel]  = { col_gray3, col_gray1,  col_cyan },
 };
 
@@ -65,15 +64,22 @@ static const char *termcmd[]  = { "st", NULL };
 static const char *browser[] =  {"qutebrowser", NULL};
 static const char *screenWin[] =  {"xfce4-screenshooter", "-f", NULL};
 static const char *screenReg[] =  {"xfce4-screenshooter", "-r", NULL};
+static const char *bluetooth[] =  {"dmenu-bluetooth", "-m", dmenumon, "-fn", dmenufont,\
+                                    "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL};
+static const char *volupcmd[] = { "amixer", "-q", "set", "Master",  "5%+", "unmute", NULL };
+static const char *voldowncmd[] = { "amixer", "-q", "set", "Master", "5%-", "unmute", NULL };
 
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
 
-	{ MODKEY,                       XK_p,       spawn,          {.v = dmenucmd } },
-	{ MODKEY,			            XK_F1, 	    spawn, 	        {.v = browser  } },
-	{ MODKEY,             		    XK_Return,  spawn,          {.v = termcmd  } },
-	{ MODKEY,             		    XK_F2,      spawn,          {.v = screenWin } },
-	{ MODKEY,             		    XK_F3,      spawn,          {.v = screenReg} },
+	{ MODKEY,                       XK_p,       spawn,          {.v = dmenucmd   } },
+    { MODKEY,			            XK_F1, 	    spawn, 	        {.v = browser    } },
+	{ MODKEY,			            XK_F11,     spawn, 	        {.v = voldowncmd } },
+	{ MODKEY,			            XK_F12, 	spawn, 	        {.v = volupcmd   } },
+	{ MODKEY,             		    XK_Return,  spawn,          {.v = termcmd    } },
+	{ MODKEY,             		    XK_F2,      spawn,          {.v = screenWin  } },
+	{ MODKEY,             		    XK_F3,      spawn,          {.v = screenReg  } },
+	{ MODKEY|ShiftMask,             XK_b,      spawn,          {.v = bluetooth   } },
 	{ MODKEY,                       XK_b,      togglebar,      {1} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },

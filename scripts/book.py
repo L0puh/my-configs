@@ -95,7 +95,7 @@ def digit_choice(choice, books, tags, cnt, dirc):
         i = os.path.join(dirc, i)
         books, tags = get_books(get_dir(i))
         choice, cnt = get_choice(books, tags, i)
-        os.system(f"zathura {dirc}/{i}/{books[int(choice)-1]}&")
+        os.system(f"zathura {i}/{books[int(choice)-1]}&")
         exit()
     
 def get_tag(argv, tags):
@@ -115,8 +115,8 @@ def main():
 
     if choice.isdigit():
         digit_choice(choice, books, tags, cnt, dirc)
-
         return
+
     choice, tag, cnt = find_book(choice, books, tags, dirc)
     books, tags = get_books(get_dir(tag))
     if choice.isdigit():

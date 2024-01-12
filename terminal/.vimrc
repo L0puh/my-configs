@@ -4,27 +4,28 @@ set number
 set hlsearch
 set relativenumber 
 set signcolumn=no "no error message on the left
-set tabstop=4
-set shiftwidth=4
-set softtabstop=4 
+set tabstop=3
+set shiftwidth=3
+set softtabstop=3 
 set completeopt-=preview 
 set smarttab
 set expandtab 
 set autoindent 
 
 call plug#begin()
-   	Plug 'jiangmiao/auto-pairs'
+    " Plug 'junegunn/fzf', 
+    " Plug 'scrooloose/nerdcommenter',
+    " Plug 'jiangmiao/auto-pairs'
     " Plug 'ctrlpvim/ctrlp.vim'
  	Plug 'tpope/vim-commentary'
-    " Plug 'scrooloose/nerdcommenter',
-    Plug 'ycm-core/YouCompleteMe'
- 	Plug 'Vim/colorschemes'
- 	Plug 'TheNiteCoder/mountaineer.vim'
-    Plug 'morhetz/gruvbox'
-    Plug 'nanotech/jellybeans.vim'
-    Plug 'mattn/emmet-vim'
-    Plug 'iamcco/markdown-preview.vim'
-    Plug 'vim-scripts/a.vim'
+   Plug 'ycm-core/YouCompleteMe'
+   Plug 'Vim/colorschemes'
+   Plug 'TheNiteCoder/mountaineer.vim'
+   Plug 'morhetz/gruvbox'
+   Plug 'nanotech/jellybeans.vim'
+   Plug 'mattn/emmet-vim'
+   Plug 'iamcco/markdown-preview.vim'
+   Plug 'vim-scripts/a.vim'
 call plug#end()
 
 "colorschemes 
@@ -57,12 +58,7 @@ let g:ycm_always_populate_location_list=1 "jump to errors
 let g:ycm_echo_current_diagnostic="virtual-text"
 
 call prop_type_add ('YCM_HL_bracket', {'highlight' : 'Normal'})
-" let g:ctrlp_custom_ignore = 'build'
-"
-
 let g:mkdp_path_to_chrome = "qutebrowser"
 
 hi Normal ctermbg=NONE guibg=NONE 
-
-
 

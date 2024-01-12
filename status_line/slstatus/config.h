@@ -2,7 +2,6 @@
 
 /* interval between updates (in ms) */
 const unsigned int interval = 1000;
-
 /* text to show if no value can be retrieved */
 static const char unknown_str[] = "n/a";
 
@@ -65,9 +64,8 @@ static const char unknown_str[] = "n/a";
  */
 static const struct arg args[] = {
 	/* function format          argument */
-
-    { datetime, "%s", "%d %b %H:%M" },
-    /* { hostname, " %s", NULL }, */
-    { battery_perc,  " bat:%s%%", "BAT1" },
-    {cpu_perc, " cpu:%s%%", NULL}
+    { datetime,           "%s",           "%d %b %H:%M"},
+    { battery_perc,       " [bat] %s%%",  "BAT1"        },
+    { battery_remaining,  " %s",         "BAT1"        },
+    { cpu_perc,           " [CPU]:%s%%",   NULL         },
 };

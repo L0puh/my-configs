@@ -84,7 +84,7 @@ exec dwm
 | TOOL  | ACTION |
 | ------------- | ------------- |
 | mpv | video player|
-| cmus | music player| 
+| cmus / termusic | music player| 
 | zathura | pdf reader| 
 | vim | text editor |
 | st | terminal |
