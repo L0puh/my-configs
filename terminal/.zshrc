@@ -8,6 +8,17 @@ export PATH
 # export FZF_DEFAULT_OPTS='--preview "bat --style=numbers --line-range :500 {}"'
 export FZF_DEFAULT_COMMAND="rg --files --hidden -g '!.git/*' -g '!build/*'" 
 export FZF_DEFAULT_OPTS='-i --color="dark,fg:#ACA98A"'
+
+
+# color manuals
+export LESS_TERMCAP_mb=$'\e[1;32m'
+export LESS_TERMCAP_md=$'\e[1;32m'
+export LESS_TERMCAP_me=$'\e[0m'
+export LESS_TERMCAP_se=$'\e[0m'
+export LESS_TERMCAP_so=$'\e[01;33m'
+export LESS_TERMCAP_ue=$'\e[0m'
+export LESS_TERMCAP_us=$'\e[1;4;31m'
+
 # Uncomment the following line if pasting URLs and other text is messed up.
 # DISABLE_MAGIC_FUNCTIONS="true"
 
@@ -70,7 +81,7 @@ fi
 # For a full list of active aliases, run `alias`.
 
 alias v="pactl set-sink-volume @DEFAULT_SINK@"
-alias todo="grep -i TODO *.* && grep -i FIXME *.*"
+alias todo="grep -i TODO */*.* *.* && grep -i FIXME */*.* *.*"
 alias gs="git status"
 alias ls="ls --sort=extension --color=always"
 alias neofetch="neofetch --disable theme icons host "
@@ -79,8 +90,7 @@ alias neofetch="neofetch --disable theme icons host "
 ## MY SCRIPTS
 alias b="python ~/.config/my-configs/scripts/book.py"
 alias bf="$HOME/.config/my-configs/scripts/books.sh"
+alias mf="$HOME/.config/my-configs/scripts/movies.sh"
 alias build="sh ~/.config/my-configs/scripts/build.sh"
 alias md_to_html="python ~/.config/my-configs/scripts/md_to_html.py"
 alias dmenu="dmenu -fn 'Cascadia Code:size=8' -nb '#121212' -nf '#d4cfd0' -sb '#2b2a2a' -sf '#eeeeee'"
-
-

@@ -1,9 +1,9 @@
 syntax on 
-set expandtab
+
 set number
-set hlsearch
+" set hlsearch
 set relativenumber 
-set signcolumn=no "no error message on the left
+set signcolumn=no    "no error message on the left
 set tabstop=3
 set shiftwidth=3
 set softtabstop=3 
@@ -11,13 +11,16 @@ set completeopt-=preview
 set smarttab
 set expandtab 
 set autoindent 
+set mouse=a
+
+set wildmenu  "auto complete in vim commands 
 
 call plug#begin()
-    " Plug 'junegunn/fzf', 
-    " Plug 'scrooloose/nerdcommenter',
-    " Plug 'jiangmiao/auto-pairs'
-    " Plug 'ctrlpvim/ctrlp.vim'
- 	Plug 'tpope/vim-commentary'
+   " Plug 'scrooloose/nerdcommenter',
+   " Plug 'jiangmiao/auto-pairs'
+   " Plug 'ctrlpvim/ctrlp.vim'
+ 	
+   Plug 'tpope/vim-commentary'
    Plug 'ycm-core/YouCompleteMe'
    Plug 'Vim/colorschemes'
    Plug 'TheNiteCoder/mountaineer.vim'
@@ -26,6 +29,7 @@ call plug#begin()
    Plug 'mattn/emmet-vim'
    Plug 'iamcco/markdown-preview.vim'
    Plug 'vim-scripts/a.vim'
+
 call plug#end()
 
 "colorschemes 

@@ -5,16 +5,19 @@ from datetime import datetime
 files = sys.argv[1:]
 
 if not files or not files[1:]: 
-    print("Converts markdown links to html file.\n\nLinks should have '- []'")
-    print("Usage:\nmd_to_html [markdown file] [html file]")
+    print("Converts markdown links to html file.")
+    print("FORMAT:\n- [] link\n- ! info ")
+    print("USAGE:\nmd_to_html [markdown file] [html file]")
     print("Exmaple of file:\n- [] [name](www.example.org) -> <a href='www.example.org'>name</a>")
+    print("- ! some note                -> <p> some note </p>")
     exit()
 
 md = files[0]
 html = files[1]
 
 def get_url():
-    urls=[]
+    urls = []
+    info = []
     with open(md, "r") as f:
         for i in f.readlines():
             if i[0:4] == "- []":
@@ -31,12 +34,15 @@ def get_url():
                         break
                     url+=l
                 urls.append([title.replace("[", ""), url.replace("(", "")])
-    return urls
+            if i[0:3] == "- !":
+                info.append(i[3:])
+
+    return urls, info
 
 
-def format_html(urls, title):
+def format_html(urls,title, info):
     with open(html, "w") as f:
-        header =  """
+        header =  f"""
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -61,13 +67,16 @@ h1{
         """
         f.write(header+style+"\n<body>\n")
         f.write(f"<h1>{title}</h1>\n")
+        for i in info:
+            f.write(f"<p> {i} </p>\n")
         for i in urls:
             f.write(f'<p><a href="{i[1]}">{i[0]}</a></p>\n')
         f.write("</body>\n</html>")
 
 def main():
-    urls = get_url()
-    format_html(urls, datetime.now().strftime("%d %b"))
+    
+    urls, info = get_url()
+    format_html(urls, datetime.now().strftime("%d %b"), info)
 
 
 if __name__ == "__main__":

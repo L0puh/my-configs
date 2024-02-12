@@ -13,7 +13,7 @@
 # will be entered to the command.
 # Default: vlc %s
 
-play_command = "vlc %s"
+play_command = "mpv %s"
 
 
 
@@ -128,12 +128,12 @@ bold_background = "black"
 
 # colors for the currently selected podcast/episode
 highlighted_active_foreground = "rgb(85, 85, 85)"
-highlighted_active_background = "#662b37"
+# highlighted_active_background = "#662b37"
 
 # colors for the selected podcast, when the cursor is on the episode
 # menu; podcast is selected, but not currently "active"
 highlighted_foreground = "rgb(85, 85, 85)"
-highlighted_background = "#193a48"
+# highlighted_background = "#193a48"
 
 # text for error messages
 error_foreground = "red"
