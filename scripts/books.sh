@@ -1,7 +1,7 @@
 cd /home/lopuh/books
 book=$(fzf)
-if [ $book ]
+if [ "$book" ]
 then
-   zathura $book &
+   zathura "$book" &
 fi
 cd -

@@ -5,10 +5,8 @@ zstyle ':omz:update' mode auto      # update automatically without asking
 path+=('/home/lopuh/.cargo/bin')
 export PATH
 
-# export FZF_DEFAULT_OPTS='--preview "bat --style=numbers --line-range :500 {}"'
 export FZF_DEFAULT_COMMAND="rg --files --hidden -g '!.git/*' -g '!build/*'" 
-export FZF_DEFAULT_OPTS='-i --color="dark,fg:#ACA98A"'
-
+export FZF_DEFAULT_OPTS='-i --color="dark,fg:#ACA98A" --preview "head -n 50 {}"'
 
 # color manuals
 export LESS_TERMCAP_mb=$'\e[1;32m'
@@ -94,3 +92,4 @@ alias mf="$HOME/.config/my-configs/scripts/movies.sh"
 alias build="sh ~/.config/my-configs/scripts/build.sh"
 alias md_to_html="python ~/.config/my-configs/scripts/md_to_html.py"
 alias dmenu="dmenu -fn 'Cascadia Code:size=8' -nb '#121212' -nf '#d4cfd0' -sb '#2b2a2a' -sf '#eeeeee'"
+alias noise="$HOME/.config/my-configs/scripts/noise.sh"
