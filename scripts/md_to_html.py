@@ -15,27 +15,39 @@ if not files or not files[1:]:
 md = files[0]
 html = files[1]
 
-def get_url():
-    urls = []
+def get_url(line):
+    title=""
+    url  =""
+    index = 0
+    for n, k in enumerate(line[5:]):
+        if k == "]":
+            index = 5+n
+            break
+        title+=k
+    for l in line[index+1:]:
+        if l == ")":
+            break
+        url+=l
+    return title.replace("[", ""), url.replace("(", "");
+
+def get_urls():
     info = []
+    cnt = 0
+    urls = [[]] * 10
     with open(md, "r") as f:
         for i in f.readlines():
             if i[0:4] == "- []":
-                title=""
-                url  =""
-                index = 0
-                for n, k in enumerate(i[5:]):
-                    if k == "]":
-                        index = 5+n
-                        break
-                    title+=k
-                for l in i[index+1:]:
-                    if l == ")":
-                        break
-                    url+=l
-                urls.append([title.replace("[", ""), url.replace("(", "")])
+                url, title = get_url(i)
+                urls[cnt].append([title, url])
+                print("new link for section ", cnt, ":", title, url);
+
             if i[0:3] == "- !":
                 info.append(i[3:])
+                cnt+=1
+                print("new section")
+
+    for u in urls:
+        print(u)
 
     return urls, info
 
@@ -63,19 +75,38 @@ body{
 h1{
     color: #b0716f
 }
+.column {
+  float: left;
+  width: 50%;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
 </style>
         """
         f.write(header+style+"\n<body>\n")
         f.write(f"<h1>{title}</h1>\n")
+        f.write('<div class="row">')
+        cnt = len(info)
         for i in info:
+            f.write('<div class="column">')
             f.write(f"<p> {i} </p>\n")
-        for i in urls:
-            f.write(f'<p><a href="{i[1]}">{i[0]}</a></p>\n')
+            for url in urls[cnt]:
+                f.write(f'<p><a href="{url[1]}">{url[0]}</a></p>\n')
+            f.write('</div>')
+            cnt-=1
+        
+        print(f"found {cnt} sections")
+
+        f.write('</div>')
         f.write("</body>\n</html>")
 
 def main():
     
-    urls, info = get_url()
+    urls, info = get_urls()
     format_html(urls, datetime.now().strftime("%d %b"), info)
 
 
