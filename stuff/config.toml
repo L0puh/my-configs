@@ -13,7 +13,7 @@
 # will be entered to the command.
 # Default: vlc %s
 
-play_command = "mpv %s"
+# play_command = "mpv %s"
 
 
 

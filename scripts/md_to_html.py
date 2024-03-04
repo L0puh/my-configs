@@ -35,15 +35,15 @@ def get_urls():
     urls = [[] for _ in range(10)]
     with open(md, "r") as f:
         for i in f.readlines():
-            if i[0:4] == "- []":
-                title, url = get_url(i)
-                urls[cnt].append([title, url])
-                print("new link for section ", cnt, ":", title, url);
-
             if i[0:3] == "- !":
                 info.append(i[3:])
                 cnt+=1
                 print("new section")
+            if i[0:4] == "- []":
+                title, url = get_url(i)
+                urls[cnt].append([title, url])
+                print("new link for section ", info[cnt-1], title, url);
+
 
   
 
@@ -88,14 +88,14 @@ h1{
         f.write(header+style+"\n<body>\n")
         f.write(f"<h1>{title}</h1>\n")
         f.write('<div class="row">')
-        cnt = len(info)
+        cnt = 1
         for i in info:
             f.write('<div class="column">')
             f.write(f"<p> {i} </p>\n")
             for url in urls[cnt]:
                 f.write(f'<p><a href="{url[1]}">{url[0]}</a></p>\n')
             f.write('</div>')
-            cnt-=1
+            cnt+=1
         
         print(f"found {len(info)} sections")
 

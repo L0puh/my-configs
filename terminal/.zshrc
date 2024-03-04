@@ -93,3 +93,6 @@ alias build="sh ~/.config/my-configs/scripts/build.sh"
 alias md_to_html="python ~/.config/my-configs/scripts/md_to_html.py"
 alias dmenu="dmenu -fn 'Cascadia Code:size=8' -nb '#121212' -nf '#d4cfd0' -sb '#2b2a2a' -sf '#eeeeee'"
 alias noise="$HOME/.config/my-configs/scripts/noise.sh"
+
+# Created by `pipx` on 2024-02-29 10:31:39
+export PATH="$PATH:/home/lopuh/.local/bin"
