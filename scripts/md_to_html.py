@@ -14,7 +14,6 @@ if not files or not files[1:]:
 
 md = files[0]
 html = files[1]
-
 def get_url(line):
     title=""
     url  =""
@@ -33,11 +32,11 @@ def get_url(line):
 def get_urls():
     info = []
     cnt = 0
-    urls = [[]] * 10
+    urls = [[] for _ in range(10)]
     with open(md, "r") as f:
         for i in f.readlines():
             if i[0:4] == "- []":
-                url, title = get_url(i)
+                title, url = get_url(i)
                 urls[cnt].append([title, url])
                 print("new link for section ", cnt, ":", title, url);
 
@@ -46,8 +45,7 @@ def get_urls():
                 cnt+=1
                 print("new section")
 
-    for u in urls:
-        print(u)
+  
 
     return urls, info
 
@@ -99,7 +97,7 @@ h1{
             f.write('</div>')
             cnt-=1
         
-        print(f"found {cnt} sections")
+        print(f"found {len(info)} sections")
 
         f.write('</div>')
         f.write("</body>\n</html>")
