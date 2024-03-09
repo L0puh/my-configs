@@ -18,7 +18,5 @@ ueberzug_max_width=100
 ueberzug_max_height=100
 
 download_video() {
- ffmpeg -loglevel error -stats -i "$1" -map 0:a? -map 0:s? -map 0:v -c:v copy -c:a ac3 -c:s  copy "$3/$2".mp4 
-
-
+ ffmpeg -loglevel error -stats -i "$1" -map 0:a? -map 0:s? -map 0:v -c:v copy -c:a ac3 -c:s copy "$3/$2".mp4 
 }
