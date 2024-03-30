@@ -8,7 +8,7 @@ if [ $option -eq "1" ]
 then 
     echo 'Install utilities...'
     pacman -S --needed git base-devel && git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si
-    pacman -S --needed vim cmake clangd zsh fzf tmux xorg xorg-xinit lobster-git feh zathura cmus htop gphotofs mpv xrandr xcompmgr 
+    pacman -S --needed vim cmake clangd zsh fzf tmux xorg xorg-xinit feh zathura cmus htop gphotofs mpv xrandr qutebrowser
     curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
     cd ~/.vim/plugged/YouCompleteMe
@@ -29,7 +29,6 @@ then
     cd ~/wm/st
     patch -p1 < ../patches/st-anysize-20220718-baa9357.diff
     patch -p1 < ../patches/st-alpha-20220206-0.8.5.diff
-    yay -S librewolf pyradio
 else 
     echo 'Copying wm configs...'
     cp $WM/slstatus/config.h $CONFIG/status_line/slstatus/
@@ -44,14 +43,10 @@ else
 
     echo 'Copying other...'
     cp ~/.config/zathura/zathurarc $CONFIG/zathura
-    cp ~/.config/lobster/lobster_config.txt $CONFIG/stuff
-    cp ~/.config/shellcaster/config.toml $CONFIG/stuff
     cp ~/.vim/plugged/gruvbox/colors/gruvbox.vim $CONFIG/colors
     cp ~/.vim/plugged/mountaineer.vim/colors/mountaineer-grey.vim $CONFIG/colors
     cp ~/.config/zathura/themes $CONFIG/zathura/ -r
     cp ~/.config/zathura/*.color $CONFIG/zathura/
-    cp ~/.config/shellcaster/{config.toml,podcasts.txt} $CONFIG/shellcaster
-    ~/.config/qutebrowser/{config.py,gruvbox.py} $CONFIG/qutebrowser
-    cp ~/.config/pyradio/config $CONFIG/pyradio
+    cp ~/.config/qutebrowser/{config.py,gruvbox.py} $CONFIG/qutebrowser
     echo 'Done!'
 fi

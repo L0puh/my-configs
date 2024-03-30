@@ -26,7 +26,6 @@
 | gphotofs | mount camera | 
 | fzf | finder | 
 | feh | image viewer | 
-| tmux | terminal multiplexer |
 | cmake\make | building |
 | xrandr | monitor setup |
 | qutebrowser | lightweight browser |

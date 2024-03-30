@@ -143,7 +143,6 @@ config.set('content.local_content_can_access_file_urls', False, 'file:///home/lo
 # `colors.webpage.darkmode.increase_text_contrast` (QtWebEngine 6.3+)
 # Type: Bool
 c.colors.webpage.darkmode.enabled = True
-config.bind("M", "hint links spawn yt-dlp {hint-url}")
 
 config.source("gruvbox.py")
 c.editor.command = ['vim', '{}']

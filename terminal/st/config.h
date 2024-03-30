@@ -98,7 +98,6 @@ unsigned int tabspaces = 8;
 
 /* Terminal colors (16 first used in escape sequence) */
 static const char *colorname[] = {
-
     // Color codes for each of the 8 color slots:
     "#1a1818",//black
     "#433c38",//brown
@@ -111,7 +110,6 @@ static const char *colorname[] = {
 
     //Additional color codes for the 8 color slots in bold text:
     "#1a1818",//black
-    /* "#2b2222",//brown */
     "#75594f",//black
     "#9c9678", //yellow
     "#64858c", //blue
@@ -139,6 +137,10 @@ unsigned int defaultfg = 258;
 unsigned int defaultbg = 259;
 unsigned int defaultcs = 256;
 static unsigned int defaultrcs = 257;
+
+
+
+
 
 /*
  * Default shape of cursor

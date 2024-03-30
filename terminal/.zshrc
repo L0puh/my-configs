@@ -8,14 +8,6 @@ export PATH
 export FZF_DEFAULT_COMMAND="rg --files --hidden -g '!.git/*' -g '!build/*'" 
 export FZF_DEFAULT_OPTS='-i --color="dark,fg:#ACA98A" --preview "head -n 50 {}"'
 
-# color manuals
-export LESS_TERMCAP_mb=$'\e[1;32m'
-export LESS_TERMCAP_md=$'\e[1;32m'
-export LESS_TERMCAP_me=$'\e[0m'
-export LESS_TERMCAP_se=$'\e[0m'
-export LESS_TERMCAP_so=$'\e[01;33m'
-export LESS_TERMCAP_ue=$'\e[0m'
-export LESS_TERMCAP_us=$'\e[1;4;31m'
 
 # Uncomment the following line if pasting URLs and other text is messed up.
 # DISABLE_MAGIC_FUNCTIONS="true"
@@ -56,7 +48,12 @@ export LESS_TERMCAP_us=$'\e[1;4;31m'
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git fzf z zsh-autosuggestions zsh-syntax-highlighting)
+plugins=(
+   git 
+   z 
+   zsh-autosuggestions 
+   zsh-syntax-highlighting
+)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -79,6 +76,7 @@ alias v="pactl set-sink-volume @DEFAULT_SINK@"
 alias todo="grep -i TODO */*.* *.* && grep -i FIXME */*.* *.*"
 alias gs="git status"
 alias ls="ls --sort=extension --color=always"
+alias bc="bc -ql"
 alias neofetch="neofetch --disable theme icons host "
 
 # alias anki="/home/lopuh/Downloads/anki/anki"
