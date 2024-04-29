@@ -8,7 +8,6 @@ export PATH
 export FZF_DEFAULT_COMMAND="rg --files --hidden -g '!.git/*' -g '!build/*'" 
 export FZF_DEFAULT_OPTS='-i --color="dark,fg:#ACA98A" --preview "head -n 50 {}"'
 
-
 # Uncomment the following line if pasting URLs and other text is messed up.
 # DISABLE_MAGIC_FUNCTIONS="true"
 
