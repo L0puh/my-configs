@@ -25,7 +25,6 @@ call plug#begin()
 
    Plug 'tpope/vim-commentary'
    Plug 'ycm-core/YouCompleteMe'
-   Plug 'TheNiteCoder/mountaineer.vim'
    Plug 'morhetz/gruvbox'
    Plug 'mattn/emmet-vim'
    Plug 'iamcco/markdown-preview.vim'
@@ -33,7 +32,6 @@ call plug#begin()
 call plug#end()
 
 set termguicolors
-" colorschemes: mountaineer-grey jellybeans
 colorscheme gruvbox 
 
 set bg=dark
@@ -45,6 +43,7 @@ command! -bang -nargs=* RG
 
 
 "mapping
+let mapleader = " "
 nnoremap <C-c> :tabclose<CR>
 nnoremap <C-g> :tabnext<CR>
 nnoremap <C-q> :q<CR>
@@ -52,12 +51,12 @@ nnoremap <C-s> :w<CR>
 nnoremap <C-z> :YcmCompleter GoToDeclaration<CR>
 nnoremap <C-o> :Commentary<CR>
 nnoremap <C-x> :YcmCompleter FixIt<CR>
-nnoremap <C-a> :Files <CR>
-nnoremap <C-p> :RG <CR>
 nnoremap <C-e> :ll <CR>             "fetch errors
 nnoremap <C-l> :lnext <CR>          "jump to next error
 nnoremap <C-k> :lprevious <CR>
-nnoremap <C-h> :AT <CR>
+nnoremap <leader>; :Buffers<CR>
+nnoremap <leader>p :Files <CR>
+nnoremap <C-p> :RG <CR>
 
 let g:ycm_auto_trigger=1
 let g:ycm_enable_semantic_highlighting=1
