@@ -42,9 +42,10 @@ else
     cp ~/.zshrc $CONFIG/terminal 
 
     echo 'Copying other...'
+    cp ~/.config/herbe/config.h $CONFIG/WMs/herbe
     cp ~/.config/zathura/zathurarc $CONFIG/zathura
     cp ~/.vim/plugged/gruvbox/colors/gruvbox.vim $CONFIG/colors
-    cp ~/.vim/plugged/mountaineer.vim/colors/mountaineer-grey.vim $CONFIG/colors
+    # cp ~/.vim/plugged/mountaineer.vim/colors/mountaineer-grey.vim $CONFIG/colors
     cp ~/.config/zathura/themes $CONFIG/zathura/ -r
     cp ~/.config/zathura/*.color $CONFIG/zathura/
     cp ~/.config/qutebrowser/{config.py,gruvbox.py} $CONFIG/qutebrowser
