@@ -49,5 +49,6 @@ else
     cp ~/.config/zathura/themes $CONFIG/zathura/ -r
     cp ~/.config/zathura/*.color $CONFIG/zathura/
     cp ~/.config/qutebrowser/{config.py,gruvbox.py} $CONFIG/qutebrowser
+    sudo cp ~/.config/my-configs/scripts/bat_check.sh /usr/bin
     echo 'Done!'
 fi

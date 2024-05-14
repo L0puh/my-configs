@@ -3,7 +3,7 @@ ZSH_THEME="clean"
 zstyle ':omz:update' mode auto      # update automatically without asking
 
 path+=('/home/lopuh/.cargo/bin')
-export PATH
+export PATH="/usr/local/bin:/usr/bin:/bin"
 
 export FZF_DEFAULT_COMMAND="rg --files --hidden -g '!.git/*' -g '!build/*'" 
 export FZF_DEFAULT_OPTS='-i --color="dark,fg:#ACA98A" --preview "head -n 50 {}"'
@@ -80,7 +80,7 @@ alias neofetch="neofetch --disable theme icons host "
 
 # alias anki="/home/lopuh/Downloads/anki/anki"
 ## MY SCRIPTS
-alias remindme="$HOME/.config/my-configs/scripts/remindme.sh"
+alias remindme="/usr/bin/remindme"
 alias b="python ~/.config/my-configs/scripts/book.py"
 alias bf="$HOME/.config/my-configs/scripts/books.sh"
 alias mf="$HOME/.config/my-configs/scripts/movies.sh"
