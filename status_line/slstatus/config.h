@@ -67,4 +67,5 @@ static const struct arg args[] = {
     { datetime,           "^c#b57f14^ TIME: %s ", "%d %b %H:%M"},
     { battery_perc,       "^c#9d0006^ BAT: %s%% ",  "BAT1"        },
     { cpu_perc,           "^c#2b2a2a^ CPU: %s%% ",   NULL         },
+    { netspeed_rx,           "^c#2b2a2a^ SPEED: %s ",   "wlp1s0"},
 };

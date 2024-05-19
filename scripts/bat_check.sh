@@ -9,7 +9,7 @@ if [[ `echo $BATTINFO | grep Discharging` && `echo $BATTINFO | cut -f 4 -d " " |
     mpv ~/music/sounds/notification.mp3
     DISPLAY=:0.0 herbe "LOW BATTERY" "$BATTINFO"
 fi
-if [[ `echo $BATTINFO | grep charging` && `echo $BATTINFO | cut -f 4 -d " " | cut -c 1-2` > 98 ]] ; then
+if [[ `echo $BATTINFO | grep Not charging` && `echo $BATTINFO | cut -f 4 -d " " | cut -c 1-2` > 98 ]] ; then
     mpv ~/music/sounds/notification.mp3
     DISPLAY=:0.0 herbe "DONE: $BATTINFO"
 fi
