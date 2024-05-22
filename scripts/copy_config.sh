@@ -44,6 +44,7 @@ else
     echo 'Copying other...'
     cp ~/.config/herbe/config.h $CONFIG/WMs/herbe
     cp ~/.config/zathura/zathurarc $CONFIG/zathura
+    cp ~/.config/ranger/rc.conf $CONFIG
     cp ~/.vim/plugged/gruvbox/colors/gruvbox.vim $CONFIG/colors
     # cp ~/.vim/plugged/mountaineer.vim/colors/mountaineer-grey.vim $CONFIG/colors
     cp ~/.config/zathura/themes $CONFIG/zathura/ -r

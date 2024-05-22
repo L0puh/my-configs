@@ -31,6 +31,7 @@
 | qutebrowser | lightweight browser |
 | ntui | network manager tui |
 | blueberry + dmenu-bluetooth  | bluetooth manager |
+| ncdu | mem scaner | 
 
 ## theme:
 ```
