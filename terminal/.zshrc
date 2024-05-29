@@ -80,6 +80,7 @@ alias neofetch="neofetch --disable theme icons host "
 
 # alias anki="/home/lopuh/Downloads/anki/anki"
 ## MY SCRIPTS
+
 alias remindme="/usr/bin/remindme"
 alias b="python ~/.config/my-configs/scripts/book.py"
 alias bf="$HOME/.config/my-configs/scripts/books.sh"
