@@ -69,12 +69,14 @@ static const char *bluetooth[] =  {"dmenu-bluetooth", "-m", dmenumon, "-fn", dme
 static const char *volupcmd[] = { "amixer", "-q", "set", "Master",  "5%+", "unmute", NULL };
 static const char *voldowncmd[] = { "amixer", "-q", "set", "Master", "5%-", "unmute", NULL };
 static const char *obsidian[] = { "obsidian", NULL };
+static const char *translator[] = { "translator", NULL };
 
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
 
 	{ MODKEY,                       XK_p,       spawn,          {.v = dmenucmd   } },
     { MODKEY,			            XK_F1, 	    spawn, 	        {.v = browser    } },
+    { MODKEY|ShiftMask,			   XK_t, 	    spawn, 	        {.v = translator} },
 	{ MODKEY,			            XK_F11,     spawn, 	        {.v = voldowncmd } },
 	{ MODKEY|ShiftMask,			   XK_F8,     spawn, 	        {.v = obsidian} },
 	{ MODKEY,			            XK_F12, 	spawn, 	        {.v = volupcmd   } },
