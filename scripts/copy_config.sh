@@ -51,5 +51,6 @@ else
     cp ~/.config/zathura/*.color $CONFIG/zathura/
     cp ~/.config/qutebrowser/{config.py,autoconfig.yml,gruvbox.py} $CONFIG/qutebrowser
     sudo cp ~/.config/my-configs/scripts/bat_check.sh /usr/bin
+    sudo cp ~/.config/my-configs/scripts/translator /usr/bin
     echo 'Done!'
 fi
