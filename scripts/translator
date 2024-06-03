@@ -1,3 +1,0 @@
-choice="$(echo -e "ru\neng" | dmenu)"
-text="$(xclip -out)" 
-st -e sh -c "trans -t ${choice} -j ${text}; read"
