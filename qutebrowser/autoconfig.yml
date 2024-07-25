@@ -18,8 +18,14 @@ settings:
     global: lightness-cielab
   colors.webpage.darkmode.enabled:
     global: true
+  colors.webpage.darkmode.policy.images:
+    global: smart
   colors.webpage.preferred_color_scheme:
     global: dark
+  content.blocking.enabled:
+    global: true
+  content.notifications.enabled:
+    https://www-formula.ru: false
   content.notifications.presenter:
     global: herbe
   downloads.location.directory:
@@ -28,13 +34,24 @@ settings:
     global: default
   fonts.default_family:
     global: Cascadia Code
+  scrolling.bar:
+    global: never
+  statusbar.show:
+    global: always
+  tabs.show:
+    global: always
   url.default_page:
     global: file:///home/lopuh/.config/qutebrowser/startpage.html
   url.searchengines:
     global:
       DEFAULT: https://lite.duckduckgo.com/lite/?q={}
-      dc: https://www.merriam-webster.com/dictionary/{}
+      dc: https://dictionary.cambridge.org/dictionary/english/{}
       tr: https://translate.yandex.com/?source_lang=en&target_lang=ru&text={}
+      ya: https://ya.ru/search/?text={}
       yt: https://www.youtube.com/results?search_query={}
   url.start_pages:
     global: file:///home/lopuh/.config/qutebrowser/startpage.html
+  window.hide_decoration:
+    global: false
+  window.transparent:
+    global: false

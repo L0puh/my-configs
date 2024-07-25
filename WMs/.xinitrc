@@ -22,7 +22,7 @@ fi
 slstatus &
 /* transparent bg */
 /* xcompmgr & */
-
+/* unclutter --timeout 1 & */ 
 /* set keymaps */ 
 setxkbmap -layout us,ru -option grp:toggle 
 

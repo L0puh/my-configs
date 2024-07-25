@@ -29,7 +29,7 @@
 | cmake\make | building |
 | xrandr | monitor setup |
 | qutebrowser | lightweight browser |
-| ntui | network manager tui |
+| nmtui | network manager tui |
 | blueberry + dmenu-bluetooth  | bluetooth manager |
 | ncdu | mem scaner | 
 

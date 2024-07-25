@@ -49,11 +49,15 @@ nnoremap <C-s> :w<CR>
 nnoremap <C-z> :YcmCompleter GoToDeclaration<CR>
 nnoremap <C-o> :Commentary<CR>
 nnoremap <C-x> :YcmCompleter FixIt<CR>
+nnoremap <leader>a :YcmCompleter GoToAlternateFile<CR>
 nnoremap <C-e> :ll <CR>             "fetch errors
 nnoremap <C-l> :lnext <CR>          "jump to next error
 nnoremap <C-k> :lprevious <CR>
 nnoremap <leader>; :Buffers<CR>
 nnoremap <leader>p :Files <CR>
+nnoremap <leader>r :YcmRestartServer<CR>
+nnoremap <leader>h :YcmCompleter GetDoc<CR>
+nnoremap <leader>c :!compiledb make clean && compiledb -- make<CR>
 nnoremap <C-p> :RG <CR>
 
 let g:ycm_auto_trigger=1

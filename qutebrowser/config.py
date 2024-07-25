@@ -144,5 +144,10 @@ config.set('content.local_content_can_access_file_urls', False, 'file:///home/lo
 # Type: Bool
 c.colors.webpage.darkmode.enabled = True
 
+config.bind('xb', 'config-cycle statusbar.show always never')
+config.bind('xt', 'config-cycle tabs.show always never')
+config.bind('xx', 'config-cycle statusbar.show always never;; config-cycle tabs.show always never')
+config.bind('<Ctrl-r>', 'config-cycle colors.webpage.darkmode.enabled')
+
 config.source("gruvbox.py")
 c.editor.command = ['vim', '{}']
