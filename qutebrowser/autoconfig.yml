@@ -48,7 +48,6 @@ settings:
       dc: https://dictionary.cambridge.org/dictionary/english/{}
       tr: https://translate.yandex.com/?source_lang=en&target_lang=ru&text={}
       ya: https://ya.ru/search/?text={}
-      yt: https://www.youtube.com/results?search_query={}
   url.start_pages:
     global: file:///home/lopuh/.config/qutebrowser/startpage.html
   window.hide_decoration:

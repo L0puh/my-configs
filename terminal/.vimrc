@@ -13,21 +13,38 @@ set expandtab
 set autoindent 
 set mouse=a
 
-set wildmenu  "auto complete in vim commands 
+set wildmenu               "auto complete in vim commands 
+set clipboard=unnamed      "yank to clipboard (primary, use unnamedplus for clipboard)
 
 call plug#begin()
    " Plug 'scrooloose/nerdcommenter',
    " Plug 'jiangmiao/auto-pairs'
    " Plug 'ctrlpvim/ctrlp.vim'
+   " Plug 'godlygeek/tabular'
+   
+   Plug 'preservim/vim-markdown'
+   Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
    Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
    Plug 'junegunn/fzf.vim'
    Plug 'tpope/vim-commentary'
    Plug 'ycm-core/YouCompleteMe'
    Plug 'morhetz/gruvbox'
    Plug 'mattn/emmet-vim'
-   Plug 'iamcco/markdown-preview.vim'
-
 call plug#end()
+
+" MARKDOWN
+set conceallevel=2
+let g:mkdp_auto_start = 0
+let g:vim_markdown_conceal = 2
+let g:vim_markdown_folding_disabled = 1
+let g:vim_markdown_autowrite = 1
+let g:vim_markdown_math = 1
+let g:vim_markdown_toc_autofit = 1
+let g:vim_markdown_strikethrough = 1
+
+let g:mkdp_theme = 'dark'
+let g:mkdp_page_title = '${name}'
+let g:mkdp_markdown_css = '$HOME/.config/my-configs/markdown.css'
 
 set termguicolors
 colorscheme gruvbox 
@@ -55,6 +72,7 @@ nnoremap <C-l> :lnext <CR>          "jump to next error
 nnoremap <C-k> :lprevious <CR>
 nnoremap <leader>; :Buffers<CR>
 nnoremap <leader>p :Files <CR>
+nnoremap <leader>o :MarkdownPreview<CR>
 nnoremap <leader>r :YcmRestartServer<CR>
 nnoremap <leader>h :YcmCompleter GetDoc<CR>
 nnoremap <leader>c :!compiledb make clean && compiledb -- make<CR>
