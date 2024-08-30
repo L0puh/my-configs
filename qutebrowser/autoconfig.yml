@@ -46,6 +46,7 @@ settings:
     global:
       DEFAULT: https://lite.duckduckgo.com/lite/?q={}
       dc: https://dictionary.cambridge.org/dictionary/english/{}
+      gdc: https://www.collinsdictionary.com/dictionary/german-english/{}
       tr: https://translate.yandex.com/?source_lang=en&target_lang=ru&text={}
       ya: https://ya.ru/search/?text={}
   url.start_pages:

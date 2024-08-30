@@ -14,16 +14,19 @@ set autoindent
 set mouse=a
 
 set wildmenu               "auto complete in vim commands 
-set clipboard=unnamed      "yank to clipboard (primary, use unnamedplus for clipboard)
+set clipboard=unnamedplus  "yank to clipboard 
+                           "primary - unnamed, unnamedplus - clipboard
 
 call plug#begin()
    " Plug 'scrooloose/nerdcommenter',
    " Plug 'jiangmiao/auto-pairs'
    " Plug 'ctrlpvim/ctrlp.vim'
-   " Plug 'godlygeek/tabular'
-   
+  
+"MARKDOWN
+   Plug 'godlygeek/tabular'
    Plug 'preservim/vim-markdown'
    Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
+
    Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
    Plug 'junegunn/fzf.vim'
    Plug 'tpope/vim-commentary'
@@ -41,21 +44,21 @@ let g:vim_markdown_autowrite = 1
 let g:vim_markdown_math = 1
 let g:vim_markdown_toc_autofit = 1
 let g:vim_markdown_strikethrough = 1
-
+let g:vim_markdown_new_list_item_indent = 0
+let g:vim_markdown_auto_insert_bullets = 0
+let g:vim_markdown_frontmatter = 1
 let g:mkdp_theme = 'dark'
+let g:mkdp_path_to_chrome = "qutebrowser"
 let g:mkdp_page_title = '${name}'
 let g:mkdp_markdown_css = '$HOME/.config/my-configs/markdown.css'
 
+
 set termguicolors
+set background=dark
 colorscheme gruvbox 
 
 set bg=dark
 set t_Co=256
-
-command! -bang -nargs=* RG
-  \ call fzf#vim#grep(
-  \   'rg --column --line-number --no-heading --color=always --colors "path:fg:176,113,111" --colors "line:fg:176,113,111" --smart-case '.shellescape(<q-args>), 1, {'options': '--color hl:#8AABAC '}, 0)
-
 
 "mapping
 let mapleader = " "
@@ -71,12 +74,12 @@ nnoremap <C-e> :ll <CR>             "fetch errors
 nnoremap <C-l> :lnext <CR>          "jump to next error
 nnoremap <C-k> :lprevious <CR>
 nnoremap <leader>; :Buffers<CR>
-nnoremap <leader>p :Files <CR>
+nnoremap <leader>p :FZF <CR>
 nnoremap <leader>o :MarkdownPreview<CR>
 nnoremap <leader>r :YcmRestartServer<CR>
 nnoremap <leader>h :YcmCompleter GetDoc<CR>
 nnoremap <leader>c :!compiledb make clean && compiledb -- make<CR>
-nnoremap <C-p> :RG <CR>
+nnoremap <silent> <C-p> :execute 'silent! write'<Bar>RG <CR>
 
 let g:ycm_auto_trigger=1
 let g:ycm_enable_semantic_highlighting=1
@@ -86,7 +89,26 @@ let g:ycm_echo_current_diagnostic = 'virtual-text'
 
 
 call prop_type_add ('YCM_HL_bracket', {'highlight' : 'Normal'})
-let g:mkdp_path_to_chrome = "qutebrowser"
+
+
+command! -bang -nargs=* RG call fzf#vim#grep(
+        \   'rg
+        \ --column
+        \ --line-number
+        \ --no-heading
+        \ --fixed-strings
+        \ --ignore-case
+        \ --hidden
+        \ --follow
+        \ --glob "!.git/*"
+        \ --color "always"
+        \ --colors "path:fg:176,113,111"
+        \ --colors "line:fg:176,113,111"
+        \ --smart-case '.shellescape(<q-args>),  
+        \   fzf#vim#with_preview('right:50%:hidden', '?'),  <bang>0)
+
 
 hi Normal ctermbg=NONE guibg=NONE 
+
+
 
