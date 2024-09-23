@@ -29,8 +29,9 @@ static const Rule rules[] = {
 	 *	WM_NAME(STRING) = title
 	 */
 	/* class      instance    title       tags mask     isfloating   monitor */
-	{ "Gimp",     NULL,       NULL,       0,            1,           -1 },
-	{ "Firefox",  NULL,       NULL,       1 << 8,       0,           -1 },
+	{ "Pomatez",      NULL,   NULL,       1 << 2,       1,           0 },
+	{ "qutebrowser",  NULL,   NULL,       0,            0,           0 },
+
 };
 
 /* layout(s) */
@@ -70,16 +71,18 @@ static const char *volupcmd[] = { "amixer", "-q", "set", "Master",  "5%+", "unmu
 static const char *voldowncmd[] = { "amixer", "-q", "set", "Master", "5%-", "unmute", NULL };
 static const char *notes[] = { "notes", NULL };
 static const char *translator[] = { "translator", NULL };
+static const char *search_query[] = { "query", NULL };
 
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
 
 	{ MODKEY,                       XK_p,       spawn,          {.v = dmenucmd   } },
+	{ MODKEY,                       XK_s,       spawn,          {.v = search_query } },
     { MODKEY,			            XK_F1, 	    spawn, 	        {.v = browser    } },
     { MODKEY|ShiftMask,			   XK_t, 	    spawn, 	        {.v = translator} },
-	{ MODKEY,			            XK_F11,     spawn, 	        {.v = voldowncmd } },
+	{ MODKEY,			            XK_F10,     spawn, 	        {.v = voldowncmd } },
 	{ MODKEY|ShiftMask,			   XK_F8,     spawn, 	        {.v = notes} },
-	{ MODKEY,			            XK_F12, 	spawn, 	        {.v = volupcmd   } },
+      { MODKEY,			            XK_F11, 	spawn, 	        {.v = volupcmd   } },
 	{ MODKEY,             		    XK_Return,  spawn,          {.v = termcmd    } },
 	{ MODKEY,             		    XK_F2,      spawn,          {.v = screenWin  } },
 	{ MODKEY,             		    XK_F3,      spawn,          {.v = screenReg  } },

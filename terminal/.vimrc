@@ -17,6 +17,7 @@ set wildmenu               "auto complete in vim commands
 set clipboard=unnamedplus  "yank to clipboard 
                            "primary - unnamed, unnamedplus - clipboard
 
+
 call plug#begin()
    " Plug 'scrooloose/nerdcommenter',
    " Plug 'jiangmiao/auto-pairs'
@@ -24,6 +25,7 @@ call plug#begin()
   
 "MARKDOWN
    Plug 'godlygeek/tabular'
+   Plug 'junegunn/goyo.vim'
    Plug 'preservim/vim-markdown'
    Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 
@@ -37,7 +39,6 @@ call plug#end()
 
 " MARKDOWN
 set conceallevel=2
-let g:mkdp_auto_start = 0
 let g:vim_markdown_conceal = 2
 let g:vim_markdown_folding_disabled = 1
 let g:vim_markdown_autowrite = 1
@@ -47,10 +48,13 @@ let g:vim_markdown_strikethrough = 1
 let g:vim_markdown_new_list_item_indent = 0
 let g:vim_markdown_auto_insert_bullets = 0
 let g:vim_markdown_frontmatter = 1
+
+let g:mkdp_auto_start = 0
 let g:mkdp_theme = 'dark'
 let g:mkdp_path_to_chrome = "qutebrowser"
 let g:mkdp_page_title = '${name}'
 let g:mkdp_markdown_css = '$HOME/.config/my-configs/markdown.css'
+let g:mkdp_open_ip = ''
 
 
 set termguicolors
@@ -70,22 +74,29 @@ nnoremap <C-z> :YcmCompleter GoToDeclaration<CR>
 nnoremap <C-o> :Commentary<CR>
 nnoremap <C-x> :YcmCompleter FixIt<CR>
 nnoremap <leader>a :YcmCompleter GoToAlternateFile<CR>
+
+" errors:
 nnoremap <C-e> :ll <CR>             "fetch errors
 nnoremap <C-l> :lnext <CR>          "jump to next error
 nnoremap <C-k> :lprevious <CR>
-nnoremap <leader>; :Buffers<CR>
-nnoremap <leader>p :FZF <CR>
+nnoremap <C-p>r :YcmRestartServer<CR>
+
 nnoremap <leader>o :MarkdownPreview<CR>
-nnoremap <leader>r :YcmRestartServer<CR>
 nnoremap <leader>h :YcmCompleter GetDoc<CR>
 nnoremap <leader>c :!compiledb make clean && compiledb -- make<CR>
-nnoremap <silent> <C-p> :execute 'silent! write'<Bar>RG <CR>
+nnoremap <leader>f :Goyo <CR> 
+
+" find files
+nnoremap <leader>b :Buffers<CR>
+nnoremap <silent> <leader>p  :execute 'silent! write'<Bar>FZF<CR>
+nnoremap <silent> <leader>r  :execute 'silent! write'<Bar>RG <CR>
 
 let g:ycm_auto_trigger=1
 let g:ycm_enable_semantic_highlighting=1
 let g:ycm_clear_inlay_hints_in_insert_mode=1
 let g:ycm_always_populate_location_list=1 "jump to errors
 let g:ycm_echo_current_diagnostic = 'virtual-text'
+
 
 
 call prop_type_add ('YCM_HL_bracket', {'highlight' : 'Normal'})

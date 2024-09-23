@@ -5,17 +5,17 @@
 - cascadia code nerd (ttf-cascadia-code-nerd)
 - awesome (ttf-awesome-font)
 
- patches:
-    - [anysize](https://st.suckless.org/patches/anysize/st-anysize-0.8.1.diff) (no gasps for st)
-    - [alpha](https://st.suckless.org/patches/alpha/st-alpha-20220206-0.8.5.diff) (transparent bg for st)
-    - [status2d](https://dwm.suckless.org/patches/status2d/dwm-status2d-20200508-60bb3df.diff) (colors in slstatus)
+## patches:
+- [anysize](https://st.suckless.org/patches/anysize/st-anysize-0.8.1.diff) (no gasps for st)
+- [alpha](https://st.suckless.org/patches/alpha/st-alpha-20220206-0.8.5.diff) (transparent bg for st)
+- [status2d](https://dwm.suckless.org/patches/status2d/dwm-status2d-20200508-60bb3df.diff) (colors in slstatus)
 
-## stuff
+## apps: 
 
 | TOOL  | ACTION |
 | ------------- | ------------- |
 | mpv | video player|
-| cmus / termusic | music player| 
+| cmus | music player| 
 | zathura | pdf reader| 
 | vim | text editor |
 | st | terminal |
@@ -26,14 +26,13 @@
 | gphotofs | mount camera | 
 | fzf | finder | 
 | feh | image viewer | 
-| cmake\make | building |
 | xrandr | monitor setup |
 | qutebrowser | lightweight browser |
 | nmtui | network manager tui |
 | blueberry + dmenu-bluetooth  | bluetooth manager |
-| ncdu | mem scaner | 
+| ncdu | memory scaner | 
 
-## theme:
+## colors:
 ```
 #121212 - black
 #e6dbda - white

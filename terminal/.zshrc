@@ -91,4 +91,5 @@ alias dmenu="dmenu -fn 'Cascadia Code:size=8' -nb '#121212' -nf '#d4cfd0' -sb '#
 alias noise="$HOME/.config/my-configs/scripts/noise.sh"
 # Created by `pipx` on 2024-02-29 10:31:39
 export PATH="$PATH:/home/lopuh/.local/bin"
+alias zt="zathura"
 bindkey -v

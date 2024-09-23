@@ -50,7 +50,16 @@ else
     cp ~/.config/zathura/themes $CONFIG/zathura/ -r
     cp ~/.config/zathura/*.color $CONFIG/zathura/
     cp ~/.config/qutebrowser/{config.py,autoconfig.yml,gruvbox.py} $CONFIG/qutebrowser
-    sudo cp ~/.config/my-configs/scripts/bat_check.sh /usr/bin
+
+    echo "Copying scripts to bin..."
+    sudo cp ~/.config/my-configs/scripts/bat_check.sh /usr/bin/bat_check.sh
     sudo cp ~/.config/my-configs/scripts/translator.sh /usr/bin/translator
+    sudo cp ~/.config/my-configs/scripts/query.sh /usr/bin/query
+    sudo cp ~/.config/my-configs/scripts/books.sh /usr/bin/books
+
+    echo "Adding permissions..."
+    sudo chmod +x /usr/bin/translator
+    sudo chmod +x /usr/bin/query
+    sudo chmod +x /usr/bin/books
     echo 'Done!'
 fi

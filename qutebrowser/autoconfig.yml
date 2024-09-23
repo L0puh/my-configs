@@ -22,9 +22,12 @@ settings:
     global: smart
   colors.webpage.preferred_color_scheme:
     global: dark
+  content.autoplay:
+    global: false
   content.blocking.enabled:
     global: true
   content.notifications.enabled:
+    https://dodopizza.ru: false
     https://www-formula.ru: false
   content.notifications.presenter:
     global: herbe
@@ -47,6 +50,7 @@ settings:
       DEFAULT: https://lite.duckduckgo.com/lite/?q={}
       dc: https://dictionary.cambridge.org/dictionary/english/{}
       gdc: https://www.collinsdictionary.com/dictionary/german-english/{}
+      mg: https://search.marginalia.nu/search?query={}
       tr: https://translate.yandex.com/?source_lang=en&target_lang=ru&text={}
       ya: https://ya.ru/search/?text={}
   url.start_pages:
