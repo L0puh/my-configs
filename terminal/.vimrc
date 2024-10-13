@@ -1,3 +1,4 @@
+
 syntax on 
 
 set number
@@ -17,24 +18,20 @@ set wildmenu               "auto complete in vim commands
 set clipboard=unnamedplus  "yank to clipboard 
                            "primary - unnamed, unnamedplus - clipboard
 
-
 call plug#begin()
-   " Plug 'scrooloose/nerdcommenter',
-   " Plug 'jiangmiao/auto-pairs'
-   " Plug 'ctrlpvim/ctrlp.vim'
   
-"MARKDOWN
-   Plug 'godlygeek/tabular'
-   Plug 'junegunn/goyo.vim'
-   Plug 'preservim/vim-markdown'
-   Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
-
    Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
    Plug 'junegunn/fzf.vim'
    Plug 'tpope/vim-commentary'
    Plug 'ycm-core/YouCompleteMe'
    Plug 'morhetz/gruvbox'
    Plug 'mattn/emmet-vim'
+
+"MARKDOWN
+   Plug 'godlygeek/tabular'
+   Plug 'preservim/vim-markdown'
+   Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
+
 call plug#end()
 
 " MARKDOWN
@@ -84,7 +81,6 @@ nnoremap <C-p>r :YcmRestartServer<CR>
 nnoremap <leader>o :MarkdownPreview<CR>
 nnoremap <leader>h :YcmCompleter GetDoc<CR>
 nnoremap <leader>c :!compiledb make clean && compiledb -- make<CR>
-nnoremap <leader>f :Goyo <CR> 
 
 " find files
 nnoremap <leader>b :Buffers<CR>
@@ -120,6 +116,3 @@ command! -bang -nargs=* RG call fzf#vim#grep(
 
 
 hi Normal ctermbg=NONE guibg=NONE 
-
-
-

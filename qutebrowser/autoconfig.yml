@@ -37,6 +37,10 @@ settings:
     global: default
   fonts.default_family:
     global: Cascadia Code
+  fonts.web.family.fixed:
+    global: Hack
+  fonts.web.family.standard:
+    global: Hack
   scrolling.bar:
     global: never
   statusbar.show:

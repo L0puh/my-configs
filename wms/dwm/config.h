@@ -21,7 +21,7 @@ static const char *colors[][3]      = {
 
 /* tagging */
 /* static const char *tags[] = { "1", "2", "3", "4", "5" }; */
-static const char *tags[] = { "●", "●", "●", "●", "●" };
+static const char *tags[] = { "main ", " net ", " code ", " stuff "};
 
 static const Rule rules[] = {
 	/* xprop(1):
@@ -29,8 +29,8 @@ static const Rule rules[] = {
 	 *	WM_NAME(STRING) = title
 	 */
 	/* class      instance    title       tags mask     isfloating   monitor */
-	{ "Pomatez",      NULL,   NULL,       1 << 2,       1,           0 },
-	{ "qutebrowser",  NULL,   NULL,       0,            0,           0 },
+	{ "pomatez",          NULL,   NULL,     1 << 0,       1,           1 },
+	{ "qutebrowser",      NULL,   NULL,     1 << 1,       0,           0 },
 
 };
 
@@ -67,9 +67,11 @@ static const char *screenWin[] =  {"xfce4-screenshooter", "-f", NULL};
 static const char *screenReg[] =  {"xfce4-screenshooter", "-r", NULL};
 static const char *bluetooth[] =  {"dmenu-bluetooth", "-m", dmenumon, "-fn", dmenufont,\
                                     "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL};
-static const char *volupcmd[] = { "amixer", "-q", "set", "Master",  "5%+", "unmute", NULL };
-static const char *voldowncmd[] = { "amixer", "-q", "set", "Master", "5%-", "unmute", NULL };
+static const char *volupcmd[] = { "amixer", "set", "Master",  "5%+", "unmute", NULL };
+static const char *voldowncmd[] = { "amixer", "set", "Master", "5%-", "unmute", NULL };
 static const char *notes[] = { "notes", NULL };
+static const char *books[] = { "books", NULL };
+static const char *shutdown[] = { "shutdown", "now", NULL};
 static const char *translator[] = { "translator", NULL };
 static const char *search_query[] = { "query", NULL };
 
@@ -83,10 +85,12 @@ static const Key keys[] = {
 	{ MODKEY,			            XK_F10,     spawn, 	        {.v = voldowncmd } },
 	{ MODKEY|ShiftMask,			   XK_F8,     spawn, 	        {.v = notes} },
       { MODKEY,			            XK_F11, 	spawn, 	        {.v = volupcmd   } },
+      { MODKEY,			            XK_F9, 	spawn, 	        {.v = shutdown} },
 	{ MODKEY,             		    XK_Return,  spawn,          {.v = termcmd    } },
 	{ MODKEY,             		    XK_F2,      spawn,          {.v = screenWin  } },
 	{ MODKEY,             		    XK_F3,      spawn,          {.v = screenReg  } },
 	{ MODKEY|ShiftMask,             XK_b,      spawn,          {.v = bluetooth   } },
+	{ MODKEY|ShiftMask,             XK_s,      spawn,          {.v = books } },
 	{ MODKEY,                       XK_b,      togglebar,      {1} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },

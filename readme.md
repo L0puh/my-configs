@@ -1,36 +1,37 @@
 # preview
 ![](stuff/media.png)
-
 ## fonts:
 - cascadia code nerd (ttf-cascadia-code-nerd)
 - awesome (ttf-awesome-font)
+- Hack (ttf-hack)
 
-## patches:
-- [anysize](https://st.suckless.org/patches/anysize/st-anysize-0.8.1.diff) (no gasps for st)
-- [alpha](https://st.suckless.org/patches/alpha/st-alpha-20220206-0.8.5.diff) (transparent bg for st)
-- [status2d](https://dwm.suckless.org/patches/status2d/dwm-status2d-20200508-60bb3df.diff) (colors in slstatus)
+## patches and themes:
+- [status2d](https://dwm.suckless.org/patches/status2d/dwm-status2d-20200508-60bb3df.diff) - colors in slstatus
+- [primary monitor](https://github.com/dudik/herbe/pull/21) - for herbe 
+- [iceberg](https://github.com/maboroshin/qBittorrentDarktheme/blob/master/ICEBERG.qbtheme) - qbittorent theme
+- materia-dark - gtk theme with numix circle icons
 
 ## apps: 
 
-| TOOL  | ACTION |
-| ------------- | ------------- |
-| mpv | video player|
-| cmus | music player| 
-| zathura | pdf reader| 
-| vim | text editor |
-| st | terminal |
-| dwm | windows manager | 
-| dmenu | menu | 
-| slstatus | status bar |
-| omzsh | shell |
-| gphotofs | mount camera | 
-| fzf | finder | 
-| feh | image viewer | 
-| xrandr | monitor setup |
-| qutebrowser | lightweight browser |
-| nmtui | network manager tui |
-| blueberry + dmenu-bluetooth  | bluetooth manager |
-| ncdu | memory scaner | 
+ | TOOL            | ACTION              |
+ |-----------------|---------------------|
+ | dwm             | windows manager     |
+ | dmenu           | menu                |
+ | slstatus        | status bar          |
+ | vim             | text editor         |
+ | mpv             | video player        |
+ | cmus            | music player        |
+ | zathura         | pdf reader          |
+ | stterm + omzsh  | terminal            |
+ | fzf             | finder              |
+ | feh             | image viewer        |
+ | xrandr          | monitor setup       |
+ | qutebrowser     | lightweight browser |
+ | nmtui           | network manager tui |
+ | dmenu-bluetooth | bluetooth manager   |
+ | ncdu            | memory scaner       |
+ | herbe           | notifications       |
+
 
 ## colors:
 ```
