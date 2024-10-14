@@ -21,7 +21,8 @@ static const char *colors[][3]      = {
 
 /* tagging */
 /* static const char *tags[] = { "1", "2", "3", "4", "5" }; */
-static const char *tags[] = { "main ", " net ", " code ", " stuff "};
+
+static const char *tags[] = { "◆", "◆", "◆", "◆", "◆"};
 
 static const Rule rules[] = {
 	/* xprop(1):
@@ -30,7 +31,7 @@ static const Rule rules[] = {
 	 */
 	/* class      instance    title       tags mask     isfloating   monitor */
 	{ "pomatez",          NULL,   NULL,     1 << 0,       1,           1 },
-	{ "qutebrowser",      NULL,   NULL,     1 << 1,       0,           0 },
+	{ "qutebrowser",      NULL,   NULL,     1 << 0,       0,           0 },
 
 };
 
@@ -42,9 +43,9 @@ static const int lockfullscreen = 1; /* 1 will force focus on the fullscreen win
 
 static const Layout layouts[] = {
 	/* symbol     arrange function */
-	{ "DEF",      tile },    /* first entry is default */
-	{ "FLO",      NULL },    /* no layout function means floating behavior */
-	{ "MON",      monocle },
+	{ "tile",      tile },    /* first entry is default */
+	{ "floating",  NULL },    /* no layout function means floating behavior */
+	{ "monocle",   monocle },
 };
 
 /* key definitions */

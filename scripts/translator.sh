@@ -9,8 +9,9 @@ if [ "$choice" != "none" ]; then
    if [ "${text}" = "b'\n'" ]; then
       text="$(xclip -out -sel clip)"
    fi
+
    # st -e sh -c "trans ${choice} -j \"${text}\"; read"
-   translation=$(trans ${choice} -j -b \"${text}\")
-   DISPLAY=:0.0 herbe "translation of $text:" $translation
+   translation=$(trans ${choice} -j -b ${text})
+   DISPLAY=:0.0 herbe "$translation"
 fi
 
