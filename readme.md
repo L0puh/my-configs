@@ -4,6 +4,7 @@
 - cascadia code nerd (ttf-cascadia-code-nerd)
 - awesome (ttf-awesome-font)
 - Hack (ttf-hack)
+- ttf-noto-emoji-monochrome
 
 ## patches and themes:
 - [status2d](https://dwm.suckless.org/patches/status2d/dwm-status2d-20200508-60bb3df.diff) - colors in slstatus
@@ -58,3 +59,4 @@
 "#121212", /* default background colour */
 
 ```
+

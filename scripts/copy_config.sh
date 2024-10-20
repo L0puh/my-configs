@@ -54,11 +54,13 @@ else
     sudo cp ~/.config/my-configs/scripts/translator.sh /usr/bin/translator
     sudo cp ~/.config/my-configs/scripts/query.sh /usr/bin/query
     sudo cp ~/.config/my-configs/scripts/books.sh /usr/bin/books
+    sudo cp ~/.config/my-configs/scripts/movies.sh /usr/bin/movies
 
     echo "Adding permissions..."
     sudo chmod +x /usr/bin/translator
     sudo chmod +x /usr/bin/bat_check
     sudo chmod +x /usr/bin/query
     sudo chmod +x /usr/bin/books
+    sudo chmod +x /usr/bin/movies
     echo 'Done!'
 fi

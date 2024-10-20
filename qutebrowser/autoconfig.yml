@@ -8,10 +8,6 @@ config_version: 2
 settings:
   auto_save.session:
     global: true
-  bindings.commands:
-    global:
-      normal:
-        M: spawn mpv {url}
   colors.webpage.bg:
     global: '#121212'
   colors.webpage.darkmode.algorithm:
@@ -26,21 +22,28 @@ settings:
     global: false
   content.blocking.enabled:
     global: true
-  content.notifications.enabled:
-    https://dodopizza.ru: false
-    https://www-formula.ru: false
   content.notifications.presenter:
     global: herbe
   downloads.location.directory:
     global: /home/lopuh/downloads
+  fileselect.folder.command:
+    global:
+    - st
+    - -e
+    - ranger
+    - --choosedir={}
   fileselect.handler:
-    global: default
+    global: external
+  fileselect.multiple_files.command:
+    global:
+    - st
+    - -e
+    - ranger
+    - --choosefiles={}
   fonts.default_family:
-    global: Cascadia Code
-  fonts.web.family.fixed:
-    global: Hack
+    global: Cascadia Code NF
   fonts.web.family.standard:
-    global: Hack
+    global: Cascadia Code NF
   scrolling.bar:
     global: never
   statusbar.show:

@@ -154,3 +154,7 @@ config.bind('<Ctrl-r>', 'config-cycle colors.webpage.darkmode.enabled')
 config.source("gruvbox.py")
 
 c.editor.command = ['vim', '{}']
+config.set("fileselect.single_file.command", ['st', '-e', 'ranger', '--choosefile={}'])
+config.set("fileselect.multiple_files.command", ['st', '-e', 'ranger', '--choosefiles={}'])
+
+

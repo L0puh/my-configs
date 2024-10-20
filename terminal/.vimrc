@@ -15,7 +15,7 @@ set autoindent
 set mouse=a
 
 set wildmenu               "auto complete in vim commands 
-set clipboard=unnamedplus  "yank to clipboard 
+set clipboard=unnamed      "yank to clipboard 
                            "primary - unnamed, unnamedplus - clipboard
 
 call plug#begin()
