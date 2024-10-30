@@ -26,6 +26,7 @@ call plug#begin()
    Plug 'ycm-core/YouCompleteMe'
    Plug 'morhetz/gruvbox'
    Plug 'mattn/emmet-vim'
+   Plug 'lervag/vimtex'
 
 "MARKDOWN
    Plug 'godlygeek/tabular'
@@ -52,6 +53,12 @@ let g:mkdp_path_to_chrome = "qutebrowser"
 let g:mkdp_page_title = '${name}'
 let g:mkdp_markdown_css = '$HOME/.config/my-configs/markdown.css'
 let g:mkdp_open_ip = ''
+
+filetype plugin indent on
+let g:tex_flavor='latex'
+let g:tex_conceal='abdmg'
+let g:vimtex_view_method='zathura'
+let g:vimtex_quickfix_mode=0
 
 
 set termguicolors
@@ -94,9 +101,16 @@ let g:ycm_always_populate_location_list=1 "jump to errors
 let g:ycm_echo_current_diagnostic = 'virtual-text'
 
 
-
 call prop_type_add ('YCM_HL_bracket', {'highlight' : 'Normal'})
 
+
+function OpenTemplate(content) abort
+   let title = join(["./", a:content, ".tex"], "")
+   execute '!cp /home/lopuh/.config/my-configs/template.tex ' . title
+   execute 'e ' . title
+endfunc
+
+command -nargs=1 Note call OpenTemplate(<args>)
 
 command! -bang -nargs=* RG call fzf#vim#grep(
         \   'rg

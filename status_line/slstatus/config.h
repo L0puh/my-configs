@@ -69,5 +69,5 @@ static const struct arg args[] = {
     { battery_perc,        "^c#9d0006^ BAT: %s%% ",    "BAT1"        },
     { battery_state,        "[%s] ",    "BAT1"        },
     { cpu_perc,            "^c#8f3f71^ CPU: %s%% ",    NULL         },
-    { run_command,         "^c#076678^ VOL: %s% ",      " amixer sget Master | tail -1 | awk '{print $5 }' | sed 's@\\(\\[\\|\\]\\)@@g'" },
+    { run_command,         "^c#076678^ VOL: %s ",      " amixer sget Master | tail -1 | awk '{print $5 }' | sed 's@\\(\\[\\|\\]\\)@@g'" },
 };
