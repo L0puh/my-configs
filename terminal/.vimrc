@@ -19,14 +19,19 @@ set clipboard=unnamed      "yank to clipboard
                            "primary - unnamed, unnamedplus - clipboard
 
 call plug#begin()
+   Plug 'mattn/emmet-vim'
+   Plug 'morhetz/gruvbox'
   
-   Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
    Plug 'junegunn/fzf.vim'
+   Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
    Plug 'tpope/vim-commentary'
    Plug 'ycm-core/YouCompleteMe'
-   Plug 'morhetz/gruvbox'
-   Plug 'mattn/emmet-vim'
+   
+"LATEX
    Plug 'lervag/vimtex'
+   Plug 'SirVer/ultisnips'
+   Plug 'honza/vim-snippets'
+
 
 "MARKDOWN
    Plug 'godlygeek/tabular'
@@ -51,14 +56,22 @@ let g:mkdp_auto_start = 0
 let g:mkdp_theme = 'dark'
 let g:mkdp_path_to_chrome = "qutebrowser"
 let g:mkdp_page_title = '${name}'
-let g:mkdp_markdown_css = '$HOME/.config/my-configs/markdown.css'
+let g:mkdp_markdown_css = $HOME."/.config/my-configs/markdown.css"
 let g:mkdp_open_ip = ''
 
+
+"LATEX
 filetype plugin indent on
+let g:UltiSnipsExpandTrigger = '<c-l>'
+let g:UltiSnipsSnippetDirectories=[$HOME."/.config/my-configs/snippets", "UltiSnips"]
+
 let g:tex_flavor='latex'
 let g:tex_conceal='abdmg'
 let g:vimtex_view_method='zathura'
 let g:vimtex_quickfix_mode=0
+let g:vimtex_compiler_latexmk = {
+            \ 'out_dir' : 'texfiles',
+            \}
 
 
 set termguicolors
@@ -81,11 +94,14 @@ nnoremap <leader>a :YcmCompleter GoToAlternateFile<CR>
 
 " errors:
 nnoremap <C-e> :ll <CR>             "fetch errors
-nnoremap <C-l> :lnext <CR>          "jump to next error
-nnoremap <C-k> :lprevious <CR>
 nnoremap <C-p>r :YcmRestartServer<CR>
 
 nnoremap <leader>o :MarkdownPreview<CR>
+autocmd FileType tex nnoremap <buffer> <leader>t :VimtexTocToggle<CR> 
+autocmd FileType tex nnoremap <buffer> <leader>c :VimtexClean<CR>
+autocmd FileType tex nnoremap <buffer> <leader>o :VimtexCompile<CR>
+autocmd FileType markdown nnoremap <buffer> <leader>o :MarkdownPreview<CR>
+
 nnoremap <leader>h :YcmCompleter GetDoc<CR>
 nnoremap <leader>c :!compiledb make clean && compiledb -- make<CR>
 
@@ -102,7 +118,6 @@ let g:ycm_echo_current_diagnostic = 'virtual-text'
 
 
 call prop_type_add ('YCM_HL_bracket', {'highlight' : 'Normal'})
-
 
 function OpenTemplate(content) abort
    let title = join(["./", a:content, ".tex"], "")
