@@ -1,7 +1,6 @@
-
 syntax on 
-
 set number
+
 " set hlsearch
 set relativenumber 
 set signcolumn=no    "no error message on the left
@@ -15,8 +14,10 @@ set autoindent
 set mouse=a
 
 set wildmenu               "auto complete in vim commands 
-set clipboard=unnamed      "yank to clipboard 
-                           "primary - unnamed, unnamedplus - clipboard
+
+"yank to clipboard 
+"primary - unnamed, unnamedplus - clipboard
+set clipboard=unnamedplus
 
 call plug#begin()
    Plug 'mattn/emmet-vim'
@@ -81,35 +82,6 @@ colorscheme gruvbox
 set bg=dark
 set t_Co=256
 
-"mapping
-let mapleader = " "
-nnoremap <C-c> :tabclose<CR>
-nnoremap <C-g> :tabnext<CR>
-nnoremap <C-q> :q<CR>
-nnoremap <C-s> :w<CR>
-nnoremap <C-z> :YcmCompleter GoToDeclaration<CR>
-nnoremap <C-o> :Commentary<CR>
-nnoremap <C-x> :YcmCompleter FixIt<CR>
-nnoremap <leader>a :YcmCompleter GoToAlternateFile<CR>
-
-" errors:
-nnoremap <C-e> :ll <CR>             "fetch errors
-nnoremap <C-p>r :YcmRestartServer<CR>
-
-nnoremap <leader>o :MarkdownPreview<CR>
-autocmd FileType tex nnoremap <buffer> <leader>t :VimtexTocToggle<CR> 
-autocmd FileType tex nnoremap <buffer> <leader>c :VimtexClean<CR>
-autocmd FileType tex nnoremap <buffer> <leader>o :VimtexCompile<CR>
-autocmd FileType markdown nnoremap <buffer> <leader>o :MarkdownPreview<CR>
-
-nnoremap <leader>h :YcmCompleter GetDoc<CR>
-nnoremap <leader>c :!compiledb make clean && compiledb -- make<CR>
-
-" find files
-nnoremap <leader>b :Buffers<CR>
-nnoremap <silent> <leader>p  :execute 'silent! write'<Bar>FZF<CR>
-nnoremap <silent> <leader>r  :execute 'silent! write'<Bar>RG <CR>
-
 let g:ycm_auto_trigger=1
 let g:ycm_enable_semantic_highlighting=1
 let g:ycm_clear_inlay_hints_in_insert_mode=1
@@ -118,15 +90,6 @@ let g:ycm_echo_current_diagnostic = 'virtual-text'
 
 
 call prop_type_add ('YCM_HL_bracket', {'highlight' : 'Normal'})
-
-function OpenTemplate(content) abort
-   let title = join(["./", a:content, ".tex"], "")
-   execute '!cp /home/lopuh/.config/my-configs/template.tex ' . title
-   execute 'e ' . title
-endfunc
-
-command -nargs=1 Note call OpenTemplate(<args>)
-
 command! -bang -nargs=* RG call fzf#vim#grep(
         \   'rg
         \ --column
@@ -143,5 +106,59 @@ command! -bang -nargs=* RG call fzf#vim#grep(
         \ --smart-case '.shellescape(<q-args>),  
         \   fzf#vim#with_preview('right:50%:hidden', '?'),  <bang>0)
 
+" create a file when none is found 
+function! FzfFiles(fullscreen)                                            
+  function! s:FzfFileAccept(lines) abort                                  
+    if len(a:lines) < 2                                                   
+      return                                                              
+    elseif len(a:lines) == 2 || !empty(a:lines[1]) |                      
+      execute 'edit ' . a:lines[0]                                        
+    else                                                                  
+      execute 'edit ' . split(a:lines[2], '#####')[0]                     
+    endif                                                                 
+  endfunction                                                                                                      
+  let l:spec = {                                                          
+        \'options': ['-d=#####', '--print-query', '--expect=ctrl-j'],     
+        \'sink*': funcref('s:FzfFileAccept')                              
+        \}                                                                
+  call fzf#vim#files(getcwd(), fzf#vim#with_preview(l:spec), a:fullscreen)
+endfunction
+
+command! -bang Files :call FzfFiles(<bang>0)
+
+" paste template when open empty latex file
+autocmd BufNewFile *.tex call InsertLaTeXTemplate()
+
+function! InsertLaTeXTemplate()
+    if line('$') == 1 && getline(1) == ''
+        execute '0r ~/.config/my-configs/template.tex'
+    endif
+endfunction
+
+"mappings
+let mapleader = " "
+nnoremap <C-q> :q<CR>
+nnoremap <C-s> :w<CR>
+nnoremap <C-c> :tabclose<CR>
+nnoremap <C-g> :tabnext<CR>
+nnoremap <C-o> :Commentary<CR>
+
+nnoremap <C-e>:ll <CR>
+nnoremap <C-x>     :YcmCompleter FixIt<CR>
+nnoremap <C-z>     :YcmCompleter GoToDeclaration<CR>
+nnoremap <leader>a :YcmCompleter GoToAlternateFile<CR>
+nnoremap <leader>h :YcmCompleter GetDoc<CR>
+
+autocmd FileType tex      nnoremap <buffer> <leader>t :VimtexTocToggle<CR> 
+autocmd FileType tex      nnoremap <buffer> <leader>c :VimtexClean<CR>
+autocmd FileType tex      nnoremap <buffer> <leader>o :VimtexCompile<CR>
+autocmd FileType markdown nnoremap <buffer> <leader>o :MarkdownPreview<CR>
+
+" nnoremap <leader>c :!compiledb make clean && compiledb -- make<CR>
+nnoremap <leader>c :!sh run.sh<CR>
+
+nnoremap <leader>b :Buffers<CR>
+nnoremap <silent> <leader>p  :execute 'silent! write'<Bar>:call FzfFiles(0)<CR>
+nnoremap <silent> <leader>r  :execute 'silent! write'<Bar>RG <CR>
 
 hi Normal ctermbg=NONE guibg=NONE 
