@@ -5,7 +5,7 @@ ZSH_THEME="clean"
 zstyle ':omz:update' mode auto      
 
 export PATH="/usr/local/bin:/usr/bin:/bin:/home/lopuh/.local/bin"
-export FZF_DEFAULT_COMMAND="rg --files --hidden -g '!.git/*' -g '!build/*'" 
+export FZF_DEFAULT_COMMAND="rg --files --hidden -g '!.git/*' -g '!build/*' -g '!texfiles/*'" 
 export FZF_DEFAULT_OPTS='-i --pointer "> " --color="dark,fg:#ACA98A" --preview "head -n 50 {}"' 
 export EDITOR='vim'
 

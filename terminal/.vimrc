@@ -41,6 +41,12 @@ call plug#begin()
 
 call plug#end()
 
+set termguicolors
+set background=dark
+set bg=dark
+set t_Co=256
+colorscheme gruvbox 
+
 " MARKDOWN
 set conceallevel=2
 let g:vim_markdown_conceal = 2
@@ -74,22 +80,16 @@ let g:vimtex_compiler_latexmk = {
             \ 'out_dir' : 'texfiles',
             \}
 
-
-set termguicolors
-set background=dark
-colorscheme gruvbox 
-
-set bg=dark
-set t_Co=256
-
+"YouCompleteMe
 let g:ycm_auto_trigger=1
 let g:ycm_enable_semantic_highlighting=1
 let g:ycm_clear_inlay_hints_in_insert_mode=1
 let g:ycm_always_populate_location_list=1 "jump to errors
 let g:ycm_echo_current_diagnostic = 'virtual-text'
-
-
 call prop_type_add ('YCM_HL_bracket', {'highlight' : 'Normal'})
+
+
+"FZF
 command! -bang -nargs=* RG call fzf#vim#grep(
         \   'rg
         \ --column
@@ -98,6 +98,7 @@ command! -bang -nargs=* RG call fzf#vim#grep(
         \ --fixed-strings
         \ --ignore-case
         \ --hidden
+        \ --ignore-dot
         \ --follow
         \ --glob "!.git/*"
         \ --color "always"
@@ -111,23 +112,25 @@ function! FzfFiles(fullscreen)
   function! s:FzfFileAccept(lines) abort                                  
     if len(a:lines) < 2                                                   
       return                                                              
+    elseif a:lines[1] == 'ctrl-t' && !empty(a:lines[1]) |
+       " open searched query in a new tab
+      execute 'tabnew ' . split(a:lines[2], '#####')[0]                     
     elseif len(a:lines) == 2 || !empty(a:lines[1]) |                      
+       " open new file:
       execute 'edit ' . a:lines[0]                                        
     else                                                                  
+       " open searched query
       execute 'edit ' . split(a:lines[2], '#####')[0]                     
     endif                                                                 
+      " echom a:lines
   endfunction                                                                                                      
   let l:spec = {                                                          
-        \'options': ['-d=#####', '--print-query', '--expect=ctrl-j'],     
+        \'options': ['-d=#####', '--print-query', '--expect=ctrl-t'],     
         \'sink*': funcref('s:FzfFileAccept')                              
         \}                                                                
   call fzf#vim#files(getcwd(), fzf#vim#with_preview(l:spec), a:fullscreen)
 endfunction
 
-command! -bang Files :call FzfFiles(<bang>0)
-
-" paste template when open empty latex file
-autocmd BufNewFile *.tex call InsertLaTeXTemplate()
 
 function! InsertLaTeXTemplate()
     if line('$') == 1 && getline(1) == ''
@@ -135,7 +138,10 @@ function! InsertLaTeXTemplate()
     endif
 endfunction
 
-"mappings
+autocmd BufNewFile *.tex call InsertLaTeXTemplate() " paste template when open empty latex file
+command! -bang Files :call FzfFiles(<bang>0) " custom fzf function to open new files
+
+" MAPPINGS
 let mapleader = " "
 nnoremap <C-q> :q<CR>
 nnoremap <C-s> :w<CR>
@@ -154,10 +160,7 @@ autocmd FileType tex      nnoremap <buffer> <leader>c :VimtexClean<CR>
 autocmd FileType tex      nnoremap <buffer> <leader>o :VimtexCompile<CR>
 autocmd FileType markdown nnoremap <buffer> <leader>o :MarkdownPreview<CR>
 
-" nnoremap <leader>c :!compiledb make clean && compiledb -- make<CR>
 nnoremap <leader>c :!sh run.sh<CR>
-
-nnoremap <leader>b :Buffers<CR>
 nnoremap <silent> <leader>p  :execute 'silent! write'<Bar>:call FzfFiles(0)<CR>
 nnoremap <silent> <leader>r  :execute 'silent! write'<Bar>RG <CR>
 
