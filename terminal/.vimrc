@@ -11,6 +11,7 @@ set completeopt-=preview
 set smarttab
 set expandtab
 set autoindent 
+set linebreak wrap
 set mouse=a
 
 set wildmenu               "auto complete in vim commands 
@@ -77,8 +78,15 @@ let g:tex_conceal='abdmg'
 let g:vimtex_view_method='zathura'
 let g:vimtex_quickfix_mode=0
 let g:vimtex_compiler_latexmk = {
-            \ 'out_dir' : 'texfiles',
-            \}
+             \ 'out_dir' : 'texfiles',
+             \ 'options' : [
+             \    '-shell-escape',
+             \    '-verbose',
+             \    '-file-line-error',
+             \    '-synctex=1',
+             \    '-interaction=nonstopmode',
+             \ ],
+             \}
 
 "YouCompleteMe
 let g:ycm_auto_trigger=1
@@ -160,7 +168,8 @@ autocmd FileType tex      nnoremap <buffer> <leader>c :VimtexClean<CR>
 autocmd FileType tex      nnoremap <buffer> <leader>o :VimtexCompile<CR>
 autocmd FileType markdown nnoremap <buffer> <leader>o :MarkdownPreview<CR>
 
-nnoremap <leader>c :!sh run.sh<CR>
+nnoremap <leader>er :!sh run.sh<CR>
+nnoremap <leader>ep :!python %<CR>
 nnoremap <silent> <leader>p  :execute 'silent! write'<Bar>:call FzfFiles(0)<CR>
 nnoremap <silent> <leader>r  :execute 'silent! write'<Bar>RG <CR>
 

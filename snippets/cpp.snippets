@@ -9,15 +9,30 @@ typedef std::vector<long long> vecll;
 typedef long long ll;
 
 #define MOD 1e9 + 7;
+#define nl() { std::cout << "\n"; }
+
+void solve() {
+
+}
 
 int main() {
 	std::ios::sync_with_stdio(0);
 	std::cin.tie(0);
    std::cout.tie(0);
-	freopen("input.txt", "r", stdin);
-	freopen("output.txt", "w", stdout);
+	
+	int t;
+	std::cin >> t;
+	while(t--) solve();
 
 	return 0;
 }
 
+endsnippet
+
+
+
+snippet forll "for ll loop"
+for (${4:ll} ${2:i} = 0; $2 < ${1:count}; ${3:++$2}) {
+	${VISUAL}$0
+}
 endsnippet

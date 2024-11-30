@@ -58,6 +58,8 @@ settings:
       dc: https://dictionary.cambridge.org/dictionary/english/{}
       gdc: https://www.collinsdictionary.com/dictionary/german-english/{}
       mg: https://search.marginalia.nu/search?query={}
+      oz: https://ozdic.com/collocation/{}
+      sy: https://www.powerthesaurus.org/{}/synonyms
       tr: https://translate.yandex.com/?source_lang=en&target_lang=ru&text={}
       ya: https://ya.ru/search/?text={}
   url.start_pages:

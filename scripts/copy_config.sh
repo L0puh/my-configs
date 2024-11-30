@@ -35,6 +35,7 @@ else
     cp $WM/slstatus/config.h $CONFIG/status_line/slstatus/
     cp $WM/st/config.h $CONFIG/terminal/st
     cp $WM/dwm/config.h $CONFIG/wms/dwm
+    cp $HOME/.config/dmenu/config.h $CONFIG/dmenu/
 
     echo 'Copying terminal configs...'
     cp ~/.vimrc $CONFIG/terminal
@@ -55,6 +56,8 @@ else
     sudo cp ~/.config/my-configs/scripts/query.sh /usr/bin/query
     sudo cp ~/.config/my-configs/scripts/books.sh /usr/bin/books
     sudo cp ~/.config/my-configs/scripts/movies.sh /usr/bin/movies
+    sudo cp ~/.config/my-configs/scripts/music.sh /usr/bin/radio_play
+    sudo cp ~/.config/my-configs/scripts/note_dmenu.sh /usr/bin/dmenu_notes
 
     echo "Adding permissions..."
     sudo chmod +x /usr/bin/translator
@@ -62,5 +65,7 @@ else
     sudo chmod +x /usr/bin/query
     sudo chmod +x /usr/bin/books
     sudo chmod +x /usr/bin/movies
+    sudo chmod +x /usr/bin/dmenu_notes
+    sudo chmod +x /usr/bin/radio_play
     echo 'Done!'
 fi

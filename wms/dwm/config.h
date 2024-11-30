@@ -70,7 +70,7 @@ static const char *bluetooth[] =  {"dmenu-bluetooth", "-m", dmenumon, "-fn", dme
                                     "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL};
 static const char *volupcmd[] = { "amixer", "set", "Master",  "5%+", "unmute", NULL };
 static const char *voldowncmd[] = { "amixer", "set", "Master", "5%-", "unmute", NULL };
-static const char *notes[] = { "notes", NULL };
+static const char *notes[] = { "dmenu_notes", NULL };
 static const char *books[] = { "books", NULL };
 static const char *shutdown[] = { "shutdown", "now", NULL};
 static const char *translator[] = { "translator", NULL };
