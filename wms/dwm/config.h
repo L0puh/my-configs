@@ -74,13 +74,13 @@ static const char *notes[] = { "dmenu_notes", NULL };
 static const char *books[] = { "books", NULL };
 static const char *shutdown[] = { "shutdown", "now", NULL};
 static const char *translator[] = { "translator", NULL };
-static const char *search_query[] = { "query", NULL };
+static const char *radio[] = { "radio_play", NULL };
 
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
 
 	{ MODKEY,                       XK_p,       spawn,          {.v = dmenucmd   } },
-	{ MODKEY,                       XK_s,       spawn,          {.v = search_query } },
+	{ MODKEY,                       XK_r,       spawn,          {.v = radio} },
     { MODKEY,			            XK_F1, 	    spawn, 	        {.v = browser    } },
     { MODKEY|ShiftMask,			   XK_t, 	    spawn, 	        {.v = translator} },
 	{ MODKEY,			            XK_F10,     spawn, 	        {.v = voldowncmd } },

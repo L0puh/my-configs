@@ -28,6 +28,8 @@ call plug#begin()
    Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
    Plug 'tpope/vim-commentary'
    Plug 'ycm-core/YouCompleteMe'
+   Plug 'itchyny/lightline.vim'
+
    
 "LATEX
    Plug 'lervag/vimtex'
@@ -42,11 +44,6 @@ call plug#begin()
 
 call plug#end()
 
-set termguicolors
-set background=dark
-set bg=dark
-set t_Co=256
-colorscheme gruvbox 
 
 " MARKDOWN
 set conceallevel=2
@@ -168,9 +165,24 @@ autocmd FileType tex      nnoremap <buffer> <leader>c :VimtexClean<CR>
 autocmd FileType tex      nnoremap <buffer> <leader>o :VimtexCompile<CR>
 autocmd FileType markdown nnoremap <buffer> <leader>o :MarkdownPreview<CR>
 
-nnoremap <leader>er :!sh run.sh<CR>
-nnoremap <leader>ep :!python %<CR>
+nnoremap <leader>er :terminal sh run.sh<CR>
+nnoremap <leader>ep :terminal python %<CR>
 nnoremap <silent> <leader>p  :execute 'silent! write'<Bar>:call FzfFiles(0)<CR>
 nnoremap <silent> <leader>r  :execute 'silent! write'<Bar>RG <CR>
 
-hi Normal ctermbg=NONE guibg=NONE 
+
+
+let g:lightline = {
+      \ 'colorscheme': 'gruvbox',
+      \ }
+set laststatus=2
+set noshowmode
+
+
+set termguicolors
+set bg=dark
+set t_Co=256
+set background=dark
+colorscheme gruvbox 
+hi Terminal ctermbg=NONE guibg=NONE
+hi Normal ctermbg=NONE guibg=NONE
