@@ -58,9 +58,13 @@ else
     sudo cp ~/.config/my-configs/scripts/movies.sh /usr/bin/movies
     sudo cp ~/.config/my-configs/scripts/music.sh /usr/bin/radio_play
     sudo cp ~/.config/my-configs/scripts/note_dmenu.sh /usr/bin/dmenu_notes
+    sudo cp ~/.config/my-configs/scripts/translator_dmenu.sh /usr/bin/translator_dmenu
+    sudo cp ~/.config/my-configs/scripts/remindme.sh /usr/bin/remindme
 
     echo "Adding permissions..."
     sudo chmod +x /usr/bin/translator
+    sudo chmod +x /usr/bin/remindme
+    sudo chmod +x /usr/bin/translator_dmenu
     sudo chmod +x /usr/bin/bat_check
     sudo chmod +x /usr/bin/query
     sudo chmod +x /usr/bin/books

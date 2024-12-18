@@ -21,7 +21,6 @@ set wildmenu               "auto complete in vim commands
 set clipboard=unnamedplus
 
 call plug#begin()
-   Plug 'mattn/emmet-vim'
    Plug 'morhetz/gruvbox'
   
    Plug 'junegunn/fzf.vim'
@@ -33,7 +32,7 @@ call plug#begin()
    
 "LATEX
    Plug 'lervag/vimtex'
-   Plug 'SirVer/ultisnips'
+   Plug 'sirver/ultisnips'
    Plug 'honza/vim-snippets'
 
 
@@ -143,6 +142,10 @@ function! InsertLaTeXTemplate()
     endif
 endfunction
 
+function! CompileAndRunTest()
+   ''
+endfunction
+
 autocmd BufNewFile *.tex call InsertLaTeXTemplate() " paste template when open empty latex file
 command! -bang Files :call FzfFiles(<bang>0) " custom fzf function to open new files
 
@@ -151,25 +154,28 @@ let mapleader = " "
 nnoremap <C-q> :q<CR>
 nnoremap <C-s> :w<CR>
 nnoremap <C-c> :tabclose<CR>
-nnoremap <C-g> :tabnext<CR>
 nnoremap <C-o> :Commentary<CR>
 
 nnoremap <C-e>:ll <CR>
 nnoremap <C-x>     :YcmCompleter FixIt<CR>
 nnoremap <C-z>     :YcmCompleter GoToDeclaration<CR>
 nnoremap <leader>a :YcmCompleter GoToAlternateFile<CR>
-nnoremap <leader>h :YcmCompleter GetDoc<CR>
 
 autocmd FileType tex      nnoremap <buffer> <leader>t :VimtexTocToggle<CR> 
 autocmd FileType tex      nnoremap <buffer> <leader>c :VimtexClean<CR>
 autocmd FileType tex      nnoremap <buffer> <leader>o :VimtexCompile<CR>
 autocmd FileType markdown nnoremap <buffer> <leader>o :MarkdownPreview<CR>
 
-nnoremap <leader>er :terminal sh run.sh<CR>
-nnoremap <leader>ep :terminal python %<CR>
+nnoremap <leader>er :belowrigh terminal sh run.sh %<CR>
+nnoremap <leader>ep :belowrigh terminal python %<CR>
+nnoremap <leader>eg :belowright terminal sh /home/lopuh/.config/my-configs/scripts/run_codeforces.sh % <CR>
 nnoremap <silent> <leader>p  :execute 'silent! write'<Bar>:call FzfFiles(0)<CR>
 nnoremap <silent> <leader>r  :execute 'silent! write'<Bar>RG <CR>
 
+map Q gq
+map <leader>h K
+map <leader>j :join <CR>
+map J :tabnext<CR>
 
 
 let g:lightline = {
