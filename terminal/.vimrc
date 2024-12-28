@@ -35,7 +35,6 @@ call plug#begin()
    Plug 'sirver/ultisnips'
    Plug 'honza/vim-snippets'
 
-
 "MARKDOWN
    Plug 'godlygeek/tabular'
    Plug 'preservim/vim-markdown'
@@ -111,6 +110,7 @@ command! -bang -nargs=* RG call fzf#vim#grep(
         \ --smart-case '.shellescape(<q-args>),  
         \   fzf#vim#with_preview('right:50%:hidden', '?'),  <bang>0)
 
+
 " create a file when none is found 
 function! FzfFiles(fullscreen)                                            
   function! s:FzfFileAccept(lines) abort                                  
@@ -126,7 +126,6 @@ function! FzfFiles(fullscreen)
        " open searched query
       execute 'edit ' . split(a:lines[2], '#####')[0]                     
     endif                                                                 
-      " echom a:lines
   endfunction                                                                                                      
   let l:spec = {                                                          
         \'options': ['-d=#####', '--print-query', '--expect=ctrl-t'],     
@@ -142,40 +141,63 @@ function! InsertLaTeXTemplate()
     endif
 endfunction
 
-function! CompileAndRunTest()
-   ''
+function! GenerateRunScript()
+    let l:filename = expand('%:p')
+    let l:filetype = &filetype
+    let l:name = fnamemodify(expand('%:p'), ':r')
+    
+    if l:filetype == 'python'
+        let l:command = 'python ' . l:filename
+    elseif l:filetype == 'sh'
+        let l:command = 'bash ' . l:filename
+    elseif l:filetype == 'cpp'
+        let l:command = 'g++ ' . l:filename . " -o " . l:name . " && " . l:name
+    elseif l:filetype == 'c'
+        let l:command = 'gcc ' . l:filename . " -o " . l:name . " && " . l:name
+    else
+        echo "No run command defined for this filetype"
+        return
+    endif
+
+    call writefile([l:command], 'run.sh')
+    echo "run.sh created." 
+endfunction
+
+function! RunScript()
+   execute 'belowright terminal bash -c "bash run.sh"'
 endfunction
 
 autocmd BufNewFile *.tex call InsertLaTeXTemplate() " paste template when open empty latex file
-command! -bang Files :call FzfFiles(<bang>0) " custom fzf function to open new files
+command! -bang Files :call FzfFiles(<bang>0)        " custom fzf function to open new files
 
 " MAPPINGS
 let mapleader = " "
 nnoremap <C-q> :q<CR>
 nnoremap <C-s> :w<CR>
-nnoremap <C-c> :tabclose<CR>
-nnoremap <C-o> :Commentary<CR>
 
 nnoremap <C-e>:ll <CR>
 nnoremap <C-x>     :YcmCompleter FixIt<CR>
 nnoremap <C-z>     :YcmCompleter GoToDeclaration<CR>
 nnoremap <leader>a :YcmCompleter GoToAlternateFile<CR>
 
+nnoremap <leader>g  :call GenerateRunScript() <CR>
 autocmd FileType tex      nnoremap <buffer> <leader>t :VimtexTocToggle<CR> 
 autocmd FileType tex      nnoremap <buffer> <leader>c :VimtexClean<CR>
 autocmd FileType tex      nnoremap <buffer> <leader>o :VimtexCompile<CR>
-autocmd FileType markdown nnoremap <buffer> <leader>o :MarkdownPreview<CR>
+autocmd FileType cpp      nnoremap <buffer> <leader>er :call RunScript()<CR>
+autocmd FileType c        nnoremap <buffer> <leader>er :call RunScript()<CR>
+autocmd FileType python   nnoremap <buffer> <leader>er :call RunScript()<CR>
 
-nnoremap <leader>er :belowrigh terminal sh run.sh %<CR>
-nnoremap <leader>ep :belowrigh terminal python %<CR>
-nnoremap <leader>eg :belowright terminal sh /home/lopuh/.config/my-configs/scripts/run_codeforces.sh % <CR>
-nnoremap <silent> <leader>p  :execute 'silent! write'<Bar>:call FzfFiles(0)<CR>
-nnoremap <silent> <leader>r  :execute 'silent! write'<Bar>RG <CR>
+nnoremap <silent> <leader>p  :execute 'silent! noa'<Bar>:call FzfFiles(0)<CR>
+
+"switch without writing 
+nnoremap <silent> <leader>r  :execute 'silent! noa'<Bar>RG <CR> 
 
 map Q gq
 map <leader>h K
 map <leader>j :join <CR>
 map J :tabnext<CR>
+map <C-c> gc
 
 
 let g:lightline = {
