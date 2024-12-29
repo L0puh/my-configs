@@ -47,6 +47,7 @@ else
     cp ~/.config/zathura/zathurarc $CONFIG/zathura
     cp ~/.vim/plugged/gruvbox/colors/gruvbox.vim $CONFIG/colors
     cp ~/.config/zathura/themes $CONFIG/zathura/ -r
+    cp ~/.config/qutebrowser/userscripts $CONFIG/qutebrowser/ -r
     cp ~/.config/zathura/*.color $CONFIG/zathura/
     cp ~/.config/qutebrowser/{config.py,autoconfig.yml,gruvbox.py} $CONFIG/qutebrowser
 

@@ -49,7 +49,7 @@ settings:
   scrolling.bar:
     global: never
   statusbar.show:
-    global: never
+    global: always
   tabs.show:
     global: always
   url.default_page:

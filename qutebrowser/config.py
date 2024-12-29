@@ -151,6 +151,7 @@ config.bind('xx', 'config-cycle statusbar.show always never;; config-cycle tabs.
 config.bind('sa', "open javascript:function%20iprl5()%7Bvar%20d=document,z=d.createElement('scr'+'ipt'),b=d.body,l=d.location;try%7Bif(!b)throw(0);d.title='(Saving...)%20'+d.title;z.setAttribute('src',l.protocol+'//www.instapaper.com/j/HtwGvF9hzsp0?a=read-later&u=%27+encodeURIComponent(l.href)+%27&t=%27+(new%20Date().getTime()));b.appendChild(z);%7Dcatch(e)%7Balert(%27Please%20wait%20until%20the%20page%20has%20loaded.%27);%7D%7Diprl5();void(0)")
 
 config.bind('<Ctrl-r>', 'config-cycle colors.webpage.darkmode.enabled')
+config.bind('<Ctrl-s>', 'spawn --userscript save_to_inbox.py')
 config.source("gruvbox.py")
 
 c.editor.command = ['vim', '{}']
