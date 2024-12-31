@@ -1,22 +1,30 @@
 #!/usr/bin/env python3
 
-import re, os
+import os
+import argparse
 
-title=os.environ['QUTE_TITLE']
-url=os.environ['QUTE_URL']
 HOME = os.environ['HOME']
 PATH= f"{HOME}/storage/notes/inbox.md"
-PAGE_TO= f"{HOME}/.config/qutebrowser/startpage.html"
-entry=f"- [] [{title}]({url})"
-os.system(f"echo '{entry}' >> {PATH}")
+PAGE_TO= f"{HOME}/.config/qutebrowser/inbox.html"
+parser = argparse.ArgumentParser()
+parser.add_argument("--update", action="store_true")
+parser.add_argument("--delete", action="store_true")
+args = parser.parse_args()
 
-file = []
-with open(PAGE_TO, "r") as f:
-    for line in f.readlines(): file.append(line)
-
-with open(PAGE_TO, "w") as f:
-    for i in file[:-2]:
-        f.write(i)
-    f.write(f"\t<p><a href='{url}'> {title} </a></p>\n")
-    f.write("\t</body>\n</html>")
+if args.update:
+    os.system(f"python ~/.config/my-configs/scripts/md_to_html.py {PATH} {PAGE_TO}")
+    os.system(f"echo 'message-info \"List is updated!\"' >> $QUTE_FIFO")
+    exit(0)
+elif args.delete:
+    os.system(f"echo '' > {PATH}")
+    os.system(f"python ~/.config/my-configs/scripts/md_to_html.py {PATH} {PAGE_TO}")
+    os.system(f"echo 'message-info \"List is cleared!\"' >> $QUTE_FIFO")
+    exit(0)
+else:
+    title=os.environ['QUTE_TITLE']
+    url=os.environ['QUTE_URL']
+    entry=f"[{title}]({url})"
+    os.system(f"echo '{entry}' >> {PATH}")
+    os.system(f"python ~/.config/my-configs/scripts/md_to_html.py {PATH} {PAGE_TO}")
+    os.system(f"echo 'message-info \"{title} is added!\"' >> $QUTE_FIFO")
 

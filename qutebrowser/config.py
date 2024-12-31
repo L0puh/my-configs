@@ -150,12 +150,14 @@ config.bind('xx', 'config-cycle statusbar.show always never;; config-cycle tabs.
 config.bind('xx', 'config-cycle statusbar.show always never;; config-cycle tabs.show always never')
 config.bind('sa', "open javascript:function%20iprl5()%7Bvar%20d=document,z=d.createElement('scr'+'ipt'),b=d.body,l=d.location;try%7Bif(!b)throw(0);d.title='(Saving...)%20'+d.title;z.setAttribute('src',l.protocol+'//www.instapaper.com/j/HtwGvF9hzsp0?a=read-later&u=%27+encodeURIComponent(l.href)+%27&t=%27+(new%20Date().getTime()));b.appendChild(z);%7Dcatch(e)%7Balert(%27Please%20wait%20until%20the%20page%20has%20loaded.%27);%7D%7Diprl5();void(0)")
 
+config.bind('Es', 'spawn --userscript save_to_inbox.py')
+config.bind('Eu', 'spawn --userscript save_to_inbox.py --update')
+config.bind('Ed', 'spawn --userscript save_to_inbox.py --delete')
+config.bind('Eo', 'spawn st -e vim /home/lopuh/storage/notes/inbox.md')
+config.bind('EO', 'open -t box')
 config.bind('<Ctrl-r>', 'config-cycle colors.webpage.darkmode.enabled')
-config.bind('<Ctrl-s>', 'spawn --userscript save_to_inbox.py')
 config.source("gruvbox.py")
 
-c.editor.command = ['vim', '{}']
+c.editor.command = ['st', '-e','vim', '{}']
 config.set("fileselect.single_file.command", ['st', '-e', 'ranger', '--choosefile={}'])
 config.set("fileselect.multiple_files.command", ['st', '-e', 'ranger', '--choosefiles={}'])
-
-

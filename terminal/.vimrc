@@ -1,6 +1,7 @@
 syntax on 
 set number
 
+
 " set hlsearch
 set relativenumber 
 set signcolumn=no    "no error message on the left
@@ -15,6 +16,7 @@ set linebreak wrap
 set mouse=a
 
 set wildmenu               "auto complete in vim commands 
+
 
 "yank to clipboard 
 "primary - unnamed, unnamedplus - clipboard
@@ -194,6 +196,8 @@ nnoremap <silent> <leader>p  :execute 'silent! noa'<Bar>:call FzfFiles(0)<CR>
 
 "switch without writing 
 nnoremap <silent> <leader>r  :execute 'silent! noa'<Bar>RG <CR> 
+nnoremap <silent> <leader>k  :Termdebug %<<CR> 
+
 
 map Q gq
 map <leader>h K
@@ -208,6 +212,12 @@ let g:lightline = {
 set laststatus=2
 set noshowmode
 
+" DEBUGGING  (load via leader-K)
+packadd! termdebug
+let g:termdebug_config = {}
+let g:termdebug_config['wide']=1
+let g:termdebug_config['disasm_window']=v:true
+let g:termdebug_config['disasm_height']=5
 
 set termguicolors
 set bg=dark
@@ -216,3 +226,4 @@ set background=dark
 colorscheme gruvbox 
 hi Terminal ctermbg=NONE guibg=NONE
 hi Normal ctermbg=NONE guibg=NONE
+

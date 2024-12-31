@@ -1,56 +1,36 @@
 import sys
-import os 
+import os, re
 from datetime import datetime
 
 files = sys.argv[1:]
 
 if not files or not files[1:]: 
     print("Converts markdown links to html file.")
-    print("FORMAT:\n- [] link\n- ! info ")
     print("USAGE:\nmd_to_html [markdown file] [html file]")
-    print("Exmaple of file:\n- [] [name](www.example.org) -> <a href='www.example.org'>name</a>")
+    print("Exmaple of file:\n[name](www.example.org) -> <a href='www.example.org'>name</a>")
     print("- ! some note                -> <p> some note </p>")
     exit()
 
 md = files[0]
 html = files[1]
 def get_url(line):
-    title=""
-    url  =""
-    index = 0
-    for n, k in enumerate(line[5:]):
-        if k == "]":
-            index = 5+n
-            break
-        title+=k
-    for l in line[index+1:]:
-        if l == ")":
-            break
-        url+=l
-    return title.replace("[", ""), url.replace("(", "");
+    pattern = r'\[(.*?)\]\((.*?)\)'
+    match = re.match(pattern, line)
+    if match:
+        return match.group(1), match.group(2)
+    return None, None
 
 def get_urls():
-    info = []
-    cnt = 0
-    urls = [[] for _ in range(10)]
+    urls = []
     with open(md, "r") as f:
         for i in f.readlines():
-            if i[0:3] == "- !":
-                info.append(i[3:])
-                cnt+=1
-                print("new section")
-            if i[0:4] == "- []":
-                title, url = get_url(i)
-                urls[cnt].append([title, url])
-                print("new link for section ", info[cnt-1], title, url);
+            title, url = get_url(i.strip())
+            if title and url:
+                urls.append([title, url])
+    return urls
 
 
-  
-
-    return urls, info
-
-
-def format_html(urls,title, info):
+def format_html(urls):
     with open(html, "w") as f:
         header =  f"""
 <!DOCTYPE html>
@@ -62,51 +42,43 @@ def format_html(urls,title, info):
         """
         style="""
 <style>
+:root {
+   --red-color: #b0716f;
+   --blue-color: #8aabac;
+   --dark-color: #121212;
+   --light-color: #d4cfd0;
+}
 body{
-    margin: 0;
-    text-align: center;
-    font-family: Hack;
-    background-color: #121212;
-    font-size: 19px;
-
+   background-color: var(--dark-color);
+   text-align: center;
+   padding: 10% 0;
+   font-family: "Cascadia Code", Hack, monospace;
+   margin:auto;
+   font-size: 24px;
 }
-h1{
-    color: #b0716f
+h1 {
+   color: var(--red-color);
 }
-.column {
-  float: left;
-  width: 50%;
+h2, h3, h4, b {
+   color: var(--blue-color);
 }
-
-.row:after {
-  content: "";
-  display: table;
-  clear: both;
+a {
+   text-decoration: none;
+   color: var(--light-color);
 }
 </style>
+</body>
+    <h3><a style="color: var(--blue-color);" href='startpage.html'>BACK</a></h3>
         """
-        f.write(header+style+"\n<body>\n")
-        f.write(f"<h1>{title}</h1>\n")
-        f.write('<div class="row">')
-        cnt = 1
-        for i in info:
-            f.write('<div class="column">')
-            f.write(f"<p> {i} </p>\n")
-            for url in urls[cnt]:
-                f.write(f'<p><a href="{url[1]}">{url[0]}</a></p>\n')
-            f.write('</div>')
-            cnt+=1
-        
-        print(f"found {len(info)} sections")
-
-        f.write('</div>')
-        f.write("</body>\n</html>")
+        f.write(header)
+        f.write(style)
+        for url in urls:
+            f.write(f'\t\t<p><a href="{url[1]}">{url[0]}</a></p>\n')
+        f.write("\t</body>\n</html>")
 
 def main():
-    
-    urls, info = get_urls()
-    format_html(urls, datetime.now().strftime("%d %b"), info)
-
+    urls = get_urls()
+    format_html(urls)
 
 if __name__ == "__main__":
     main()
