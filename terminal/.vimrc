@@ -144,27 +144,31 @@ function! InsertLaTeXTemplate()
 endfunction
 
 function! GenerateRunScript()
-    let l:filename = expand('%:p')
-    let l:filetype = &filetype
-    let l:name = fnamemodify(expand('%:p'), ':r')
-    
+    let l:filename=expand("%")
+    let l:filetype=&filetype
+    let l:name=expand("%<")
+    let l:current_dir = fnamemodify(getcwd(), ":t")
+      
     if l:filetype == 'python'
         let l:command = 'python ' . l:filename
     elseif l:filetype == 'sh'
         let l:command = 'bash ' . l:filename
     elseif l:filetype == 'cpp'
-        let l:command = 'g++ ' . l:filename . " -o " . l:name . " && " . l:name
+        let l:command = 'g++ ' . l:filename . " -o " . l:name . ".out && ./" . l:name . ".out"
     elseif l:filetype == 'c'
-        let l:command = 'gcc ' . l:filename . " -o " . l:name . " && " . l:name
+        let l:command = 'gcc ' . l:filename . " -o " . l:name .  ".out && ./" . l:name . ".out"
     else
         echo "No run command defined for this filetype"
         return
     endif
-
+   
+    if l:current_dir == 'train'
+       let l:command = l:command . ' < test.txt'
+    endif
+    
     call writefile([l:command], 'run.sh')
     echo "run.sh created." 
 endfunction
-
 function! RunScript()
    execute 'belowright terminal bash -c "bash run.sh"'
 endfunction
@@ -196,11 +200,12 @@ nnoremap <silent> <leader>p  :execute 'silent! noa'<Bar>:call FzfFiles(0)<CR>
 
 "switch without writing 
 nnoremap <silent> <leader>r  :execute 'silent! noa'<Bar>RG <CR> 
-nnoremap <silent> <leader>k  :Termdebug %<<CR> 
+nnoremap <silent> <leader>k  :Termdebug %<.out<CR> 
 
 
 map Q gq
-map <leader>h K
+map <leader>H K
+map <leader>h :YcmCompleter GetDoc <CR>
 map <leader>j :join <CR>
 map J :tabnext<CR>
 map <C-c> gc
@@ -216,7 +221,7 @@ set noshowmode
 packadd! termdebug
 let g:termdebug_config = {}
 let g:termdebug_config['wide']=1
-let g:termdebug_config['disasm_window']=v:true
+let g:termdebug_config['disasm_window']=v:false
 let g:termdebug_config['disasm_height']=5
 
 set termguicolors
