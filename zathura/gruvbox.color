@@ -34,3 +34,4 @@ set render-loading-fg           "#ebdbb2" # fg
 # Recolor book content's color
 set recolor-lightcolor          "#282828" # bg
 set recolor-darkcolor           "#e6dbda" # fg
+set highlight-color             "rgba(141, 157, 183, 0.35)"

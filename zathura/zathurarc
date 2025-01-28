@@ -12,6 +12,7 @@ set guioptions "s v"
 set window-title-basename "true"
 set selection-notification "false"
 set selection-clipboard "primary"
+set guioptions ""
 
 set recolor true
 set default-bg rgba(18,18,18,0.9)

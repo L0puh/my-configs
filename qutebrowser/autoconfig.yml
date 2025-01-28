@@ -13,7 +13,7 @@ settings:
   colors.webpage.darkmode.algorithm:
     global: lightness-cielab
   colors.webpage.darkmode.enabled:
-    global: false
+    global: true
   colors.webpage.darkmode.policy.images:
     global: smart
   colors.webpage.preferred_color_scheme:
@@ -59,6 +59,7 @@ settings:
       DEFAULT: https://lite.duckduckgo.com/lite/?q={}
       dc: https://dictionary.cambridge.org/dictionary/english/{}
       gdc: https://www.collinsdictionary.com/dictionary/german-english/{}
+      gg: https://www.google.com/search?q={}
       mg: https://search.marginalia.nu/search?query={}
       oz: https://ozdic.com/collocation/{}
       sy: https://www.powerthesaurus.org/{}/synonyms
