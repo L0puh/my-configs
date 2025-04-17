@@ -25,5 +25,9 @@ alias todo="grep -i TODO */*.* *.* && grep -i FIXME */*.* *.*"
 alias neofetch="neofetch --disable theme icons host "
 alias makec="compiledb make"
 alias md_to_html="python ~/.config/my-configs/scripts/md_to_html.py"
+alias ardc="arduino-cli compile -b arduino:avr:uno ."
+alias ardu="arduino-cli upload -b arduino:avr:uno -p /dev/ttyUSB0"
+alias ardr="arduino-cli compile -b arduino:avr:uno . && arduino-cli upload -b arduino:avr:uno -p /dev/ttyUSB0"
 
 bindkey -v
+

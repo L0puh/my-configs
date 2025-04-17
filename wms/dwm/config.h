@@ -30,8 +30,8 @@ static const Rule rules[] = {
 	 *	WM_NAME(STRING) = title
 	 */
 	/* class      instance    title       tags mask     isfloating   monitor */
-	{ "pomatez",          NULL,   NULL,     1 << 0,       1,           1 },
-	{ "qutebrowser",      NULL,   NULL,     1 << 0,       0,           0 },
+	{ NULL,   NULL, "Pomodoro",  1 << 0,       1,           1 },
+	{ NULL,   NULL, "qutebrowser",     1 << 0,       0,           0 },
 
 };
 
@@ -80,20 +80,20 @@ static const char *radio[] = { "radio_play", NULL };
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
 
-	{ MODKEY,                       XK_p,       spawn,          {.v = dmenucmd   } },
-	{ MODKEY,                       XK_r,       spawn,          {.v = radio} },
-   { MODKEY,			              XK_F1, 	    spawn, 	        {.v = browser    } },
+	{ MODKEY,                       XK_p,       spawn,         {.v = dmenucmd   } },
+	{ MODKEY,                       XK_r,       spawn,         {.v = radio} },
+   { MODKEY,			              XK_F1, 	    spawn, 	     {.v = browser    } },
    { MODKEY|ShiftMask,			     XK_t, 	    spawn, 	        {.v = translator} },
    { MODKEY,			              XK_t, 	    spawn, 	        {.v = translator_dmenu} },
-	{ MODKEY,			              XK_F10,     spawn, 	        {.v = voldowncmd } },
-	{ MODKEY,			              XK_n,     spawn, 	        {.v = notes} },
+	{ MODKEY,			              XK_F10,     spawn, 	     {.v = voldowncmd } },
+	{ MODKEY,			              XK_n,       spawn, 	     {.v = notes} },
    { MODKEY,			              XK_F11, 	spawn, 	        {.v = volupcmd   } },
-   { MODKEY,			              XK_F9, 	    spawn, 	        {.v = shutdown} },
-	{ MODKEY,             		     XK_Return,  spawn,           {.v = termcmd    } },
-	{ MODKEY,             		     XK_F2,      spawn,          {.v = screenWin  } },
-	{ MODKEY,             		     XK_F3,      spawn,          {.v = screenReg  } },
+   { MODKEY,			              XK_F9, 	    spawn, 	     {.v = shutdown} },
+	{ MODKEY,             		     XK_Return,  spawn,         {.v = termcmd    } },
+	{ MODKEY,             		     XK_F2,      spawn,         {.v = screenWin  } },
+	{ MODKEY,             		     XK_F3,      spawn,         {.v = screenReg  } },
 	{ MODKEY|ShiftMask,             XK_b,      spawn,          {.v = bluetooth   } },
-	{ MODKEY|ShiftMask,             XK_s,      spawn,          {.v = books } },
+	{ MODKEY,                       XK_s,      spawn,          {.v = books } },
 	{ MODKEY,                       XK_b,      togglebar,      {1} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },

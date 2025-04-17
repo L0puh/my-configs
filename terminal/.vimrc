@@ -1,10 +1,10 @@
 syntax on 
 set number
 
-
 " set hlsearch
+set mouse=a
 set relativenumber 
-set signcolumn=no    "no error message on the left
+set signcolumn=no          " no error message on the left bar 
 set tabstop=3
 set shiftwidth=3
 set softtabstop=3 
@@ -13,25 +13,24 @@ set smarttab
 set expandtab
 set autoindent 
 set linebreak wrap
-set mouse=a
+set tw=75                  " break line into multiple smaller
+set wildmenu               " auto complete in vim commands 
 
-set wildmenu               "auto complete in vim commands 
+"yank to clipboard ("primary - unnamed, unnamedplus - clipboard)
+" set clipboard=unnamed
 
-
-"yank to clipboard 
-"primary - unnamed, unnamedplus - clipboard
-set clipboard=unnamedplus
 
 call plug#begin()
    Plug 'morhetz/gruvbox'
   
    Plug 'junegunn/fzf.vim'
    Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+
    Plug 'tpope/vim-commentary'
    Plug 'ycm-core/YouCompleteMe'
    Plug 'itchyny/lightline.vim'
+   Plug 'ctrlpvim/ctrlp.vim'
 
-   
 "LATEX
    Plug 'lervag/vimtex'
    Plug 'sirver/ultisnips'
@@ -56,6 +55,7 @@ let g:vim_markdown_strikethrough = 1
 let g:vim_markdown_new_list_item_indent = 0
 let g:vim_markdown_auto_insert_bullets = 0
 let g:vim_markdown_frontmatter = 1
+let g:vim_markdown_edit_url_in = 'vsplit'
 
 let g:mkdp_auto_start = 0
 let g:mkdp_theme = 'dark'
@@ -119,13 +119,10 @@ function! FzfFiles(fullscreen)
     if len(a:lines) < 2                                                   
       return                                                              
     elseif a:lines[1] == 'ctrl-t' && !empty(a:lines[1]) |
-       " open searched query in a new tab
       execute 'tabnew ' . split(a:lines[2], '#####')[0]                     
     elseif len(a:lines) == 2 || !empty(a:lines[1]) |                      
-       " open new file:
       execute 'edit ' . a:lines[0]                                        
     else                                                                  
-       " open searched query
       execute 'edit ' . split(a:lines[2], '#####')[0]                     
     endif                                                                 
   endfunction                                                                                                      
@@ -176,12 +173,19 @@ endfunction
 autocmd BufNewFile *.tex call InsertLaTeXTemplate() " paste template when open empty latex file
 command! -bang Files :call FzfFiles(<bang>0)        " custom fzf function to open new files
 
+let g:ctrlp_working_path_mode = 'ra'
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*/libs/*,*/build/*
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  '\v[\/]\.(git,build)$',
+  \ 'file': '\v\.(exe|so|dll)$',
+  \ }
+
 " MAPPINGS
 let mapleader = " "
 nnoremap <C-q> :q<CR>
 nnoremap <C-s> :w<CR>
+nnoremap <C-e> :ll <CR>
 
-nnoremap <C-e>:ll <CR>
 nnoremap <C-x>     :YcmCompleter FixIt<CR>
 nnoremap <C-z>     :YcmCompleter GoToDeclaration<CR>
 nnoremap <leader>a :YcmCompleter GoToAlternateFile<CR>
@@ -196,10 +200,12 @@ autocmd FileType c        nnoremap <buffer> <leader>er :call RunScript()<CR>
 autocmd FileType python   nnoremap <buffer> <leader>er :call RunScript()<CR>
 autocmd FileType python   nnoremap <buffer> <leader>ep :belowright terminal python %<CR>
 
-nnoremap <silent> <leader>p  :execute 'silent! noa'<Bar>:call FzfFiles(0)<CR>
+" nnoremap <silent> <leader>p  :execute 'silent! noa'<Bar>:call FzfFiles(0)<CR>
 
 "switch without writing 
-nnoremap <silent> <leader>r  :execute 'silent! noa'<Bar>RG <CR> 
+nnoremap <silent> <leader>r  :execute 'silent! w'<Bar>RG <CR> 
+nnoremap <silent> <leader>p  :execute 'silent! w'<Bar>CtrlP<CR> 
+nnoremap <silent> <leader>P  :execute 'silent! w'<Bar>CtrlP<CR> 
 nnoremap <silent> <leader>k  :Termdebug %<.out<CR> 
 
 
@@ -211,12 +217,6 @@ map J :tabnext<CR>
 map <C-c> gc
 
 
-let g:lightline = {
-      \ 'colorscheme': 'gruvbox',
-      \ }
-set laststatus=2
-set noshowmode
-
 " DEBUGGING  (load via leader-K)
 packadd! termdebug
 let g:termdebug_config = {}
@@ -224,10 +224,15 @@ let g:termdebug_config['wide']=1
 let g:termdebug_config['disasm_window']=v:false
 let g:termdebug_config['disasm_height']=5
 
+" COLORS
+let g:lightline = {'colorscheme': 'gruvbox'}
+set laststatus=2
+set noshowmode
 set termguicolors
 set bg=dark
 set t_Co=256
 set background=dark
+
 colorscheme gruvbox 
 hi Terminal ctermbg=NONE guibg=NONE
 hi Normal ctermbg=NONE guibg=NONE
