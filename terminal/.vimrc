@@ -21,8 +21,8 @@ set wildmenu               " auto complete in vim commands
 
 
 call plug#begin()
+
    Plug 'morhetz/gruvbox'
-  
    Plug 'junegunn/fzf.vim'
    Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 
@@ -63,7 +63,6 @@ let g:mkdp_path_to_chrome = "qutebrowser"
 let g:mkdp_page_title = '${name}'
 let g:mkdp_markdown_css = $HOME."/.config/my-configs/markdown.css"
 let g:mkdp_open_ip = ''
-
 
 "LATEX
 filetype plugin indent on
@@ -167,16 +166,16 @@ function! GenerateRunScript()
     echo "run.sh created." 
 endfunction
 function! RunScript()
-   execute 'belowright terminal bash -c "bash run.sh"'
+  belowright terminal bash -c "bash run.sh"
 endfunction
 
 autocmd BufNewFile *.tex call InsertLaTeXTemplate() " paste template when open empty latex file
 command! -bang Files :call FzfFiles(<bang>0)        " custom fzf function to open new files
 
 let g:ctrlp_working_path_mode = 'ra'
-set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*/libs/*,*/build/*
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*/libs/*,*/build/*,*/test/*,*/assets/*,*/media/*,libs/*
 let g:ctrlp_custom_ignore = {
-  \ 'dir':  '\v[\/]\.(git,build)$',
+  \ 'dir':  '\v[\/]\.(git,build,test,assets)$',
   \ 'file': '\v\.(exe|so|dll)$',
   \ }
 
@@ -195,9 +194,9 @@ autocmd FileType tex      nnoremap <buffer> <leader>t :VimtexTocToggle<CR>
 autocmd FileType tex      nnoremap <buffer> <leader>c :VimtexClean<CR>
 autocmd FileType tex      nnoremap <buffer> <leader>o :VimtexCompile<CR>
 autocmd FileType markdown nnoremap <buffer> <leader>o :MarkdownPreview<CR>
-autocmd FileType cpp      nnoremap <buffer> <leader>er :call RunScript()<CR>
-autocmd FileType c        nnoremap <buffer> <leader>er :call RunScript()<CR>
-autocmd FileType python   nnoremap <buffer> <leader>er :call RunScript()<CR>
+autocmd FileType cpp      nnoremap <buffer> <leader>er :call RunScript() <CR>
+autocmd FileType c        nnoremap <buffer> <leader>er :call RunScript() <CR>
+autocmd FileType python   nnoremap <buffer> <leader>er :call RunScript() <CR>
 autocmd FileType python   nnoremap <buffer> <leader>ep :belowright terminal python %<CR>
 
 " nnoremap <silent> <leader>p  :execute 'silent! noa'<Bar>:call FzfFiles(0)<CR>
@@ -212,10 +211,16 @@ nnoremap <silent> <leader>k  :Termdebug %<.out<CR>
 map Q gq
 map <leader>H K
 map <leader>h :YcmCompleter GetDoc <CR>
-map <leader>j :join <CR>
+map <leader>J :join <CR>
 map J :tabnext<CR>
 map <C-c> gc
 
+" copy selected text to clipboard
+vnoremap t :w !xclip -i -sel c<CR> 
+
+" zfap 
+set foldmethod=manual
+nnoremap <space> za
 
 " DEBUGGING  (load via leader-K)
 packadd! termdebug

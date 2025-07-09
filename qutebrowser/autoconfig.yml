@@ -13,7 +13,7 @@ settings:
   colors.webpage.darkmode.algorithm:
     global: lightness-cielab
   colors.webpage.darkmode.enabled:
-    global: false
+    global: true
   colors.webpage.darkmode.policy.images:
     global: smart
   colors.webpage.preferred_color_scheme:
@@ -49,7 +49,7 @@ settings:
   scrolling.bar:
     global: never
   statusbar.show:
-    global: never
+    global: always
   tabs.show:
     global: always
   url.default_page:
