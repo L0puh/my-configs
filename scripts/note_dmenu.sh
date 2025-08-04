@@ -8,13 +8,18 @@ echo $FULE
 if [ "$choice" ];
 then
 
-   full_path="$(find $NOTES_DIR -type f -iname "$choice.md" -o -iname "$choice.tex")"
-   if [ "$full_path" ];
-   then
-      st -e vim --cmd "$cd_command" "$full_path"  &> /dev/null &
-   else 
-      format=$( printf '%s\n%s\n' ".md" ".tex" | dmenu -p "select format:")
-      new_note="$NOTES_DIR/$choice$format"
-      st -e vim --cmd "$cd_command" $new_note &> /dev/null &
-   fi
+   if [ "$choice" == "daily" ]; then
+      sh $HOME/.config/my-configs/scripts/daily.sh 
+   else
+      echo $choice
+      full_path="$(find $NOTES_DIR -type f -iname "$choice.md" -o -iname "$choice.tex")"
+      if [ "$full_path" ];
+      then
+         st -e vim --cmd "$cd_command" "$full_path"  &> /dev/null &
+      else 
+         format=$( printf '%s\n%s\n' ".md" ".tex" | dmenu -p "select format:")
+         new_note="$NOTES_DIR/$choice$format"
+         st -e vim --cmd "$cd_command" $new_note &> /dev/null &
+      fi
+   fi 
 fi

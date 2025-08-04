@@ -1,5 +1,6 @@
 syntax on 
 set number
+set nocompatible
 
 " set hlsearch
 set mouse=a
@@ -26,6 +27,8 @@ call plug#begin()
    Plug 'junegunn/fzf.vim'
    Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 
+   Plug 'godlygeek/tabular'
+   Plug 'preservim/vim-markdown'
    Plug 'tpope/vim-commentary'
    Plug 'ycm-core/YouCompleteMe'
    Plug 'itchyny/lightline.vim'
@@ -37,8 +40,6 @@ call plug#begin()
    Plug 'honza/vim-snippets'
 
 "MARKDOWN
-   Plug 'godlygeek/tabular'
-   Plug 'preservim/vim-markdown'
    Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 
 call plug#end()
@@ -47,7 +48,8 @@ call plug#end()
 " MARKDOWN
 set conceallevel=2
 let g:vim_markdown_conceal = 2
-let g:vim_markdown_folding_disabled = 1
+let g:vim_markdown_folding_disabled = 0
+let g:vim_markdown_folding_style_pythonic = 1
 let g:vim_markdown_autowrite = 1
 let g:vim_markdown_math = 1
 let g:vim_markdown_toc_autofit = 1
@@ -64,6 +66,7 @@ let g:mkdp_page_title = '${name}'
 let g:mkdp_markdown_css = $HOME."/.config/my-configs/markdown.css"
 let g:mkdp_open_ip = ''
 
+
 "LATEX
 filetype plugin indent on
 let g:UltiSnipsExpandTrigger = '<c-l>'
@@ -74,7 +77,7 @@ let g:tex_conceal='abdmg'
 let g:vimtex_view_method='zathura'
 let g:vimtex_quickfix_mode=0
 let g:vimtex_compiler_latexmk = {
-             \ 'out_dir' : 'texfiles',
+             \ 'out_dir' : '.texfiles',
              \ 'options' : [
              \    '-shell-escape',
              \    '-verbose',
@@ -105,6 +108,8 @@ command! -bang -nargs=* RG call fzf#vim#grep(
         \ --ignore-dot
         \ --follow
         \ --glob "!.git/*"
+        \ --glob "!libs/*"
+        \ --glob "!build/*"
         \ --color "always"
         \ --colors "path:fg:176,113,111"
         \ --colors "line:fg:176,113,111"
@@ -173,9 +178,9 @@ autocmd BufNewFile *.tex call InsertLaTeXTemplate() " paste template when open e
 command! -bang Files :call FzfFiles(<bang>0)        " custom fzf function to open new files
 
 let g:ctrlp_working_path_mode = 'ra'
-set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*/libs/*,*/build/*,*/test/*,*/assets/*,*/media/*,libs/*
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*/libs/*,*/build/*,build/*,*/test/*,*/assets/*,*/media/*,libs/*,*/android_sdk/*
 let g:ctrlp_custom_ignore = {
-  \ 'dir':  '\v[\/]\.(git,build,test,assets)$',
+  \ 'dir':  '\v[\/]\.(git,build,test,assets,android_sdk,myapp)$',
   \ 'file': '\v\.(exe|so|dll)$',
   \ }
 
@@ -186,8 +191,10 @@ nnoremap <C-s> :w<CR>
 nnoremap <C-e> :ll <CR>
 
 nnoremap <C-x>     :YcmCompleter FixIt<CR>
-nnoremap <C-z>     :YcmCompleter GoToDeclaration<CR>
-nnoremap <leader>a :YcmCompleter GoToAlternateFile<CR>
+nnoremap <leader>d :rightbelow vertical YcmCompleter GoToDeclaration<CR>
+nnoremap <leader>a :rightbelow vertical YcmCompleter GoToAlternateFile<CR>
+nnoremap ;r :YcmCompleter GoToReferences<CR>
+nnoremap ;d :YcmCompleter GoToDefinition<CR>
 
 nnoremap <leader>g  :call GenerateRunScript() <CR>
 autocmd FileType tex      nnoremap <buffer> <leader>t :VimtexTocToggle<CR> 
@@ -198,6 +205,7 @@ autocmd FileType cpp      nnoremap <buffer> <leader>er :call RunScript() <CR>
 autocmd FileType c        nnoremap <buffer> <leader>er :call RunScript() <CR>
 autocmd FileType python   nnoremap <buffer> <leader>er :call RunScript() <CR>
 autocmd FileType python   nnoremap <buffer> <leader>ep :belowright terminal python %<CR>
+autocmd FileType go       nnoremap <buffer> <leader>er :belowright terminal go run .<CR>
 
 " nnoremap <silent> <leader>p  :execute 'silent! noa'<Bar>:call FzfFiles(0)<CR>
 

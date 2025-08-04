@@ -61,6 +61,7 @@ else
     sudo cp ~/.config/my-configs/scripts/note_dmenu.sh /usr/bin/dmenu_notes
     sudo cp ~/.config/my-configs/scripts/translator_dmenu.sh /usr/bin/translator_dmenu
     sudo cp ~/.config/my-configs/scripts/remindme.sh /usr/bin/remindme
+    sudo cp ~/.config/my-configs/scripts/convert.sh /usr/bin/convert_md
 
     echo "Adding permissions..."
     sudo chmod +x /usr/bin/translator
@@ -72,5 +73,6 @@ else
     sudo chmod +x /usr/bin/movies
     sudo chmod +x /usr/bin/dmenu_notes
     sudo chmod +x /usr/bin/radio_play
+    sudo chmod +x /usr/bin/convert_md
     echo 'Done!'
 fi
