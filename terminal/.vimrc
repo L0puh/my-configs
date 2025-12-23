@@ -201,6 +201,7 @@ autocmd FileType tex      nnoremap <buffer> <leader>t :VimtexTocToggle<CR>
 autocmd FileType tex      nnoremap <buffer> <leader>c :VimtexClean<CR>
 autocmd FileType tex      nnoremap <buffer> <leader>o :VimtexCompile<CR>
 autocmd FileType markdown nnoremap <buffer> <leader>o :MarkdownPreview<CR>
+autocmd FileType markdown nnoremap <buffer> <leader>O :belowright terminal convert_md %<CR>
 autocmd FileType cpp      nnoremap <buffer> <leader>er :call RunScript() <CR>
 autocmd FileType c        nnoremap <buffer> <leader>er :call RunScript() <CR>
 autocmd FileType python   nnoremap <buffer> <leader>er :call RunScript() <CR>

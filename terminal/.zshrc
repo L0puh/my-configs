@@ -1,10 +1,14 @@
 export ZSH="$HOME/.config/.oh-my-zsh"
 
+
 ZSH_THEME="clean"
 
 zstyle ':omz:update' mode auto      
 
-export PATH="/usr/local/bin:/usr/bin:/bin:/home/lopuh/.local/bin"
+# export NVM_DIR="$HOME/.nvm"
+# [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # This loads nvm
+
+export PATH="/home/lopuh/.local/bin:/usr/local/bin:/usr/bin:/bin"
 export FZF_DEFAULT_COMMAND="rg --files --hidden -g '!.git/*' -g '!build/*' -g '!texfiles/*'" 
 export FZF_DEFAULT_OPTS='-i --pointer "> " --color="dark,fg:#ACA98A" --preview "head -n 50 {}"' 
 export EDITOR='vim'
@@ -28,6 +32,7 @@ alias md_to_html="python ~/.config/my-configs/scripts/md_to_html.py"
 alias ardc="arduino-cli compile -b arduino:avr:uno ."
 alias ardu="arduino-cli upload -b arduino:avr:uno -p /dev/ttyUSB0"
 alias ardr="arduino-cli compile -b arduino:avr:uno . && arduino-cli upload -b arduino:avr:uno -p /dev/ttyUSB0"
+alias get_idf='. $HOME/code/esp/esp-idf/export.sh'
 
 bindkey -v
 

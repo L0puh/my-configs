@@ -4,7 +4,7 @@ NOTES_DIR="$HOME/storage/daily"
 
 mkdir -p "$NOTES_DIR"
 DATE=$(date +"%Y-%m-%d")
-FILENAME="$NOTES_DIR/daily_$DATE.md"
+FILENAME="$NOTES_DIR/$DATE.md"
 
 if [ ! -f "$FILENAME" ]; then
     touch "$FILENAME"

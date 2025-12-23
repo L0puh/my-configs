@@ -1,6 +1,8 @@
 #!/bin/bash
 # converts markdown file to pdf and opens it in zathura
 
+set -e 
+
 if [ -z "$1" ]; then
   echo "Usage: $0 input.md"
   exit 1
@@ -16,4 +18,4 @@ output="${output_dir}/${filename}.pdf"
 pandoc "$input_file" -o "$output" --include-in-header=$HOME/.config/my-configs/header.tex
 echo "converted $input_file to $output"
 
-zathura $output
+zathura $output &
