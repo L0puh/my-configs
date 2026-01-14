@@ -1,5 +1,5 @@
 # preview
-![](stuff/media.png)
+![](stuff/media3.png)
 ## fonts:
 - cascadia code nerd (ttf-cascadia-code-nerd)
 - awesome (ttf-awesome-font)
