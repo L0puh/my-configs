@@ -19,6 +19,7 @@ static const char *colors[][3]      = {
 	[SchemeSel]  = { col_gray3, col_gray1,  col_cyan },
 };
 
+#define SPAREMOD Mod1Mask // P.S. due to my keyboard for F1-12
 /* tagging */
 /* static const char *tags[] = { "1", "2", "3", "4", "5" }; */
 
@@ -82,15 +83,15 @@ static const Key keys[] = {
 
 	{ MODKEY,                       XK_p,       spawn,         {.v = dmenucmd   } },
 	{ MODKEY,                       XK_r,       spawn,         {.v = radio} },
-   { MODKEY,			              XK_F1, 	    spawn, 	     {.v = browser    } },
+   { SPAREMOD,			              XK_F1, 	    spawn, 	     {.v = browser    } },
    { MODKEY|ShiftMask,			     XK_t, 	    spawn, 	        {.v = translator_dmenu} },
-	{ MODKEY,			              XK_F10,     spawn, 	     {.v = voldowncmd } },
-   { MODKEY,			              XK_F11, 	spawn, 	        {.v = volupcmd   } },
+	{ SPAREMOD,			              XK_F10,     spawn, 	     {.v = voldowncmd } },
+   { SPAREMOD,			              XK_F11, 	spawn, 	        {.v = volupcmd   } },
 	{ MODKEY,			              XK_n,       spawn, 	     {.v = notes} },
-   { MODKEY,			              XK_F9, 	    spawn, 	     {.v = shutdown} },
+   { SPAREMOD,			              XK_F9, 	    spawn, 	     {.v = shutdown} },
 	{ MODKEY,             		     XK_Return,  spawn,         {.v = termcmd    } },
-	{ MODKEY,             		     XK_F2,      spawn,         {.v = screenWin  } },
-	{ MODKEY,             		     XK_F3,      spawn,         {.v = screenReg  } },
+	{ SPAREMOD,             		     XK_F2,      spawn,         {.v = screenWin  } },
+	{ SPAREMOD,             		  XK_F3,      spawn,         {.v = screenReg  } },
 	{ MODKEY|ShiftMask,             XK_b,      spawn,          {.v = bluetooth   } },
 	{ MODKEY,                       XK_s,      spawn,          {.v = books } },
 	{ MODKEY,                       XK_b,      togglebar,      {1} },
@@ -123,7 +124,7 @@ static const Key keys[] = {
 	TAGKEYS(                        XK_7,                      6)
 	TAGKEYS(                        XK_8,                      7)
 	TAGKEYS(                        XK_9,                      8)
-	{ MODKEY|ShiftMask,             XK_F5,      quit,           {0} },
+	{ SPAREMOD|ShiftMask,             XK_F5,      quit,           {0} },
 };
 
 /* button definitions */

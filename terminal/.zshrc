@@ -34,5 +34,15 @@ alias ardu="arduino-cli upload -b arduino:avr:uno -p /dev/ttyUSB0"
 alias ardr="arduino-cli compile -b arduino:avr:uno . && arduino-cli upload -b arduino:avr:uno -p /dev/ttyUSB0"
 alias get_idf='. $HOME/code/esp/esp-idf/export.sh'
 
+stty -ixon
 bindkey -v
 
+# history search for normal mode 
+bindkey -M vicmd 'k' history-beginning-search-backward
+bindkey -M vicmd 'j' history-beginning-search-forward
+
+# search in history for insert mode 
+bindkey -M viins '^R' history-incremental-search-backward
+bindkey -M viins '^S' history-incremental-search-forward
+
+# export _JAVA_AWT_WM_NONREPARENTING=1 # FOR GHIDRA TO WORK WITH DWM

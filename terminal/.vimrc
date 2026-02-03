@@ -26,6 +26,7 @@ call plug#begin()
    Plug 'morhetz/gruvbox'
    Plug 'junegunn/fzf.vim'
    Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+   Plug 'preservim/nerdtree'
 
    Plug 'godlygeek/tabular'
    Plug 'preservim/vim-markdown'
@@ -188,7 +189,7 @@ let g:ctrlp_custom_ignore = {
 let mapleader = " "
 nnoremap <C-q> :q<CR>
 nnoremap <C-s> :w<CR>
-nnoremap <C-e> :ll <CR>
+" nnoremap <C-e> :ll <CR>
 
 nnoremap <C-x>     :YcmCompleter FixIt<CR>
 nnoremap <leader>d :rightbelow vertical YcmCompleter GoToDeclaration<CR>
@@ -207,6 +208,11 @@ autocmd FileType c        nnoremap <buffer> <leader>er :call RunScript() <CR>
 autocmd FileType python   nnoremap <buffer> <leader>er :call RunScript() <CR>
 autocmd FileType python   nnoremap <buffer> <leader>ep :belowright terminal python %<CR>
 autocmd FileType go       nnoremap <buffer> <leader>er :belowright terminal go run .<CR>
+
+nnoremap <leader>n :NERDTreeFocus<CR>
+nnoremap <C-n> :NERDTree<CR>
+nnoremap <C-t> :NERDTreeToggle<CR>
+nnoremap <C-f> :NERDTreeFind<CR>
 
 " nnoremap <silent> <leader>p  :execute 'silent! noa'<Bar>:call FzfFiles(0)<CR>
 
