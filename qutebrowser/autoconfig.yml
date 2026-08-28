@@ -23,7 +23,10 @@ settings:
   content.blocking.enabled:
     global: true
   content.javascript.clipboard:
-    global: access
+    global: access-paste
+  content.local_content_can_access_remote_urls:
+    file://*: true
+    global: true
   content.notifications.presenter:
     global: herbe
   downloads.location.directory:
@@ -49,20 +52,23 @@ settings:
   scrolling.bar:
     global: never
   statusbar.show:
-    global: never
+    global: always
   tabs.show:
     global: always
   url.default_page:
     global: file:///home/lopuh/.config/qutebrowser/startpage.html
   url.searchengines:
     global:
-      DEFAULT: https://lite.duckduckgo.com/lite/?q={}
+      DEFAULT: https://duckduckgo.com/&q={}
+      brv: https://search.brave.com/search?q={}
       dc: https://dictionary.cambridge.org/dictionary/english/{}
+      dd: https://lite.duckduckgo.com/lite/?q={}
       gdc: https://www.collinsdictionary.com/dictionary/german-english/{}
       mg: https://search.marginalia.nu/search?query={}
       oz: https://ozdic.com/collocation/{}
       sy: https://www.powerthesaurus.org/{}/synonyms
       tr: https://translate.yandex.com/?source_lang=en&target_lang=ru&text={}
+      ya: https://ya.ru/search/?text={}
   url.start_pages:
     global: file:///home/lopuh/.config/qutebrowser/startpage.html
   window.hide_decoration:

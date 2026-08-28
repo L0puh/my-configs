@@ -1,0 +1,17 @@
+{
+  "clangd.path": "/home/lopuh/.espressif/tools/esp-clangd/esp-21.1.3_20260408/esp-clangd/bin/clangd",
+  "clangd.arguments": [
+    "--query-driver=/home/lopuh/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp32-elf/bin/xtensa-esp32-elf-gcc"
+  ],
+  "semanticTokens.enable": true,
+  "suggest.timeout": 150,
+  "suggest.noselect": true,
+  "suggest.floatEnable": false,
+  "suggest.detailMaxLength": 30,
+  "suggest.maxCompleteItemCount": 30,
+  "diagnostic.virtualText": false,
+  "suggest.autoTrigger": "trigger",
+  "diagnostic.enableSign": false,
+  "diagnostic.checkCurrentLine": false,
+  "coc.preferences.formatOnSaveFiletypes": []
+}

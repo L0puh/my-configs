@@ -157,6 +157,10 @@ config.bind('Eo', 'spawn st -e vim /home/lopuh/storage/notes/inbox.md')
 config.bind('EO', 'open -t box')
 config.bind('<Ctrl-r>', 'config-cycle colors.webpage.darkmode.enabled')
 config.source("gruvbox.py")
+config.set('content.local_content_can_access_remote_urls', True,
+           'file:///home/lopuh/storage/library/*')
+config.set('content.local_content_can_access_remote_urls', True,
+           'file:///home/lopuh/storage/library/*')
 
 c.editor.command = ['st', '-e','vim', '{}']
 config.set("fileselect.single_file.command", ['st', '-e', 'ranger', '--choosefile={}'])

@@ -27,11 +27,13 @@ call plug#begin()
    Plug 'junegunn/fzf.vim'
    Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
    Plug 'preservim/nerdtree'
+   Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
    Plug 'godlygeek/tabular'
    Plug 'preservim/vim-markdown'
    Plug 'tpope/vim-commentary'
-   Plug 'ycm-core/YouCompleteMe'
+   Plug 'vim-scripts/a.vim'
+  "Plug 'ycm-core/YouCompleteMe' <---- switched to Coc
    Plug 'itchyny/lightline.vim'
    Plug 'ctrlpvim/ctrlp.vim'
 
@@ -88,12 +90,43 @@ let g:vimtex_compiler_latexmk = {
              \ ],
              \}
 
+
+"COC:
+
+let g:coc_min_chars = 3
+let g:coc_auto_trigger = 0
+let g:coc_auto_completion_delay = 400
+let g:coc_disable_transparent_cursor = 1
+
+" tab: navigate completion menu or trigger completion
+inoremap <silent><expr> <TAB>
+      \ coc#pum#visible() ? coc#pum#next(1) :
+      \ CheckBackspace() ? "\<Tab>" :
+      \ coc#refresh()
+
+" shift-tab: previous completion item
+inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
+
+" enter: confirm completion
+inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm() : "\<CR>"
+
+function! CheckBackspace() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+set updatetime=300
+
 "YouCompleteMe
-let g:ycm_auto_trigger=1
-let g:ycm_enable_semantic_highlighting=1
-let g:ycm_clear_inlay_hints_in_insert_mode=1
-let g:ycm_always_populate_location_list=1 "jump to errors
-let g:ycm_echo_current_diagnostic = 'virtual-text'
+" let g:ycm_use_clangd = 1
+" let g:ycm_clangd_binary_path = system("which clangd")[:-2]
+" let g:ycm_auto_trigger=1
+" let g:ycm_enable_semantic_highlighting=1
+" let g:ycm_clear_inlay_hints_in_insert_mode=1
+" let g:ycm_always_populate_location_list=1 "jump to errors
+" let g:ycm_echo_current_diagnostic = 'virtual-text'
+
+
 call prop_type_add ('YCM_HL_bracket', {'highlight' : 'Normal'})
 
 
@@ -191,11 +224,22 @@ nnoremap <C-q> :q<CR>
 nnoremap <C-s> :w<CR>
 " nnoremap <C-e> :ll <CR>
 
-nnoremap <C-x>     :YcmCompleter FixIt<CR>
-nnoremap <leader>d :rightbelow vertical YcmCompleter GoToDeclaration<CR>
-nnoremap <leader>a :rightbelow vertical YcmCompleter GoToAlternateFile<CR>
-nnoremap ;r :YcmCompleter GoToReferences<CR>
-nnoremap ;d :YcmCompleter GoToDefinition<CR>
+
+" FixIt
+nnoremap <C-x> :CocFix<CR>
+
+" opens in vertical split on the right
+nnoremap <leader>d :vsp<CR>:call CocAction('jumpDeclaration')<CR>
+" switch between .c and .h
+nnoremap <leader>a :A<CR>
+nnoremap ;r :call CocAction('jumpReferences')<CR>
+nnoremap ;d :call CocAction('jumpDefinition')<CR>
+
+" nnoremap <C-x>     :YcmCompleter FixIt<CR>
+" nnoremap <leader>d :rightbelow vertical YcmCompleter GoToDeclaration<CR>
+" nnoremap <leader>a :rightbelow vertical YcmCompleter GoToAlternateFile<CR>
+" nnoremap ;r :YcmCompleter GoToReferences<CR>
+" nnoremap ;d :YcmCompleter GoToDefinition<CR>
 
 nnoremap <leader>g  :call GenerateRunScript() <CR>
 autocmd FileType tex      nnoremap <buffer> <leader>t :VimtexTocToggle<CR> 
@@ -214,13 +258,18 @@ nnoremap <C-n> :NERDTree<CR>
 nnoremap <C-t> :NERDTreeToggle<CR>
 nnoremap <C-f> :NERDTreeFind<CR>
 
+" navigate the jump list
+nnoremap <C-o> <C-o>   " go back (older position)
+nnoremap <C-i> <C-i>   " go forward (newer position)
+
+
 " nnoremap <silent> <leader>p  :execute 'silent! noa'<Bar>:call FzfFiles(0)<CR>
 
 "switch without writing 
 nnoremap <silent> <leader>r  :execute 'silent! w'<Bar>RG <CR> 
 nnoremap <silent> <leader>p  :execute 'silent! w'<Bar>CtrlP<CR> 
 nnoremap <silent> <leader>P  :execute 'silent! w'<Bar>CtrlP<CR> 
-nnoremap <silent> <leader>k  :Termdebug %<.out<CR> 
+nnoremap <silent> <leader>k :Termdebug %<.out<CR>
 
 
 map Q gq

@@ -1,5 +1,5 @@
 export ZSH="$HOME/.config/.oh-my-zsh"
-
+export ESP_IDF_PATH=$HOME/code/.esspressif/v6.1-rc1/esp-idf 
 
 ZSH_THEME="clean"
 
@@ -13,6 +13,7 @@ export FZF_DEFAULT_COMMAND="rg --files --hidden -g '!.git/*' -g '!build/*' -g '!
 export FZF_DEFAULT_OPTS='-i --pointer "> " --color="dark,fg:#ACA98A" --preview "head -n 50 {}"' 
 export EDITOR='vim'
 
+
 plugins=(
    git 
    z 
@@ -22,6 +23,9 @@ plugins=(
 
 source $ZSH/oh-my-zsh.sh
 
+alias gt="gitui"
+alias mv="mv -i" # DO NOT OVERRIDE FILES ANYMORE !!! 
+alias cp="cp -i"
 alias gs="git status"
 alias bc="bc -ql"
 alias ls="ls --sort=extension --color=always"
@@ -32,7 +36,8 @@ alias md_to_html="python ~/.config/my-configs/scripts/md_to_html.py"
 alias ardc="arduino-cli compile -b arduino:avr:uno ."
 alias ardu="arduino-cli upload -b arduino:avr:uno -p /dev/ttyUSB0"
 alias ardr="arduino-cli compile -b arduino:avr:uno . && arduino-cli upload -b arduino:avr:uno -p /dev/ttyUSB0"
-alias get_idf='. $HOME/code/esp/esp-idf/export.sh'
+alias get_idf="source $ESP_IDF_PATH/export.sh"
+
 
 stty -ixon
 bindkey -v
@@ -46,3 +51,4 @@ bindkey -M viins '^R' history-incremental-search-backward
 bindkey -M viins '^S' history-incremental-search-forward
 
 # export _JAVA_AWT_WM_NONREPARENTING=1 # FOR GHIDRA TO WORK WITH DWM
+export PATH="$HOME/.local/share/gem/ruby/3.4.0/bin:$PATH"

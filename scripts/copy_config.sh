@@ -31,6 +31,7 @@ then
     patch -p1 < ../patches/dwm-status2d-20200508-60bb3df.diff
     sudo make clean install
 else 
+    mkdir -p $CONFIG/gitui
     echo 'Copying wm configs...'
     cp $WM/slstatus/config.h $CONFIG/status_line/slstatus/
     cp $WM/st/config.h $CONFIG/terminal/st
@@ -50,6 +51,8 @@ else
     cp ~/.config/qutebrowser/userscripts $CONFIG/qutebrowser/ -r
     cp ~/.config/zathura/*.color $CONFIG/zathura/
     cp ~/.config/qutebrowser/{config.py,autoconfig.yml,gruvbox.py} $CONFIG/qutebrowser
+    cp ~/.config/gitui/ $CONFIG/gitui
+    cp ~/.vim/coc-settings.json $CONFIG/terminal
 
     echo "Copying scripts to bin..."
     sudo cp ~/.config/my-configs/scripts/bat_check.sh /usr/bin/bat_check
@@ -62,7 +65,6 @@ else
     sudo cp ~/.config/my-configs/scripts/translator_dmenu.sh /usr/bin/translator_dmenu
     sudo cp ~/.config/my-configs/scripts/remindme.sh /usr/bin/remindme
     sudo cp ~/.config/my-configs/scripts/convert.sh /usr/bin/convert_md
-
     echo "Adding permissions..."
     sudo chmod +x /usr/bin/translator
     sudo chmod +x /usr/bin/remindme
