@@ -40,3 +40,7 @@ map("n", "<space>", "za", opts)
 map("n", "<C-o>", "<C-o>", opts)
 map("n", "<C-i>", "<C-i>", opts)
 
+
+-- prevent delete to overwrite clipboard
+map({ 'n', 'v' }, 'x', '"_x')
+map({ 'n', 'v' }, 'd', '"_d')

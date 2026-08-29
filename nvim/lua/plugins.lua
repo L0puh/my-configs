@@ -61,6 +61,7 @@ vim.pack.add({
     -- markdown
     gh("iamcco/markdown-preview.nvim"),
     gh("MeanderingProgrammer/render-markdown.nvim"),
+    gh("zk-org/zk-nvim"),  -- used to follow [[link]]
     
     -- latex
     gh("lervag/vimtex"),
@@ -84,6 +85,7 @@ vim.pack.add({
     
     -- utility
     gh("echasnovski/mini.nvim"),
+    
 })
 
 -- load plugin configurations

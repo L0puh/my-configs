@@ -56,6 +56,43 @@ opt.sidescrolloff = 8
 -- clipboard
 opt.clipboard = "unnamedplus"  -- system clipboard
 
--- Fold settings
+-- fold settings
 opt.foldmethod = "manual"
 opt.foldenable = true
+
+
+-- ignore certain files and folders 
+opt.wildignore:append {
+  "*.o",
+  "*.obj",
+  "*.dylib",
+  "*.bin",
+  "*.dll",
+  "*.exe",
+  "*/.git/*",
+  "*/.svn/*",
+  "*/__pycache__/*",
+  "*/build/**",
+  "*.jpg",
+  "*.png",
+  "*.jpeg",
+  "*.bmp",
+  "*.gif",
+  "*.tiff",
+  "*.svg",
+  "*.ico",
+  "*.pyc",
+  "*.pkl",
+  "*.DS_Store",
+  "*.aux",
+  "*.bbl",
+  "*.blg",
+  "*.brf",
+  "*.fls",
+  "*.fdb_latexmk",
+  "*.synctex.gz",
+  "*.xdv",
+}
+
+opt.wildignorecase = true -- ignore file and dir name cases in cmd-completion
+

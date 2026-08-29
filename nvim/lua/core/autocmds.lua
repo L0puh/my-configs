@@ -68,3 +68,13 @@ autocmd("FileType", {
         vim.opt_local.conceallevel = 2
     end,
 })
+
+-- disable automatic comment on newline
+autocmd("FileType", {
+		pattern = "*",
+		callback = function()
+		vim.opt_local.formatoptions:remove({ "c", "r", "o" })
+		end,
+})
+
+
