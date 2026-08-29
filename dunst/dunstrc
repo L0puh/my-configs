@@ -1,0 +1,28 @@
+[global]
+    font = monospace 10
+    format = <b>%s</b>\n%b
+    sort = yes
+    stack_duplicates = true
+    markup = full
+    script = ~/.config/dunst/scripts/play-sound.sh
+
+[urgency_low]
+    background = "#1d2021"
+    foreground = "#d4cfd0"
+    frame_color = "#504945"
+    highlight = "#b0716f"
+    timeout = 5
+
+[urgency_normal]
+    background = "#121212"
+    foreground = "#d4cfd0"
+    frame_color = "#665c54"
+    highlight = "#98971a"
+    timeout = 8
+
+[urgency_critical]
+    background = "#b0716f"
+    foreground = "#1d2021"
+    frame_color = "#cc241d"
+    highlight = "#d79921"
+    timeout = 0

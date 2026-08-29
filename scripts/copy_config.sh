@@ -1,7 +1,7 @@
 CONFIG="$HOME/.config/my-configs"
 WM="$HOME/.config"
 
-echo '[1] install [2] copy'
+echo '[1] install [2] copy [3] install scripts'
 read option
 
 if [ $option -eq "1" ]
@@ -30,7 +30,7 @@ then
     cd ~/wm/dwm
     patch -p1 < ../patches/dwm-status2d-20200508-60bb3df.diff
     sudo make clean install
-else 
+elif [ $option  -eq "2" ]; then
     mkdir -p $CONFIG/gitui
     echo 'Copying wm configs...'
     cp $WM/slstatus/config.h $CONFIG/status_line/slstatus/
@@ -77,4 +77,26 @@ else
     sudo chmod +x /usr/bin/radio_play
     sudo chmod +x /usr/bin/convert_md
     echo 'Done!'
+else
+   echo "installing scripts" 
+    #sudo cp ~/.config/my-configs/scripts/bat_check.sh /usr/bin/bat_check
+    #sudo cp ~/.config/my-configs/scripts/translator.sh /usr/bin/translator
+    #sudo cp ~/.config/my-configs/scripts/query.sh /usr/bin/query
+    sudo cp ~/.config/setup/my-configs/scripts/books.sh /usr/bin/books
+    #sudo cp ~/.config/my-configs/scripts/movies.sh /usr/bin/movies
+    #sudo cp ~/.config/my-configs/scripts/music.sh /usr/bin/radio_play
+    sudo cp ~/.config/setup/my-configs/scripts/note_dmenu.sh /usr/bin/dmenu_notes
+    sudo cp ~/.config/setup/my-configs/scripts/translator_dmenu.sh /usr/bin/translator_dmenu
+    #sudo cp ~/.config/my-configs/scripts/remindme.sh /usr/bin/remindme
+    #sudo cp ~/.config/my-configs/scripts/convert.sh /usr/bin/convert_md
+    #sudo chmod +x /usr/bin/translator
+    #sudo chmod +x /usr/bin/remindme
+    sudo chmod +x /usr/bin/translator_dmenu
+    #sudo chmod +x /usr/bin/bat_check
+    #sudo chmod +x /usr/bin/query
+    sudo chmod +x /usr/bin/books
+    #sudo chmod +x /usr/bin/movies
+    sudo chmod +x /usr/bin/dmenu_notes
+    #sudo chmod +x /usr/bin/radio_play
+    #sudo chmod +x /usr/bin/convert_md
 fi

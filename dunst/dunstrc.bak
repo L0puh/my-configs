@@ -1,0 +1,127 @@
+[global]
+    font = Monospace 10
+    line_height = 0
+    sound = true
+    sound_file = /tmp/sound.wav
+    markup = full
+    format = "<b>%s</b>\n%b"
+    alignment = left
+    vertical_alignment = center
+    show_age_threshold = 60
+    ellipsize = middle
+    ignore_newline = no
+    stack_duplicates = true
+    hide_duplicate_count = false
+    show_indicators = yes
+    icon_position = left
+    max_icon_size = 48
+    icon_path = /usr/share/icons/gnome/16x11/status/:/usr/share/icons/gnome/16x11/devices/
+    sticky_history = yes
+    history_length = 20
+    dmenu = /usr/bin/dmenu -p "dunst:"
+    browser = /usr/bin/firefox
+    always_run_script = true
+    title = Dunst
+    class = Dunst
+    startup_notification = false
+    verbosity = mesg
+    corner_radius = 8
+    ignore_dbusclose = false
+    force_xinerama = false
+
+    # Gruvbox Dark Colors
+    background = "#121212"
+    foreground = "#d4cfd0"
+    frame_color = "#504945"
+    highlight = "#458588"
+
+    # Gruvbox Color Overrides for urgency levels
+    urgency_low = {
+        background = "#1d2021"
+        foreground = "#d4cfd0"
+        frame_color = "#504945"
+        highlight = "#b0716f"
+        timeout = 5
+    }
+
+    urgency_normal = {
+        background = "#121212"
+        foreground = "#d4cfd0"
+        frame_color = "#665c54"
+        highlight = "#98971a"
+        timeout = 8
+    }
+
+    urgency_critical = {
+        background = "#b0716f"
+        foreground = "#1d2021"
+        frame_color = "#cc241d"
+        highlight = "#d79921"
+        timeout = 0
+    }
+
+    # Geometry
+    geometry = "400x50-30+30"
+    separator_height = 2
+    padding = 12
+    horizontal_padding = 12
+    frame_width = 2
+    separator_color = frame
+    sort = yes
+    idle_threshold = 120
+
+    # Mouse
+    mouse_left_click = close_current
+    mouse_middle_click = close_all
+    mouse_right_click = context
+
+    # Keyboard
+    follow = mouse
+    keyboard = yes
+    history = yes
+
+    # Progress bar
+    progress_bar = true
+    progress_bar_height = 10
+    progress_bar_frame_width = 1
+    progress_bar_min_width = 150
+    progress_bar_max_width = 300
+    progress_bar_corners = true
+    progress_bar_corner_radius = 5
+
+    # Icon
+    icon_theme = Adwaita
+    icon_position = left
+    min_icon_size = 0
+    max_icon_size = 48
+
+[shortcuts]
+    close = ctrl+space
+    close_all = ctrl+shift+space
+    history = ctrl+grave
+    context = ctrl+shift+period
+
+[frame]
+    width = 2
+    color = "#504945"
+
+[urgency_low]
+    background = "#1d2021"
+    foreground = "#d4cfd0"
+    frame_color = "#504945"
+    highlight = "#b0716f"
+    timeout = 5
+
+[urgency_normal]
+    background = "#121212"
+    foreground = "#d4cfd0"
+    frame_color = "#665c54"
+    highlight = "#98971a"
+    timeout = 8
+
+[urgency_critical]
+    background = "#b0716f"
+    foreground = "#1d2021"
+    frame_color = "#cc241d"
+    highlight = "#d79921"
+    timeout = 0
