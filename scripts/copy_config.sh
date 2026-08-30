@@ -9,20 +9,20 @@ then
    echo "run install-packages script first"
   
    # ohmzsh setup 
-   sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-   mv $HOME/.oh-my-zsh $HOME/.config/
+   #sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+   #mv $HOME/.oh-my-zsh $HOME/.config/
 
 
    cp -f $CONFIG/ohmzsh/zshrc $HOME/.zshrc 
    cp -f $CONFIG/xinitrc      $HOME/.xinitrc 
 
-   cp -rf $CONFIG/{dunst,qutebrowser,zathura,nvim} $DIR
-  
-   # main env setup 
-   cd $CONFIG/dwm; sudo make clean install; cd -
-   cd $CONFIG/slstatus; sudo make clean install; cd -
-   cd $CONFIG/dmenu; sudo make clean install; cd - 
-   cd $CONFIG/st; sudo make clean install; cd - 
+   cp -rf $CONFIG/{dunst,zathura,nvim,ranger} $DIR
+   #cp -rf $CONFIG/qutebrowser $DIR 
+   ## main env setup 
+   #cd $CONFIG/dwm; sudo make clean install; cd -
+   #cd $CONFIG/slstatus; sudo make clean install; cd -
+   #cd $CONFIG/dmenu; sudo make clean install; cd - 
+   #cd $CONFIG/st; sudo make clean install; cd - 
 
    
 
@@ -36,7 +36,7 @@ elif [ $option  -eq "2" ]; then
    cd $CONFIG/st; sudo make clean; cd - 
 
 
-   cp -rvf $DIR/{dunst,zathura,nvim} $CONFIG
+   cp -rvf $DIR/{dunst,zathura,nvim,ranger} $CONFIG
 
    cp -rfv $DIR/qutebrowser/userscripts $CONFIG/qutebrowser/ 
    cp -fv $DIR/qutebrowser/{config.py,autoconfig.yml,gruvbox.py} $CONFIG/qutebrowser
