@@ -1,38 +1,15 @@
 # preview
-![](stuff/media3.png)
-## fonts:
-- cascadia code nerd (ttf-cascadia-code-nerd)
-- awesome (ttf-awesome-font)
-- Hack (ttf-hack)
-- ttf-noto-emoji-monochrome
+![](media/first.png)
+![](media/second.png)
 
-## patches and themes:
-- [status2d](https://dwm.suckless.org/patches/status2d/dwm-status2d-20200508-60bb3df.diff) - colors in slstatus
-- [primary monitor](https://github.com/dudik/herbe/pull/21) - for herbe
-- [iceberg](https://github.com/maboroshin/qBittorrentDarktheme/blob/master/ICEBERG.qbtheme) - qbittorent theme
-- materia-dark - gtk theme with numix circle icons
+## desc 
 
-## apps: 
+minimal setup v3
 
-| TOOL             | ACTION              |
-|------------------|---------------------|
-| dwm              | windows manager     |
-| dmenu            | menu                |
-| slstatus         | status bar          |
-| vim              | text editor         |
-| mpv              | video player        |
-| cmus             | music player        |
-| zathura + zaread | file reader         |
-| stterm + omzsh   | terminal            |
-| fzf + ripgrep    | finder              |
-| feh              | image viewer        |
-| xrandr           | monitor setup       |
-| qutebrowser      | lightweight browser |
-| nmtui            | network manager tui |
-| dmenu-bluetooth  | bluetooth manager   |
-| ncdu             | memory scaner       |
-| herbe            | notifications       |
-
+- distro: arch linux 
+- dwm + slstatus + st terminal 
+- nvim 
+- qutebrowser 
 
 ## colors:
 ```

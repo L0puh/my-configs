@@ -1,102 +1,46 @@
-CONFIG="$HOME/.config/my-configs"
-WM="$HOME/.config"
+CONFIG="$HOME/.config/setup/my-configs"
+DIR="$HOME/.config"
 
 echo '[1] install [2] copy [3] install scripts'
 read option
 
 if [ $option -eq "1" ]
 then 
-    echo 'Install utilities...'
-    pacman -S --needed git base-devel && git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si
-    pacman -S --needed vim cmake clangd zsh fzf xorg xorg-xinit feh zathura cmus htop mpv xrandr qutebrowser bc
-    pacman -S --needed libxinerama herbe wget curl make gcc gdb 
+   echo "run install-packages script first"
+  
+   # ohmzsh setup 
+   sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+   mv $HOME/.oh-my-zsh $HOME/.config/
 
-    curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
-    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-    cd ~/.vim/plugged/YouCompleteMe
-    python3 install.py --clangd-completer
+
+   cp -f $CONFIG/ohmzsh/zshrc $HOME/.zshrc 
+   cp -f $CONFIG/xinitrc      $HOME/.xinitrc 
+
+   cp -rf $CONFIG/{dunst,qutebrowser,zathura,nvim} $DIR
+  
+   # main env setup 
+   cd $CONFIG/dwm; sudo make clean install; cd -
+   cd $CONFIG/slstatus; sudo make clean install; cd -
+   cd $CONFIG/dmenu; sudo make clean install; cd - 
+   cd $CONFIG/st; sudo make clean install; cd - 
+
    
-    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-    git clone https://github.com/agkozak/zsh-z ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-z
-    git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
-    git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
-    mkdir ~/wm
-    mkdir ~/wm/patches
-    git clone https://git.suckless.org/st ~/wm/st
-    git clone https://git.suckless.org/dwm ~/wm/dwm
-    git clone https://git.suckless.org/slstatus ~/wm/slstatus
-    cd ~/wm/patches
-    wget https://dwm.suckless.org/patches/status2d/dwm-status2d-20200508-60bb3df.diff
-    cd ~/wm/dwm
-    patch -p1 < ../patches/dwm-status2d-20200508-60bb3df.diff
-    sudo make clean install
+
 elif [ $option  -eq "2" ]; then
-    mkdir -p $CONFIG/gitui
-    echo 'Copying wm configs...'
-    cp $WM/slstatus/config.h $CONFIG/status_line/slstatus/
-    cp $WM/st/config.h $CONFIG/terminal/st
-    cp $WM/dwm/config.h $CONFIG/wms/dwm
-    cp $HOME/.config/dmenu/config.h $CONFIG/dmenu/
 
-    echo 'Copying terminal configs...'
-    cp ~/.vimrc $CONFIG/terminal
-    cp ~/.xinitrc $CONFIG/wms
-    cp ~/.zshrc $CONFIG/terminal 
+   echo 'copying main setup...'
+   cp -rf $DIR/setup/{dmenu,st,slstatus,dwm} $CONFIG 
+   cd $CONFIG/dwm; sudo make clean; cd -
+   cd $CONFIG/slstatus; sudo make clean; cd -
+   cd $CONFIG/dmenu; sudo make clean; cd - 
+   cd $CONFIG/st; sudo make clean; cd - 
 
-    echo 'Copying other...'
-    cp ~/.config/herbe/{config.h,patches} $CONFIG/herbe -r
-    cp ~/.config/zathura/zathurarc $CONFIG/zathura
-    cp ~/.vim/plugged/gruvbox/colors/gruvbox.vim $CONFIG/colors
-    cp ~/.config/zathura/themes $CONFIG/zathura/ -r
-    cp ~/.config/qutebrowser/userscripts $CONFIG/qutebrowser/ -r
-    cp ~/.config/zathura/*.color $CONFIG/zathura/
-    cp ~/.config/qutebrowser/{config.py,autoconfig.yml,gruvbox.py} $CONFIG/qutebrowser
-    cp ~/.config/gitui/ $CONFIG/gitui
-    cp ~/.vim/coc-settings.json $CONFIG/terminal
 
-    echo "Copying scripts to bin..."
-    sudo cp ~/.config/my-configs/scripts/bat_check.sh /usr/bin/bat_check
-    sudo cp ~/.config/my-configs/scripts/translator.sh /usr/bin/translator
-    sudo cp ~/.config/my-configs/scripts/query.sh /usr/bin/query
-    sudo cp ~/.config/my-configs/scripts/books.sh /usr/bin/books
-    sudo cp ~/.config/my-configs/scripts/movies.sh /usr/bin/movies
-    sudo cp ~/.config/my-configs/scripts/music.sh /usr/bin/radio_play
-    sudo cp ~/.config/my-configs/scripts/note_dmenu.sh /usr/bin/dmenu_notes
-    sudo cp ~/.config/my-configs/scripts/translator_dmenu.sh /usr/bin/translator_dmenu
-    sudo cp ~/.config/my-configs/scripts/remindme.sh /usr/bin/remindme
-    sudo cp ~/.config/my-configs/scripts/convert.sh /usr/bin/convert_md
-    echo "Adding permissions..."
-    sudo chmod +x /usr/bin/translator
-    sudo chmod +x /usr/bin/remindme
-    sudo chmod +x /usr/bin/translator_dmenu
-    sudo chmod +x /usr/bin/bat_check
-    sudo chmod +x /usr/bin/query
-    sudo chmod +x /usr/bin/books
-    sudo chmod +x /usr/bin/movies
-    sudo chmod +x /usr/bin/dmenu_notes
-    sudo chmod +x /usr/bin/radio_play
-    sudo chmod +x /usr/bin/convert_md
-    echo 'Done!'
-else
-   echo "installing scripts" 
-    #sudo cp ~/.config/my-configs/scripts/bat_check.sh /usr/bin/bat_check
-    #sudo cp ~/.config/my-configs/scripts/translator.sh /usr/bin/translator
-    #sudo cp ~/.config/my-configs/scripts/query.sh /usr/bin/query
-    sudo cp ~/.config/setup/my-configs/scripts/books.sh /usr/bin/books
-    #sudo cp ~/.config/my-configs/scripts/movies.sh /usr/bin/movies
-    #sudo cp ~/.config/my-configs/scripts/music.sh /usr/bin/radio_play
-    sudo cp ~/.config/setup/my-configs/scripts/note_dmenu.sh /usr/bin/dmenu_notes
-    sudo cp ~/.config/setup/my-configs/scripts/translator_dmenu.sh /usr/bin/translator_dmenu
-    #sudo cp ~/.config/my-configs/scripts/remindme.sh /usr/bin/remindme
-    #sudo cp ~/.config/my-configs/scripts/convert.sh /usr/bin/convert_md
-    #sudo chmod +x /usr/bin/translator
-    #sudo chmod +x /usr/bin/remindme
-    sudo chmod +x /usr/bin/translator_dmenu
-    #sudo chmod +x /usr/bin/bat_check
-    #sudo chmod +x /usr/bin/query
-    sudo chmod +x /usr/bin/books
-    #sudo chmod +x /usr/bin/movies
-    sudo chmod +x /usr/bin/dmenu_notes
-    #sudo chmod +x /usr/bin/radio_play
-    #sudo chmod +x /usr/bin/convert_md
-fi
+   cp -rvf $DIR/{dunst,zathura,nvim} $CONFIG
+
+   cp -rfv $DIR/qutebrowser/userscripts $CONFIG/qutebrowser/ 
+   cp -fv $DIR/qutebrowser/{config.py,autoconfig.yml,gruvbox.py} $CONFIG/qutebrowser
+else 
+   sudo chmod +x $CONFIG/*
+   cp -fv $CONFIG/scripts/* /usr/bin/ 
+fi 

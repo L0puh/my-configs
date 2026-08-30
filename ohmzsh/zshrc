@@ -1,0 +1,53 @@
+export ZSH="$HOME/.config/.oh-my-zsh"
+
+ZSH_THEME="clean"
+
+zstyle ':omz:update' mode auto      
+
+# export NVM_DIR="$HOME/.nvm"
+# [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # This loads nvm
+
+export PATH="/home/lopuh/.local/bin:/usr/local/bin:/usr/bin:/bin"
+export FZF_DEFAULT_COMMAND="rg --files --hidden -g '!.git/*' -g '!build/*' -g '!texfiles/*'" 
+export FZF_DEFAULT_OPTS='-i --pointer "> " --color="dark,fg:#ACA98A" --preview "head -n 50 {}"' 
+export EDITOR='vim'
+
+plugins=(
+   git 
+   z 
+)
+
+source $ZSH/oh-my-zsh.sh
+
+alias gs="git status"
+alias bc="bc -ql"
+alias ls="ls --sort=extension --color=always"
+alias todo="grep -i TODO */*.* *.* && grep -i FIXME */*.* *.*"
+alias neofetch="neofetch --disable theme icons host "
+alias makec="compiledb make"
+alias md_to_html="python ~/.config/my-configs/scripts/md_to_html.py"
+alias ardc="arduino-cli compile -b arduino:avr:uno ."
+alias ardu="arduino-cli upload -b arduino:avr:uno -p /dev/ttyUSB0"
+alias ardr="arduino-cli compile -b arduino:avr:uno . && arduino-cli upload -b arduino:avr:uno -p /dev/ttyUSB0"
+alias get_idf='. $HOME/code/esp/esp-idf/export.sh'
+alias vim="nvim"
+alias  vi="nvim"
+
+export  EDITOR=nvim
+
+stty -ixon
+bindkey -v
+
+# history search for normal mode 
+bindkey -M vicmd 'k' history-beginning-search-backward
+bindkey -M vicmd 'j' history-beginning-search-forward
+
+# search in history for insert mode 
+bindkey -M viins '^R' history-incremental-search-backward
+bindkey -M viins '^S' history-incremental-search-forward
+
+# export _JAVA_AWT_WM_NONREPARENTING=1 # FOR GHIDRA TO WORK WITH DWM
+#
+source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
